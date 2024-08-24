@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Input from "postcss/lib/input";
+import RootLayout from "./layout"; 
+import Link from "next/link";
 
 export default function Home() {
   
@@ -48,12 +50,18 @@ export default function Home() {
         <span class="text-black text-[13px] font-bold font-['Judson']"> está errado<br />por favor tente novamente.</span>
       </div>
 
-<button class="mt-20 h-[50px] pb-1 justify-center items-center inline-flex">
-<div class="px-8 py-4 bg-[#0f1cf3] rounded shadow justify-center items-center gap-2.5 flex">
-        <div class="text-white text-sm font-bold font-['Judson'] leading-[14px]">Entrar</div>
-    </div>
+      
  
-</button>
-      </main>
+  <Link href="cadastro/users.jsx" class="mt-20 h-[50px]  justify-center items-center flex
+  px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 text-white text-sm font-bold font-['Judson'] leading-[14px] "> 
+  Entrar </Link>
+   
+</main>
+
+
   );
-}
+};
+
+
+
+
