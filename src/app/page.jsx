@@ -47,12 +47,13 @@ export default function Home() {
         <span class="text-[#ff0000] text-[13px] font-bold "> senha</span>
         <span class="text-black text-[13px] font-bold "> ou </span>
         <span class="text-[#ff0000] text-[13px] font-bold ">login</span>
-        <span class="text-black text-[13px] font-bold "> está errado<br />por favor tente novamente.</span>
+        <span class="text-black text-[13px] font-bold ">  está errado.</span>
+        <span class="text-black text-[13px] font-bold "> por favor tente novamente.</span>
       </div>
 
       
  
-  <Link href="/register" class="mt-20 h-[50px]  justify-center items-center flex
+  <Link href="/dashboard" class="mt-20 h-[50px]  justify-center items-center flex
   px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 text-white text-sm font-bold  leading-[14px] "> 
   Entrar </Link>
    
