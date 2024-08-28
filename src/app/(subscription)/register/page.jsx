@@ -8,9 +8,8 @@ export default function register() {
 
     return(
     
-    <main className=" flex-col justify-start  h-full bg-gradient-to-b ">
+    <main className="  flex flex-col items-center h-screen bg-gradient-to-b m">
 
-<div className="left-auto">
             <Image
               src="/logoonwave.png"
               alt="Onwave Logo"
@@ -18,11 +17,9 @@ export default function register() {
               width={75}
               height={60}
               priority/>
-</div>
-
-<div className="bg-[#0984e3] text-center text-white text-2xl font-bold">Aqui o cadastro é fácil</div>
-<div className="mt-2 text-center text-black text-[13px] font-bold">Adicione apenas informações reais</div>
-
+<div className="grid grid-cols-2 h-screen ">
+<div className="-mx-10 w-[300px] h-[450px] bg-white backdrop-blur-[50px] content-start place-items-center
+ rounded-3xl shadow gap-2.5 shadow-gray-500 leading-[14px] grid ">
 
 <form class="justify-between items-center flex flex-col ">
 
@@ -81,10 +78,26 @@ export default function register() {
    
     </input>
 
-    <Link href="/adduser" class="mt-10 h-[50px]  justify-center items-center flex
-  px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 text-white text-sm font-bold  leading-[14px] "> 
-  Entrar </Link>
+    
+  <Link href="/adduser" 
+ class="mt-5 text-center text-white text-sl font-bold h-[40px] w-[150px] 
+ justify-center items-center flex 
+px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 leading-[14px] "> 
+Pronto </Link>
+
 </form>
+</div>
+
+<div className="-mx-10 w-[300px] h-[450px] bg-white backdrop-blur-[50px] content-start place-items-center
+ rounded-3xl shadow gap-2.5 shadow-gray-500 leading-[14px] grid ">
+    
+  </div>
+
+
+
+</div>
+
+
 
 </main>
     );
