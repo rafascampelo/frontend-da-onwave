@@ -18,10 +18,10 @@ export default function register() {
               height={60}
               priority/>
 
-<div className="-mx-10 w-[300px] h-[560px] bg-white backdrop-blur-[50px] content-start place-items-center
+<div className="-mx-10 w-[300px] h-[560px] bg-white/50 backdrop-blur-[50px] content-start place-items-center
  rounded-3xl shadow gap-2.5 shadow-gray-500 leading-[14px] grid ">
 
-<form class="justify-between items-center flex flex-col mx-auto ">
+<form class="justify-between items-center flex flex-col mx-auto mt-3 ">
 
 <span class="mt-5 text-center text-blue-500 text-[13px] font-bold ">Comece adicionando as suas informações pincipais!</span>
     <input 
@@ -94,7 +94,7 @@ export default function register() {
     <input
 id="logar"
 type="submit" 
-placeholder="Pronto"
+placeholder="Enviar"
 class="mt-7 h-[50px] flex
   px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 text-white text-sm font-bold  leading-[14px]">
 </input>
