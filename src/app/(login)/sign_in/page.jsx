@@ -18,8 +18,8 @@ export default function login() {
               height={200}
               priority/>
          
-            <div class="mt-0">
-        <form class="flex items-center justify-center flex-col">
+            <div class=" mt-0">
+        <form class=" flex items-center justify-center flex-col">
           <input
             id="email"
             type="text"
