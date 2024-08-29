@@ -52,6 +52,11 @@ export default function login() {
       </div>
 
       
+      <Link href="/dashboard" 
+ class="mt-5 text-center text-white text-sl font-bold h-[40px] w-[150px] 
+ justify-center items-center flex 
+px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 leading-[14px] "> 
+Entrar</Link>
 
    
 </main>

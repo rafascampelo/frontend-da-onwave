@@ -17,17 +17,18 @@ export default function register() {
               width={75}
               height={60}
               priority/>
-<div className="grid grid-cols-2 h-screen ">
-<div className="-mx-10 w-[300px] h-[450px] bg-white backdrop-blur-[50px] content-start place-items-center
+
+<div className="-mx-10 w-[300px] h-[560px] bg-white backdrop-blur-[50px] content-start place-items-center
  rounded-3xl shadow gap-2.5 shadow-gray-500 leading-[14px] grid ">
 
-<form class="justify-between items-center flex flex-col ">
+<form class="justify-between items-center flex flex-col mx-auto ">
 
+<span class="mt-5 text-center text-blue-500 text-[13px] font-bold ">Comece adicionando as suas informações pincipais!</span>
     <input 
     id="Nome da barbearia"
     type="text"
     placeholder="Nome da barbearia" 
-    class=" mt-8 w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
+    class=" mt-3 w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
             shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500">
    
     </input>
@@ -78,24 +79,35 @@ export default function register() {
    
     </input>
 
-    
-  <Link href="/adduser" 
- class="mt-5 text-center text-white text-sl font-bold h-[40px] w-[150px] 
- justify-center items-center flex 
-px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 leading-[14px] "> 
-Pronto </Link>
+    <span class="mt-3 mb-3 text-center text-blue-500  text-[13px] font-bold ">Onde está situada a unidade principal?</span>
+    <input
+  id="Endereço principal"
+  type="text"
+  placeholder="Endereço" 
+  class=" w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
+          shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+
+>
+</input>
+
+
+    <input
+id="logar"
+type="submit" 
+placeholder="Pronto"
+class="mt-7 h-[50px] flex
+  px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 text-white text-sm font-bold  leading-[14px]">
+</input>
+
+  
 
 </form>
 </div>
 
-<div className="-mx-10 w-[300px] h-[450px] bg-white backdrop-blur-[50px] content-start place-items-center
- rounded-3xl shadow gap-2.5 shadow-gray-500 leading-[14px] grid ">
-    
-  </div>
 
 
 
-</div>
+
 
 
 
