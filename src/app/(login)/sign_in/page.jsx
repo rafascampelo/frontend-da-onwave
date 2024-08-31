@@ -58,6 +58,7 @@ px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 leading-[14px] "
       >
         Entrar
       </Link>
+      <Link href="/home_screen"> vem cá po</Link>
     </>
   );
 }
