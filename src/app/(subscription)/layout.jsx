@@ -1,5 +1,5 @@
 import Head from "next/head";
-import "./globals.css";
+import "../globals.css";
 
 export const metadata = {
   title: "Onwave",
@@ -21,12 +21,12 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </Head>
-
-      <body className="">
+      <body className="overflow-hidden">
         <main class=" flex  flex-col items-center  h-screen bg-gradient-to-b justify-center ">
           {children}
         </main>
       </body>
     </html>
+   
   );
 }
