@@ -18,7 +18,7 @@ export default function login() {
           id="email"
           type="text"
           placeholder="Email"
-          class=" w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
+          class=" w-[250px] h-[38px] bg-gray-100 shadow-gray-500 rounded-[19px]  text-black text-[15px] font-bold  pl-10 pr-10
             shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         />
 
@@ -26,7 +26,7 @@ export default function login() {
           id="senha"
           type="password"
           placeholder="Senha"
-          class=" mt-3 w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
+          class=" mt-3 w-[250px] h-[38px] bg-gray-100 shadow-gray-500 rounded-[19px]  text-black text-[15px] font-bold  pl-10 pr-10
             shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
         />
       </form>
@@ -58,7 +58,8 @@ px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 leading-[14px] "
       >
         Entrar
       </Link>
-      <Link href="/home_screen"> vem cá po</Link>
+      <br></br>
+      <Link href="/homeScreen"> vem cá po</Link>
     </>
   );
 }

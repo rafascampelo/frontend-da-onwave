@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </Head>
-      <body className="overflow-hidden">
+      <body className="">
         <main class=" flex  flex-col items-center  h-screen bg-gradient-to-b justify-center ">
           {children}
         </main>

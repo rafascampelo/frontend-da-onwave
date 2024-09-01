@@ -14,7 +14,7 @@ export default function register() {
       />
 
       <div
-        className=" w-[300px] h-[560px] bg-white/50 backdrop-blur-[50px] content-start place-items-center
+        className=" w-[300px] h-[560px] bg-white backdrop-blur-[50px] content-start place-items-center
  rounded-3xl shadow gap-2.5 shadow-gray-500 leading-[14px] grid "
       >
         <form class="justify-between items-center flex flex-col mx-auto mt-3 ">
