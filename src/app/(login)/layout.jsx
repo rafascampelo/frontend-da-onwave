@@ -21,8 +21,12 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </Head>
-      <body className="">
-        <main class=" flex  flex-col items-center  h-screen bg-gradient-to-b justify-center ">
+      <body className="flex  flex-col items-center  h-screen bg-gradient-to-b justify-center">
+        <main class="">
+          <div class="bg"></div>
+          <div class="bg bg2"></div>
+          <div class="bg bg3"></div>
+
           {children}
         </main>
       </body>

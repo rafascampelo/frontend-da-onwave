@@ -12,7 +12,7 @@ export default function homeScreen() {
       </div>
 
       <div className="justify-center px-8">
-        <div className="w-[300px] h-[250px] fixed top-[100px] bg-white flex flex-col  items-center rounded-[13px] shadow-md shadow-blue-400">
+        <div className="w-[300px] h-[250px] fixed top-[100px] bg-white flex flex-col  items-center rounded-[13px] shadow-lg ">
           <Image
             src="/logoonwave.png"
             alt="Onwave Logo"
@@ -21,20 +21,15 @@ export default function homeScreen() {
             height={200}
           />
           <span className="text-center text-black text-sm font-bold leading-tight tracking-tight">
-            Seja bem-vindo, $User
-          </span>
-        </div>
-
-        <div className="w-[300px] h-[50px] fixed bottom-[240px] bg-white flex flex-col  items-center rounded-[13px] shadow-md shadow-blue-400">
-          <span className="text-center text-black text-sm font-bold pt-4 leading-tight tracking-tight">
-            Seu mural de notificações.
+            Seja bem-vindo, $User.<p>Esse é o mural de notificações.</p>
           </span>
         </div>
       </div>
+      
       <div className="justify-center px-28">
         <Link
           href="/"
-          className="w-[136px] h-[42px] px-5 fixed bottom-[180px] flex items-center bg-white rounded-[10px] shadow-md shadow-blue-400"
+          className="w-[136px] h-[42px] px-5 fixed bottom-[180px] flex items-center bg-white rounded-[10px] shadow-lg"
         >
           <Image
             src="/historicobook.png"
@@ -50,7 +45,7 @@ export default function homeScreen() {
 
         <Link
           href="/"
-          className="w-[136px] h-[42px] px-2 fixed bottom-[120px] flex items-center bg-white rounded-[10px] shadow-md shadow-blue-400"
+          className="w-[136px] h-[42px] px-2 fixed bottom-[120px] flex items-center bg-white rounded-[10px] shadow-lg"
         >
           <Image
             src="/atendimentotesoura.png"
