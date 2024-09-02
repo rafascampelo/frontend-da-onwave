@@ -11,7 +11,7 @@ export default function homeScreen() {
         <img src="/userbarb.png" alt="User" className="w-10 h-10 ml-2" />
       </div>
 
-      <div className="justify-center px-8">
+      <div className="justify-center px-[40px]">
         <div className="w-[300px] h-[250px] fixed top-[100px] bg-white flex flex-col  items-center rounded-[13px] shadow-lg ">
           <Image
             src="/logoonwave.png"
@@ -25,8 +25,8 @@ export default function homeScreen() {
           </span>
         </div>
       </div>
-      
-      <div className="justify-center px-28">
+
+      <div className="justify-center px-[125px]">
         <Link
           href="/"
           className="w-[136px] h-[42px] px-5 fixed bottom-[180px] flex items-center bg-white rounded-[10px] shadow-lg"
