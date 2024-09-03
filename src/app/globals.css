@@ -2,33 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
 
 .fund {
-  background: rgb(65, 177, 255);
-  background: radial-gradient(
-    circle,
-    rgba(65, 177, 255, 1) 0%,
-    rgba(0, 25, 145, 1) 100%
-  );
+  background-color:#dddddd;
   height: 100vh;
 }
 
@@ -37,10 +13,6 @@ html {
 }
 
 body {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  margin: 0;
-
   .poppins-regular {
     font-family: "Poppins", sans-serif;
     font-weight: 400;

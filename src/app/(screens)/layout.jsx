@@ -24,9 +24,9 @@ export default function HomeScreen({ children }) {
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
         />
       </Head>
-      <section className="fund">
+      <div className="fund">
         {children}
-        <footer className="w-[311px] h-[61px] bg-white flex justify-center items-center fixed bottom-8 left-1/2 transform -translate-x-1/2 rounded-[75px]">
+        <footer className="w-[311px] h-[61px] bg-white  flex justify-center items-center min-w-screen fixed left-1/2 bottom-8 transform -translate-x-1/2 rounded-[75px]">
           <ul className="flex space-x-8">
             {[
               {
@@ -36,7 +36,7 @@ export default function HomeScreen({ children }) {
                 href: "/homeScreen",
               },
               {
-                id: "Carteira",
+                id: "carteira",
                 label: "Carteira",
                 img: "/moneyactive.svg",
                 href: "/moneyScreen",
@@ -48,7 +48,7 @@ export default function HomeScreen({ children }) {
                 href: "/boxScreen",
               },
               {
-                id: "Equipe",
+                id: "equipe",
                 label: "Equipe",
                 img: "/usersactive.svg",
                 href: "/myusersScreen",
@@ -73,7 +73,7 @@ export default function HomeScreen({ children }) {
             ))}
           </ul>
         </footer>
-      </section>
+      </div>
     </>
   );
 }
