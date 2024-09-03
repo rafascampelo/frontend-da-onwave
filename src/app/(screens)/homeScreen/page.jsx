@@ -4,11 +4,15 @@ import Link from "next/link";
 export default function homeScreen() {
   return (
     <>
-      <div className="fixed right-0 top-[60px] flex items-center bg-white  shadow-lg p-2 pr-5 rounded-md">
+      <div className="h-20 w-full bg-blue-700 rounded-b-md relative flex justify-center items-center flex-col ">
+        {/* Contéudo da div azul (opcional) */}
+      </div>
+
+      <div className="absolute right-0 top-[50px] flex items-center bg-white  shadow-lg p-2 rounded-md">
         <div className="font-bold text-lg text-gray-800 whitespace-nowrap">
           $nomeBarboooooo
         </div>
-        <img src="/userbarb.png" alt="User" className="w-15 h-10 pr-1 pl-2" />
+        <img src="/userbarb.png" alt="User" className="w-15 h-10 pl-2 pr-2" />
       </div>
 
       <div className="flex justify-center items-center min-h-screen flex-col">
@@ -24,7 +28,6 @@ export default function homeScreen() {
             Seja bem-vindo, $User.<p>Esse é o mural de notificações.</p>
           </span>
         </div>
-      
 
         <Link
           href="/"
@@ -33,12 +36,12 @@ export default function homeScreen() {
           <Image
             src="/historicobook.png"
             alt="Historico"
-            width={45} // Tamanho ajustável
-            height={45} // Tamanho ajustável
-            className="pl-2 pr-2"
+            width={30} // Tamanho ajustável
+            height={30} // Tamanho ajustável
+            className="pl-2"
           />
-          
-          <span className="text-center text-black text-sm font-bold pt-2 whitespace-nowrap ">
+
+          <span className=" ml-2 text-center text-black text-sm font-bold pt-2 whitespace-nowrap ">
             Histórico
           </span>
         </Link>
@@ -54,12 +57,12 @@ export default function homeScreen() {
             height={45} // Tamanho ajustável
             className="pl-2 pr-2"
           />
-          
+
           <span className="text-center text-black text-sm font-bold pt-2 whitespace-nowrap ">
-          Atendimento
+            Atendimento
           </span>
         </Link>
-</div>
+      </div>
     </>
   );
 }

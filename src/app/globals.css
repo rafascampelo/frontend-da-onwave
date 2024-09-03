@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .fund {
-  background-color:#dddddd;
+  background-color: #dfdfdf;
   height: 100vh;
 }
 

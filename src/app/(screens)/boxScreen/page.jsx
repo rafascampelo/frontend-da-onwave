@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function boxScreen() {
   return (
     <>
-      <div className="h-20 w-full bg-blue-700 rounded-b-md relative flex justify-center items-center flex-col">
+      <div className="h-20 w-full bg-blue-700 rounded-b-md relative flex justify-center items-center flex-col ">
         {/* Contéudo da div azul (opcional) */}
       </div>
 
@@ -12,7 +12,7 @@ export default function boxScreen() {
         <div className="font-bold text-lg text-gray-800 whitespace-nowrap">
           $nomeBarboooooo
         </div>
-        <img src="/userbarb.png" alt="User" className="w-15 h-10 pl-2" />
+        <img src="/userbarb.png" alt="User" className="w-15 h-10 pl-2 pr-2" />
       </div>
 
       <div className="absolute left-5 top-[130px] px-4 flex items-center bg-white  shadow-lg p-2 rounded-[15px]">
@@ -31,7 +31,7 @@ export default function boxScreen() {
         height={26}
       />
 
-      <span className="font-semibold top-[190px] text-black absolute left-14 flex ">
+      <span className="font-semibold text-lg top-[190px] text-black absolute left-14 flex ">
         $Produto
       </span>
 
@@ -50,13 +50,11 @@ export default function boxScreen() {
       <div className="absolute top-[290px] left-1/2 transform -translate-x-1/2 w-full max-w-[calc(100%-40px)] h-[1px] bg-black" />
 
       {/*aqui pra frente já não tem mais variavel*/}
-      <Link
-        href="/"
+      <div
         className="absolute top-[320px] left-1/2 w-[200px] h-[70px]
-         bg-white rounded-[14px] shadow-inner flex items-center 
-         px-4 transform -translate-x-1/2"
+   bg-white rounded-[14px] shadow-inner flex items-center 
+   px-4 transform -translate-x-1/2"
       >
-        <h3 className="absolute right-3 font-bold"> Novos Produtos</h3>
         <Image
           src="/plus.png"
           alt="plus"
@@ -64,8 +62,16 @@ export default function boxScreen() {
           width={40}
           height={40}
         />
-      </Link>
-      <Link className="absolute top-[350px] left-14 text-black text-base font-semibold underline leading-tight tracking-tight">
+
+        <Link href="/" className="absolute right-4 pl-2 font-bold text-black">
+          Novos Produtos
+        </Link>
+      </div>
+
+      <Link
+        href="/"
+        className="absolute top-[410px] left-4 text-black text-base font-bold underline leading-tight tracking-tight"
+      >
         Registrar o novo lote
       </Link>
     </>
