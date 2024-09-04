@@ -31,17 +31,17 @@ export default function homeScreen() {
 
         <Link
           href="/"
-          className="w-[150px] h-[43px]  px-2 fixed bottom-[190px] flex items-center bg-white rounded-[10px] shadow-lg"
+          className="w-[150px] h-[43px] px-7 fixed bottom-[190px] flex items-center bg-white rounded-[10px] shadow-lg"
         >
           <Image
             src="/historicobook.png"
             alt="Historico"
             width={30} // Tamanho ajustável
             height={30} // Tamanho ajustável
-            className="pl-2"
+            className=""
           />
 
-          <span className=" ml-2 text-center text-black text-sm font-bold pt-2 whitespace-nowrap ">
+          <span className=" pl-2 text-center text-black text-sm font-bold pt-2 whitespace-nowrap ">
             Histórico
           </span>
         </Link>
@@ -53,12 +53,12 @@ export default function homeScreen() {
           <Image
             src="/atendimentotesoura.png"
             alt="Atendimento Tesoura"
-            width={45} // Tamanho ajustável
-            height={45} // Tamanho ajustável
-            className="pl-2 pr-2"
+            width={30} // Tamanho ajustável
+            height={30} // Tamanho ajustável
+            className=""
           />
 
-          <span className="text-center text-black text-sm font-bold pt-2 whitespace-nowrap ">
+          <span className=" pl-2 text-center text-black text-sm font-bold pt-2 whitespace-nowrap ">
             Atendimento
           </span>
         </Link>

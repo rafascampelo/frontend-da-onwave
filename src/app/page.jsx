@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="bg-blue-500/50  flex  flex-col items-center  h-screen bg-gradient-to-b justify-center">
+      <div className="bg-blue-500/50  flex  flex-col items-center w-screen h-screen bg-gradient-to-b justify-center">
         <div
           className=" w-[300px] h-[560px] bg-white backdrop-blur-[50px] content-start place-items-center 
  rounded-3xl shadow gap-2.5 shadow-gray-500 leading-[14px] grid "
@@ -36,7 +36,7 @@ export default function Home() {
  justify-center items-center flex 
 px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 leading-[14px] "
           >
-            Login{" "}
+            Login
           </Link>
         </div>
       </div>
