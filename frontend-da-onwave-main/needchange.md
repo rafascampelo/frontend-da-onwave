@@ -1,3 +1,0 @@
-- fazer o login ficar funcional para poder entrar com as paginas principais 
-- terminar a parte de cadastro 
-- testar as fontes 
