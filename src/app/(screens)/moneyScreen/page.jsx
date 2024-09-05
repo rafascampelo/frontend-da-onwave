@@ -5,7 +5,15 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 export default function moneyScreen() {
-  const [showModal, setShowModal] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
+
+  const openModal = (modalType) => {
+    setActiveModal(modalType); // 'gasto' ou 'grafico'
+  };
+
+  const closeModal = () => {
+    setActiveModal(null);
+  };
 
   return (
     <>
@@ -64,9 +72,12 @@ export default function moneyScreen() {
               Gasto2 - R$50.00
             </span>
           </div>
-
+          {/* esse aqui é o botao de adicionar */}
           <div className="items-center absolute right-5 top-[160px] flex space-x-1.5">
-            <button className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+            <button
+              onClick={() => openModal("btnadd")}
+              className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center"
+            >
               <Image
                 src="/plus.png"
                 alt="plusfinanças"
@@ -75,28 +86,71 @@ export default function moneyScreen() {
               />
             </button>
 
-            <button className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
-              <Image
-                src="/editar.png"
-                alt="editarfinanças"
-                width={20}
-                height={20}
-              />
-            </button>
+            {activeModal === "btnadd" && (
+              <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
+                <div className="bg-white transform max-w-[calc(100%-40px)] h-[500px] p-8 rounded-lg shadow-lg relative flex flex-col items-center">
+                  <h2 className="text-2xl mb-4 text-[#5d5988] font-bold">
+                    olá bb
+                  </h2>
 
-            <button className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
-              <Image src="/lixeira.png" alt="lixeira" width={20} height={20} />
-            </button>
+                  <div className="text-center text-[#9795b4] text-lg mb-4">
+                    ahahhah
+                  </div>
+
+                  <input
+                    type="text"
+                    placeholder="Nome do gasto"
+                    className="mb-4 w-full p-2 border border-gray-300 rounded"
+                  />
+
+                  <input
+                    type="number"
+                    placeholder="Valor em reais"
+                    className="mb-4 w-full p-2 border border-gray-300 rounded"
+                  />
+
+                  <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4">
+                    Enviar
+                  </button>
+
+                  <button
+                    onClick={closeModal}
+                    className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                  >
+                    Fechar
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* Linha com valores de saldo e gastos */}
+
+          {/* opa filhota, aqui já é o botao de editar.. fica ligada! */}
+          <button className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+            <Image
+              src="/editar.png"
+              alt="editarfinanças"
+              width={20}
+              height={20}
+            />
+          </button>
+
+          {/* aqui é o botao de excluir ein siliga */}
+
+          <button className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+            <Image src="/lixeira.png" alt="lixeira" width={20} height={20} />
+          </button>
         </div>
       </div>
 
-      <div className="relative">
+      {/*aqui é o botao do gráfico */}
+      <div className="">
         <button
-          onClick={() => setShowModal(true)}
-          className="absolute top-[320px] left-1/2 w-[200px] h-[90px]
-   bg-white rounded-[14px] shadow-inner flex flex-col items-center 
-   px-4 transform -translate-x-1/2 font-bold  text-black text-normal underline"
+          onClick={() => openModal("btngrafico")}
+          className="fixed inset-0 m-auto top-[215px] w-[200px] h-[90px] 
+  bg-white rounded-[14px] shadow-inner flex flex-col items-center justify-center 
+  font-bold text-black text-normal underline"
         >
           <Image
             src="/calendario.png"
@@ -108,16 +162,74 @@ export default function moneyScreen() {
           Ver com gráfico
         </button>
 
-        {showModal && (
+        {/* pop up com grafico */}
+        {activeModal === "btngrafico" && (
           <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-xl mb-4">Este é um pop-up</h2>
-              <p className="mb-4">Conteúdo do pop-up vai aqui.</p>
+            <div className="bg-white transform max-w-[calc(100%-40px)] h-[500px] p-8 rounded-lg shadow-lg relative flex flex-col items-center">
+              <h2 className="text-2xl mb-4 text-[#5d5988] text-bold">
+                Gráfico{" "}
+              </h2>
+              <div className="text-center text-[#9795b4] relative text-lg text-normal mb-4">
+                O gráfico irá mudar de acordo com os seus gastos
+              </div>
+
+              <span className="text-[#5d5988] absolute top-[150px]  font-bold text-lg text-normal">
+                Mês 07-2000
+              </span>
+
+              <div className="pt-10">
+                <Image
+                  src="/grafico.svg"
+                  alt="grafico"
+                  className=""
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <table className="w-full text-center mt-6">
+                <thead>
+                  <tr>
+                    <th className="py-2 px-4 text-left text-base font-normal tracking-tight">
+                      Saldo Líquido
+                    </th>
+                    <th className="py-2 px-4 text-right text-base font-normal tracking-tight text-blue-500">
+                      R$ 1.000
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Linha com valores de saldo e gastos */}
+                  <tr>
+                    <td className="py-2 px-4 text-left text-base font-normal tracking-tight">
+                      Gastos
+                    </td>
+                    <td className="py-2 px-4 text-right text-base font-normal tracking-tight text-gray-500">
+                      R$ 10.000
+                    </td>
+                  </tr>
+
+                  {/* Linha divisória */}
+                  <tr>
+                    <td className="border-t border-black" colSpan="2"></td>
+                  </tr>
+
+                  {/* Resultado final */}
+                  <tr>
+                    <td className="py-2 px-4 text-left text-base font-normal tracking-tight">
+                      Resultado
+                    </td>
+                    <td className="py-2 px-4 text-right text-base font-normal tracking-tight text-blue-500">
+                      R$ -9000
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
               <button
-                onClick={() => setShowModal(false)}
-                className="bg-red-500 text-white px-4 py-2 rounded"
+                onClick={closeModal}
+                className="bg-red-500 text-white absolute bottom-[10px] px-2 py-2 rounded text-bold"
               >
-                Fechar
+                Voltar
               </button>
             </div>
           </div>
