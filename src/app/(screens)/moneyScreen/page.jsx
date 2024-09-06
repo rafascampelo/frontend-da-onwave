@@ -72,77 +72,67 @@ export default function moneyScreen() {
               Gasto2 - R$50.00
             </span>
           </div>
-          {/* esse aqui é o botao de adicionar */}
-          <div className="items-center absolute right-5 top-[160px] flex space-x-1.5">
-            <button
-              onClick={() => openModal("btnadd")}
-              className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center"
-            >
-              <Image
-                src="/plus.png"
-                alt="plusfinanças"
-                width={20}
-                height={20}
-              />
-            </button>
-
-            {activeModal === "btnadd" && (
-              <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-                <div className="bg-white transform max-w-[calc(100%-40px)] h-[500px] p-8 rounded-lg shadow-lg relative flex flex-col items-center">
-                  <h2 className="text-2xl mb-4 text-[#5d5988] font-bold">
-                    olá bb
-                  </h2>
-
-                  <div className="text-center text-[#9795b4] text-lg mb-4">
-                    ahahhah
-                  </div>
-
-                  <input
-                    type="text"
-                    placeholder="Nome do gasto"
-                    className="mb-4 w-full p-2 border border-gray-300 rounded"
-                  />
-
-                  <input
-                    type="number"
-                    placeholder="Valor em reais"
-                    className="mb-4 w-full p-2 border border-gray-300 rounded"
-                  />
-
-                  <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4">
-                    Enviar
-                  </button>
-
-                  <button
-                    onClick={closeModal}
-                    className="bg-red-500 text-white px-4 py-2 rounded-lg"
-                  >
-                    Fechar
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Linha com valores de saldo e gastos */}
-
-          {/* opa filhota, aqui já é o botao de editar.. fica ligada! */}
-          <button className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
-            <Image
-              src="/editar.png"
-              alt="editarfinanças"
-              width={20}
-              height={20}
-            />
-          </button>
-
-          {/* aqui é o botao de excluir ein siliga */}
-
-          <button className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
-            <Image src="/lixeira.png" alt="lixeira" width={20} height={20} />
-          </button>
         </div>
       </div>
+
+      {/* esse aqui é o botao de adicionar */}
+      <div className="items-center absolute right-8 top-[310px] flex space-x-1.5">
+        <button
+          onClick={() => openModal("btnadd")}
+          className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center"
+        >
+          <Image src="/plus.png" alt="plusfinanças" width={20} height={20} />
+        </button>
+      </div>
+      {activeModal === "btnadd" && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white transform max-w-[calc(100%-40px)] h-[500px] p-8 rounded-lg shadow-lg relative flex flex-col items-center">
+            <h2 className="text-2xl mb-4 text-[#5d5988] font-bold">
+              Adicionar um gasto
+            </h2>
+
+            <div className="text-center text-[#9795b4] text-lg mb-4">
+              ahahhah
+            </div>
+
+            <input
+              type="text"
+              placeholder="Nome do gasto"
+              className="mt-3 w-[250px] h-[38px] bg-white  rounded-[19px]  text-black text-[15px] font-bold  pl-10 pr-10
+             border-[#008fd7] focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            />
+            <h3> Valor </h3>
+            <input
+              type="number"
+              placeholder="0000"
+              className="mt-3 w-[50px] h-[10px] bg-white rounded-lg border-2 border-[#008fd7] justify-end items-center inline-flex grow shrink basis-0 text-center text-[#61646b] text-sm font-normal leading-tight tracking-tight"
+            />
+
+            <button
+              className="w-[268.04px] h-[44.55px] px-9 py-6 bg-[#008fd7] rounded-[40px] 
+            justify-center items-center gap-2 inline-flex
+            text-center text-white text-lg font-bold leading-[18px]"
+            >
+              Enviar
+            </button>
+
+            <button onClick={closeModal}>
+              <Image src="/voltar.png" alt="sair" width={7} height={7} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* opa filhota, aqui já é o botao de editar.. fica ligada! */}
+      <button className="h-10 w-10 absolute right-20 top-[310px] space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+        <Image src="/editar.png" alt="editarfinanças" width={20} height={20} />
+      </button>
+
+      {/* aqui é o botao de excluir ein siliga */}
+
+      <button className="h-10 w-10 absolute right-32 top-[310px] space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+        <Image src="/lixeira.png" alt="lixeira" width={20} height={20} />
+      </button>
 
       {/*aqui é o botao do gráfico */}
       <div className="">
