@@ -75,58 +75,100 @@ export default function moneyScreen() {
         </div>
       </div>
 
-      {/* esse aqui é o botao de adicionar */}
-      <div className="items-center absolute right-8 top-[310px] flex space-x-1.5">
-        <button
-          onClick={() => openModal("btnadd")}
-          className="h-10 w-10 bg-white shadow-inner rounded-[14px] flex items-center justify-center"
-        >
-          <Image src="/plus.png" alt="plusfinanças" width={20} height={20} />
-        </button>
-      </div>
+      {/* Botão para abrir o modal */}
+      <button
+        onClick={() => openModal("btnadd")}
+        className="h-10 w-10 absolute right-8 top-[310px] bg-white shadow-inner rounded-[14px] flex items-center justify-center"
+      >
+        <Image src="/plus.png" alt="plus" width={20} height={20} />
+      </button>
+
+      {/* Modal */}
       {activeModal === "btnadd" && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white transform max-w-[calc(100%-40px)] h-[500px] p-8 rounded-lg shadow-lg relative flex flex-col items-center">
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-70 flex justify-center items-center z-50">
+          <div className="bg-white transform max-w-[calc(100%-40px)] max-h-[calc(100%-40px)]  p-8 rounded-lg shadow-lg relative flex flex-col items-center">
             <h2 className="text-2xl mb-4 text-[#5d5988] font-bold">
-              Adicionar um gasto
+              Adicione um gasto
             </h2>
 
-            <div className="text-center text-[#9795b4] text-lg mb-4">
-              ahahhah
-            </div>
-
+            {/* Input de string com borda azul sempre */}
             <input
               type="text"
-              placeholder="Nome do gasto"
-              className="mt-3 w-[250px] h-[38px] bg-white  rounded-[19px]  text-black text-[15px] font-bold  pl-10 pr-10
-             border-[#008fd7] focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+              placeholder="Nome do gasto <Image src='/desenhomoney.png' classname='right-3' width={32} height={32} /> "
+              className="mt-3 mb-4 w-[268.04px] h-[44.55px] bg-white rounded-[19px] text-black text-[15px] font-bold pl-10 pr-10
+      border-2 border-[#008fd7] focus:outline-none "
             />
-            <h3> Valor </h3>
+
+            {/* Input de número pequeno */}
             <input
               type="number"
               placeholder="0000"
-              className="mt-3 w-[50px] h-[10px] bg-white rounded-lg border-2 border-[#008fd7] justify-end items-center inline-flex grow shrink basis-0 text-center text-[#61646b] text-sm font-normal leading-tight tracking-tight"
+              className="mb-6 w-[70px] h-[50px] bg-white rounded-lg border-2 border-[#008fd7] focus:outline-none justify-end items-center text-center text-[#61646b] text-sm font-normal"
             />
 
+            {/* Botão de enviar */}
             <button
               className="w-[268.04px] h-[44.55px] px-9 py-6 bg-[#008fd7] rounded-[40px] 
-            justify-center items-center gap-2 inline-flex
-            text-center text-white text-lg font-bold leading-[18px]"
+      justify-center items-center gap-2 inline-flex
+      text-center text-white text-lg font-bold leading-[18px] mb-6"
             >
               Enviar
             </button>
 
+            {/* Botão de fechar */}
+
+            {/* Botão de fechar */}
             <button onClick={closeModal}>
-              <Image src="/voltar.png" alt="sair" width={7} height={7} />
+              <Image src="/voltar.png" alt="sair" width={32} height={32} />
             </button>
           </div>
         </div>
       )}
-
       {/* opa filhota, aqui já é o botao de editar.. fica ligada! */}
-      <button className="h-10 w-10 absolute right-20 top-[310px] space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+      <button
+        onClick={() => openModal("btneditar")}
+        className="h-10 w-10 absolute right-20 top-[310px] space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center"
+      >
         <Image src="/editar.png" alt="editarfinanças" width={20} height={20} />
       </button>
+      {activeModal === "btneditar" && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-70 flex justify-center items-center z-50">
+          <div className="bg-white transform max-w-[calc(100%-40px)] max-h-[calc(100%-40px)]  p-8 rounded-lg shadow-lg relative flex flex-col items-center">
+            <h2 className="text-2xl mb-4 text-[#5d5988] font-bold">
+              Editar meus gastos
+            </h2>
+
+            {/* Input de string  */}
+            <input
+              type="search"
+              placeholder="Nome do gasto"
+              className="mt-3 mb-4 w-[268.04px] h-[44.55px] bg-white rounded-[19px] text-black text-[15px] font-bold pl-10 pr-10
+      border-2 border-[#008fd7] focus:outline-none"
+            />
+
+            {/* Input de número */}
+            <input
+              type="number"
+              placeholder="0000"
+              className="mb-6 w-[70px] h-[50px] bg-white rounded-lg border-2 border-[#008fd7] focus:outline-none justify-end items-center text-center text-[#61646b] text-sm font-normal"
+            />
+
+            {/* Botão de enviar */}
+            <button
+              className="w-[268.04px] h-[44.55px] px-9 py-6 bg-[#008fd7] rounded-[40px] 
+      justify-center items-center gap-2 inline-flex
+      text-center text-white text-lg font-bold leading-[18px] mb-6"
+            >
+              Mudar
+            </button>
+
+            {/* Botão de fechar */}
+            <button onClick={closeModal}>
+              <Image src="/voltar.png" alt="sair" width={32} height={32} />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* aqui é o botao de excluir ein siliga */}
 
@@ -156,10 +198,10 @@ export default function moneyScreen() {
         {activeModal === "btngrafico" && (
           <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
             <div className="bg-white transform max-w-[calc(100%-40px)] h-[500px] p-8 rounded-lg shadow-lg relative flex flex-col items-center">
-              <h2 className="text-2xl mb-4 text-[#5d5988] text-bold">
+              <span className="text-3xl mb-2 text-normal text-[#5d5988] font-bold">
                 Gráfico{" "}
-              </h2>
-              <div className="text-center text-[#9795b4] relative text-lg text-normal mb-4">
+              </span>
+              <div className="text-center text-[#9795b4] relative  text-lg text-normal mb-4">
                 O gráfico irá mudar de acordo com os seus gastos
               </div>
 
@@ -179,10 +221,10 @@ export default function moneyScreen() {
               <table className="w-full text-center mt-6">
                 <thead>
                   <tr>
-                    <th className="py-2 px-4 text-left text-base font-normal tracking-tight">
+                    <th className="py-2 px-2 text-left text-base font-normal tracking-tight">
                       Saldo Líquido
                     </th>
-                    <th className="py-2 px-4 text-right text-base font-normal tracking-tight text-blue-500">
+                    <th className="py-2 px-2 text-right text-base font-normal tracking-tight text-blue-500">
                       R$ 1.000
                     </th>
                   </tr>
@@ -190,10 +232,10 @@ export default function moneyScreen() {
                 <tbody>
                   {/* Linha com valores de saldo e gastos */}
                   <tr>
-                    <td className="py-2 px-4 text-left text-base font-normal tracking-tight">
+                    <td className="py-2 px-2 text-left text-base font-normal tracking-tight">
                       Gastos
                     </td>
-                    <td className="py-2 px-4 text-right text-base font-normal tracking-tight text-gray-500">
+                    <td className="py-2 px-2 text-right text-base font-normal tracking-tight text-gray-500">
                       R$ 10.000
                     </td>
                   </tr>
@@ -205,10 +247,10 @@ export default function moneyScreen() {
 
                   {/* Resultado final */}
                   <tr>
-                    <td className="py-2 px-4 text-left text-base font-normal tracking-tight">
+                    <td className="py-2 px-2 text-left text-base font-normal tracking-tight">
                       Resultado
                     </td>
-                    <td className="py-2 px-4 text-right text-base font-normal tracking-tight text-blue-500">
+                    <td className="py-2 px-2 text-right text-base font-normal tracking-tight text-blue-500">
                       R$ -9000
                     </td>
                   </tr>
