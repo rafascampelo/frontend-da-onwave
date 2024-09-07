@@ -94,9 +94,16 @@ export default function moneyScreen() {
             {/* Input de string com borda azul sempre */}
             <input
               type="text"
-              placeholder="Nome do gasto <Image src='/desenhomoney.png' classname='right-3' width={32} height={32} /> "
-              className="mt-3 mb-4 w-[268.04px] h-[44.55px] bg-white rounded-[19px] text-black text-[15px] font-bold pl-10 pr-10
-      border-2 border-[#008fd7] focus:outline-none "
+              placeholder="Nome do gasto "
+              className="mt-3 mb-4 w-[268.04px] h-[44.55px] bg-white rounded-[19px] text-black text-[15px] font-bold pl-10 pr-12
+      border-2 border-[#008fd7] focus:outline-none relative"
+            />
+            <Image
+              src="/desenhomoney.png"
+              alt="desenho"
+              width={32}
+              height={32}
+              className="absolute right-12 top-[100px] "
             />
 
             {/* Input de número pequeno */}
@@ -114,8 +121,6 @@ export default function moneyScreen() {
             >
               Enviar
             </button>
-
-            {/* Botão de fechar */}
 
             {/* Botão de fechar */}
             <button onClick={closeModal}>
@@ -172,9 +177,43 @@ export default function moneyScreen() {
 
       {/* aqui é o botao de excluir ein siliga */}
 
-      <button className="h-10 w-10 absolute right-32 top-[310px] space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+      <button
+        onClick={() => openModal("btnexcluir")}
+        className="h-10 w-10 absolute right-32 top-[310px] space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center"
+      >
         <Image src="/lixeira.png" alt="lixeira" width={20} height={20} />
       </button>
+      {activeModal === "btnexcluir" && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-70 flex justify-center items-center z-50">
+          <div className="bg-white transform max-w-[calc(100%-40px)] max-h-[calc(100%-40px)]  p-8 rounded-lg shadow-lg relative flex flex-col items-center">
+            <h2 className="text-2xl  text-[#5d5988] font-bold">Deletar</h2>
+            <span className=" text-center text-[#9795b4] pb-3 text-lg font-normal leading-[30px]">
+              Pesquise o nome do gasto que quer deletar
+            </span>
+            {/* Input de string  */}
+            <input
+              type="search"
+              placeholder="Nome do gasto"
+              className="mt-3 mb-4 w-[268.04px] h-[44.55px] bg-white rounded-[19px] text-black text-[15px] font-bold pl-10 pr-10
+      border-2 border-[#008fd7] focus:outline-none"
+            />
+
+            {/* Botão de enviar */}
+            <button
+              className="w-[268.04px] h-[44.55px] px-9 py-6 bg-white/100 rounded-[40px] 
+      justify-center items-center gap-2 inline-flex border-2 border-[#008fd7] focus:outline-none
+      text-center text-white text-lg font-bold leading-[18px] mb-6"
+            >
+              <Image src="/lixeira.png" width={20} height={20} />
+            </button>
+
+            {/* Botão de fechar */}
+            <button onClick={closeModal}>
+              <Image src="/voltar.png" alt="sair" width={32} height={32} />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/*aqui é o botao do gráfico */}
       <div className="">
