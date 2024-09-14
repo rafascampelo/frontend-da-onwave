@@ -30,37 +30,33 @@ export default function homeScreen() {
         </div>
 
         <Link
-          href="/"
+          href="/history"
+          passHref
           className="w-[150px] h-[43px] px-7 fixed bottom-[190px] flex items-center bg-white rounded-[10px] shadow-lg"
         >
           <Image
             src="/historicobook.png"
-            alt="Historico"
-            width={30} // Tamanho ajustável
-            height={30} // Tamanho ajustável
+            alt="Histórico"
+            width={30}
+            height={30}
             className=""
           />
-
-          <span className=" pl-2 text-center text-black text-sm font-bold pt-2 whitespace-nowrap ">
-            Histórico
-          </span>
+          <span className="pl-2 text-black text-sm font-bold">Histórico</span>
         </Link>
 
         <Link
           href="/"
+          passHref
           className="w-[150px] h-[43px] px-2 fixed bottom-[120px] flex items-center bg-white rounded-[10px] shadow-lg"
         >
           <Image
             src="/atendimentotesoura.png"
             alt="Atendimento Tesoura"
-            width={30} // Tamanho ajustável
-            height={30} // Tamanho ajustável
+            width={30}
+            height={30}
             className=""
           />
-
-          <span className=" pl-2 text-center text-black text-sm font-bold pt-2 whitespace-nowrap ">
-            Atendimento
-          </span>
+          <span className="pl-2 text-black text-sm font-bold">Atendimento</span>
         </Link>
       </div>
     </>
