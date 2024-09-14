@@ -7,7 +7,7 @@ export default function UserProfile() {
       <div className="min-h-screen flex flex-col bg-gray-100">
         {/* Link para voltar */}
         <div className="fixed top-5 left-3">
-          <Link href="/">
+          <Link href="/homeScreen">
             <Image
               src="/voltar.png"
               alt="Onwave Logo"
@@ -96,16 +96,13 @@ export default function UserProfile() {
             </span>
 
             {/* Endereço mostrado em uma div com truncamento e espaço reservado para imagem */}
-            <div className="mt-4 flex justify-center relative">
-              <div
-                className="w-[300px] h-[38px] bg-white rounded-[19px] text-black/50 
-    text-[15px] font-bold pl-4 pr-12 mx-2 shadow border-2 border-blue-500
-    flex items-center overflow-hidden max-w-[250px] text-ellipsis"
-              >
-                São Paulo Jardim América R.União 332, Apartamento 45, Bloco 2,
-                Próximo à Praça Central
+            <div className="relative flex justify-center mt-4">
+              <div className="w-[280px] h-[40px] bg-white border-2 border-blue-500 rounded-full pl-4 pr-10 flex items-center shadow-md overflow-hidden">
+                <span className="text-black/60 text-[14px] font-medium truncate">
+                  São Paulo Jardim América R.União 332, Apartamento 45, Bloco 2
+                </span>
               </div>
-              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                 <Image
                   src="/maps.png"
                   alt="Localização"
