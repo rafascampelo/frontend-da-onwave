@@ -5,7 +5,7 @@ import React from "react";
 // Componente de Card de Atendimentos
 const AtendimentosCard = ({ atendimentos }) => {
   return (
-    <div className="flex justify-center items-center w-full h-auto px-4">
+    <div className="flex justify-center items-center w-full h-full absolute top-[0px] left-0 ">
       <div className="bg-white rounded-lg shadow-lg shadow-blue-700 max-w-[calc(100%-40px)] w-[600px] h-[70vh] overflow-y-auto p-6">
         {atendimentos.length === 0 ? (
           <p className="text-center text-gray-500">
@@ -56,16 +56,24 @@ export default function History() {
       produto: "Tintura",
       pagamento: "R$ 150,00",
     },
+    {
+      cliente: "Maria Oliveira",
+      data: "02/09/2024",
+      corte: "Pintura",
+      produto: "Tintura",
+      pagamento: "R$ 150,00",
+    },
     // Adicione mais atendimentos conforme necessário
   ];
 
   return (
     <>
-      <div className="h-20 w-full bg-blue-700 rounded-b-md relative flex justify-center items-center flex-col ">
-        <div className="flex items-center absolute top-[70px] justify-center bg-white w-36 h-[30px] font-medium mx-4 text-xl shadow-lg px-2 rounded-md">
+      <div className="h-[80px] w-full bg-blue-700 rounded-b-md relative flex justify-center items-center">
+        <div className="flex items-center absolute top-[60px] justify-center bg-white w-36 h-[30px] font-medium text-xl shadow-lg rounded-md">
           Histórico
         </div>
       </div>
+
       <AtendimentosCard atendimentos={atendimentos} />
     </>
   );
