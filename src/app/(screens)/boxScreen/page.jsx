@@ -1,79 +1,82 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function boxScreen() {
+export default function BoxScreen() {
   return (
     <>
-      <div className="h-20 w-full bg-blue-700 rounded-b-md relative flex justify-center items-center flex-col ">
-        {/* Contéudo da div azul (opcional) */}
+      <div className="h-20 w-full bg-blue-700 rounded-b-md flex items-center justify-center">
+        <Link href="/UserProfile">
+          <div className="fixed top-10 right-0 flex items-center bg-white shadow-lg p-3 rounded-lg">
+            <Image
+              src="/userbarb.png"
+              alt="User"
+              className="w-12 h-12 rounded-full"
+              width={48}
+              height={48}
+            />
+            <div className="ml-3 text-lg font-bold text-gray-800">
+              $nomeBarboooooo
+            </div>
+          </div>
+        </Link>
       </div>
 
-      <div className="absolute right-0 top-[50px] flex items-center bg-white  shadow-lg p-2 rounded-md">
-        <div className="font-bold text-lg text-gray-800 whitespace-nowrap">
-          $nomeBarboooooo
+      <div className="fixed top-36 left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-4 rounded-lg max-w-md w-full">
+        <div className="flex flex-col mb-4">
+          <div className="text-lg font-semibold text-black mb-2">
+            Meus Produtos
+          </div>
+          <div className="flex items-center">
+            <Image
+              src="/caixabox.png"
+              alt="Caixa Box"
+              className="w-8 h-8"
+              width={32}
+              height={32}
+            />
+            <div className="ml-4 flex-1">
+              <div className="text-lg font-semibold text-black">$Produto</div>
+              <div className="text-sm text-gray-600">
+                Validade 00/00/0000 <br />
+                R$ 00.00
+              </div>
+            </div>
+            <Image
+              src="/editar.png"
+              alt="Editar"
+              className="w-6 h-6"
+              width={24}
+              height={24}
+            />
+          </div>
         </div>
-        <img src="/userbarb.png" alt="User" className="w-15 h-10 pl-2 pr-2" />
       </div>
 
-      <div className="absolute left-5 top-[130px] px-4 flex items-center bg-white  shadow-lg p-2 rounded-[15px]">
-        <span className="text-center font-semibold text-black ">
-          Meus produtos
-        </span>
-      </div>
-      <div className="absolute right-5 top-[180px]  font-bold text-base px-10 flex items-center bg-blue-600  shadow-lg p-2 rounded-[15px]">
-        Há $300
-      </div>
-      <Image
-        src="/caixabox.png"
-        alt="caixaboxScreen"
-        className="absolute top-[190px] left-6 flex "
-        width={26}
-        height={26}
-      />
-
-      <span className="font-semibold text-lg top-[190px] text-black absolute left-14 flex ">
-        $Produto
-      </span>
-
-      <span className="font-semibold top-[240px] text-black absolute left-14 flex ">
-        Validade 00/00/0000 <br />
-        R$ 00.00
-      </span>
-
-      <Image
-        src="/editar.png"
-        alt="editar"
-        className="absolute top-[268px] right-5 flex "
-        width={15}
-        height={15}
-      />
-      <div className="absolute top-[290px] left-1/2 transform -translate-x-1/2 w-full max-w-[calc(100%-40px)] h-[1px] bg-black" />
-
-      {/*aqui pra frente já não tem mais variavel*/}
-      <div
-        className="absolute top-[320px] left-1/2 w-[200px] h-[70px]
-   bg-white rounded-[14px] shadow-inner flex items-center 
-   px-4 transform -translate-x-1/2"
-      >
+      <div className="relative max-w-[calc(100%-40px)] top-[230px] left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-4 flex items-cente">
         <Image
           src="/plus.png"
-          alt="plus"
-          className="absolute left-5"
-          width={40}
-          height={40}
+          alt="Adicionar Produto"
+          className="w-8 h-8"
+          width={32}
+          height={32}
         />
-
-        <Link href="/" className="absolute right-4 pl-2 font-bold text-black">
+        <Link href="/" className="ml-4 text-lg font-bold text-blue-600">
           Novos Produtos
         </Link>
       </div>
 
-      <Link
-        href="/"
-        className="absolute top-[410px] left-4 text-black text-base font-bold underline leading-tight tracking-tight"
-      >
-        Registrar o novo lote
-      </Link>
+      <div className="relative max-w-[calc(100%-40px)] top-[240px] left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-4 flex items-center ">
+        <Image
+          src="/plus.png"
+          alt="Adicionar Produto"
+          className="w-8 h-8"
+          width={32}
+          height={32}
+        />
+        <Link href="/" className="ml-4 text-lg font-bold text-blue-600">
+          Registrar o novo lote
+        </Link>
+      </div>
     </>
   );
 }

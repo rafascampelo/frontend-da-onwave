@@ -31,7 +31,7 @@ export default function Home() {
 
           <Link
             href="/sign_in"
-            className="mt-auto text-center text-white text-xl font-bold h-[40px] w-[100px] flex justify-center items-center bg-[#0f1cf3] rounded shadow"
+            className="mt-auto w-full h-[55px] bg-blue-600 text-white font-bold rounded-full shadow-md hover:bg-blue-700 transition-colors flex justify-center items-center"
           >
             Login
           </Link>

@@ -1,93 +1,70 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function register() {
+export default function Register() {
   return (
     <>
-      <Image
-        src="/logoonwave.png"
-        alt="Onwave Logo"
-        className="dark:invert"
-        width={75}
-        height={60}
-        priority
-      />
+      <div className="flex items-center justify-center h-screen bg-gray-200">
+        <div className="w-[320px] h-[80vh] bg-white p-6 rounded-3xl shadow-lg flex flex-col overflow-y-auto">
+          <form className="flex flex-col gap-6">
+            <span className="text-center text-blue-600 text-[22px] font-bold">
+              Adicione suas informações principais!
+            </span>
 
-      <div
-        className=" w-[300px] h-[560px] bg-white backdrop-blur-[50px] content-start place-items-center
- rounded-3xl shadow gap-2.5 shadow-gray-500 leading-[14px] grid "
-      >
-        <form class="justify-between items-center flex flex-col mx-auto mt-3 ">
-          <span class="mt-5 text-center text-blue-500 text-[13px] font-bold ">
-            Comece adicionando as suas informações pincipais!
-          </span>
-          <input
-            id="Nome da barbearia"
-            type="text"
-            placeholder="Nome da barbearia"
-            class=" mt-3 w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
-            shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-          ></input>
+            <input
+              type="text"
+              placeholder="Nome da barbearia"
+              className="w-full h-[50px] bg-gray-100 rounded-full shadow-sm pl-4 text-gray-700 text-[16px] font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            />
 
-          <input
-            id="CNPJ OU CPF"
-            type="text"
-            placeholder="CNPJ/CPF"
-            class=" mt-3 w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
-            shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-          ></input>
+            <input
+              type="text"
+              placeholder="CNPJ/CPF"
+              className="w-full h-[50px] bg-gray-100 rounded-full shadow-sm pl-4 text-gray-700 text-[16px] font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            />
 
-          <input
-            id="Email"
-            type="text"
-            placeholder="Email"
-            class=" mt-3 w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
-            shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-          ></input>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full h-[50px] bg-gray-100 rounded-full shadow-sm pl-4 text-gray-700 text-[16px] font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            />
 
-          <input
-            id="Senha"
-            type="password"
-            placeholder="Senha"
-            class=" mt-3 w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
-            shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-          ></input>
+            <input
+              type="password"
+              placeholder="Senha"
+              className="w-full h-[50px] bg-gray-100 rounded-full shadow-sm pl-4 text-gray-700 text-[16px] font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            />
 
-          <input
-            id="Data inauguração"
-            type="date"
-            placeholder="Data de inauguração"
-            class=" mt-3 w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
-            shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-          ></input>
+            <input
+              type="date"
+              placeholder="Data de inauguração"
+              className="w-full h-[50px] bg-gray-100 rounded-full shadow-sm pl-4 pr-4 text-gray-700 text-[16px] font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            />
 
-          <input
-            id="Celular"
-            type="text"
-            placeholder="Celular"
-            class=" mt-3 w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
-            shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-          ></input>
+            <input
+              type="text"
+              placeholder="Celular"
+              className="w-full h-[50px] bg-gray-100 rounded-full shadow-sm pl-4 text-gray-700 text-[16px] font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            />
 
-          <span class="mt-3 mb-3 text-center text-blue-500  text-[13px] font-bold ">
-            Onde está situada a unidade principal?
-          </span>
-          <input
-            id="Endereço principal"
-            type="text"
-            placeholder="Endereço"
-            class=" w-[250px] h-[38px] bg-white rounded-[19px]  text-black/50 text-[15px] font-bold  pl-10 pr-10
-          shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-          ></input>
+            <span className="text-center text-blue-600 text-[20px] font-bold">
+              Endereço da unidade principal
+            </span>
 
-          <input
-            id="logar"
-            type="submit"
-            placeholder="Enviar"
-            class="mt-7 h-[50px] flex
-  px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 text-white text-sm font-bold  leading-[14px]"
-          ></input>
-        </form>
+            <input
+              type="text"
+              placeholder="Endereço"
+              className="w-full h-[50px] bg-gray-100 rounded-full shadow-sm pl-4 text-gray-700 text-[16px] font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            />
+
+            <button
+              type="submit"
+              className="w-full h-[55px] bg-blue-600 text-white font-bold rounded-full shadow-md hover:bg-blue-700 transition-colors"
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );

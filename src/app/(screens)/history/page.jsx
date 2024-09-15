@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,7 +8,7 @@ import React from "react";
 const AtendimentosCard = ({ atendimentos }) => {
   return (
     <div className="flex justify-center items-center w-full h-full absolute top-[0px] left-0 ">
-      <div className="bg-white rounded-lg shadow-lg shadow-blue-700 max-w-[calc(100%-40px)] w-[600px] h-[70vh] overflow-y-auto p-6">
+      <div className="bg-white rounded-lg shadow-lg  max-w-[calc(100%-40px)] w-[600px] h-[70vh] overflow-y-auto p-6">
         {atendimentos.length === 0 ? (
           <p className="text-center text-gray-500">
             Nenhum atendimento registrado.
@@ -72,6 +74,19 @@ export default function History() {
         <div className="flex items-center absolute top-[60px] justify-center bg-white w-36 h-[30px] font-medium text-xl shadow-lg rounded-md">
           Histórico
         </div>
+      </div>
+
+      <div className="fixed top-5 left-3">
+        <Link href="/homeScreen">
+          <Image
+            src="/voltar.png"
+            alt="Onwave Logo"
+            className="dark:invert pb-2"
+            width={32}
+            height={32}
+            priority
+          />
+        </Link>
       </div>
 
       <AtendimentosCard atendimentos={atendimentos} />

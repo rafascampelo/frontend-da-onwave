@@ -22,7 +22,7 @@ export default function login() {
             id="email"
             type="text"
             placeholder="Email"
-            class=" w-[250px] h-[38px] bg-white shadow-gray-500 rounded-[19px]  text-black text-[15px] font-bold  pl-10 pr-10
+            class=" w-[250px] h-[45px] bg-white shadow-gray-500 rounded-[19px]  text-black text-[18px] font-bold  pl-10 pr-10
             shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           />
 
@@ -30,30 +30,25 @@ export default function login() {
             id="senha"
             type="password"
             placeholder="Senha"
-            class=" mt-3 w-[250px] h-[38px] bg-white shadow-gray-500 rounded-[19px]  text-black text-[15px] font-bold  pl-10 pr-10
+            class=" mt-3 w-[250px] h-[45px] bg-white shadow-gray-500 rounded-[19px]  text-black text-[18px] font-bold  pl-10 pr-10
             shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           />
         </form>
 
         <a
           href="https://www.remove.bg/pt-br/upload"
-          class=" w-[232px] h-[25px] text-center text-black/80 text-[13px] font-bold "
+          class=" w-[232px] h-[25px] text-center text-black/80 text-[15px] font-bold "
         >
           Esqueci a minha senha
         </a>
 
         <div class=" mt-10 w-[232px] h-[51px] text-center">
-          <span class="text-black text-[13px] font-semibold ">
-            Desculpe, sua
-          </span>
-          <span class="text-[#ff0000] text-[13px] font-semibold "> senha</span>
-          <span class="text-black text-[13px] font-semibold "> ou </span>
-          <span class="text-[#ff0000] text-[13px] font-semibold ">login</span>
-          <span class="text-black text-[13px] font-semibold ">
-            {" "}
-            está errado.
-          </span>
-          <span class="text-black text-[13px] font-semibold ">
+          <span class="text-black text-[15px] font-medium ">Desculpe, sua</span>
+          <span class="text-[#ff0000] text-[15px] font-medium "> senha</span>
+          <span class="text-black text-[15px] font-medium "> ou </span>
+          <span class="text-[#ff0000] text-[15px] font-medium ">login</span>
+          <span class="text-black text-[15px] font-medium "> está errado.</span>
+          <span class="text-black text-[15px] font-medium ">
             {" "}
             por favor tente novamente.
           </span>
@@ -61,12 +56,11 @@ export default function login() {
 
         <Link
           href="/dashboard"
-          class="mt-5 text-center text-white text-sl font-bold h-[40px] w-[150px] 
- justify-center items-center flex 
-px-8 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 leading-[14px] "
+          className="w-[232px] h-[55px] bg-blue-600 text-white font-bold rounded-full shadow-md hover:bg-blue-700 transition-colors flex justify-center items-center"
         >
           Entrar
         </Link>
+
         <br></br>
         <Link href="/homeScreen"> vem cá po</Link>
       </div>
