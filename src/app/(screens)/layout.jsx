@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Head from "next/head";
 import "../globals.css";
+import { useState } from "react";
 
 export default function HomeScreen({ children }) {
   const [activeItem, setActiveItem] = useState(null);
@@ -26,6 +27,7 @@ export default function HomeScreen({ children }) {
       </Head>
       <div className="fund">
         {children}
+
         <footer className="w-[311px] h-[61px] bg-white  flex justify-center items-center min-w-screen fixed left-1/2 bottom-8 transform -translate-x-1/2 rounded-[75px]">
           <ul className="flex space-x-8">
             {[
