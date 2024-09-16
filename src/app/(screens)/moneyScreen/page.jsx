@@ -32,36 +32,49 @@ export default function moneyScreen() {
           height={40}
         />
       </div>
-      <div className="shadow-inner transform left-1/2 -translate-x-1/2 w-full max-w-[calc(100%-40px)] h-[220px] bg-[#f2f1f9] border border-black absolute top-[140px] flex flex-col justify-center p-5">
-        <div className="flex justify-between items-center">
-          <span className="text-[#5d5988] font-bold text-2xl">
+      <div className="shadow-lg transform left-1/2 -translate-x-1/2 w-full max-w-[calc(100%-40px)] h-[220px] bg-gray-100 border border-gray-300 rounded-xl absolute top-[140px] flex flex-col justify-center px-6 py-6">
+        <div className="flex  items-center">
+          <span className="text-[#4a4a6a] font-bold text-2xl">
             Meus gastos:
           </span>
-          <span className="text-[#5d5988] font-semibold text-lg">
+          <span className=" absolute right-4  mt-1 text-[#4a4a6a] font-medium text-lg">
             Mês 07-2000
           </span>
         </div>
 
-        <span className="text-[#5d5988] font-semibold text-2xl mt-4">
-          R$ -100.00
+        <span className="text-[#4a4a6a] font-semibold text-2xl mt-4">
+          R$ -100,00
         </span>
 
         {/* Gasto 1 */}
         <div className="flex items-center mt-4">
-          <Image src="/check.svg" alt="check" width={20} height={20} />
-          <span className="text-[#9795b4] text-base font-normal ml-2">
-            Gasto1 - R$50.00
+          <Image
+            src="/check.svg"
+            alt="check"
+            width={20}
+            height={20}
+            className="opacity-80"
+          />
+          <span className="text-[#8c8ca1] text-base font-medium ml-2">
+            Gasto1 - R$50,00
           </span>
         </div>
 
         {/* Gasto 2 */}
         <div className="flex items-center mt-2">
-          <Image src="/check.svg" alt="check" width={20} height={20} />
-          <span className="text-[#9795b4] text-base font-normal ml-2">
-            Gasto2 - R$50.00
+          <Image
+            src="/check.svg"
+            alt="check"
+            width={20}
+            height={20}
+            className="opacity-80"
+          />
+          <span className="text-[#8c8ca1] text-base font-medium ml-2">
+            Gasto2 - R$50,00
           </span>
         </div>
       </div>
+
       {/* Botão para abrir o modal */}
       <button
         onClick={() => openModal("btnadd")}
@@ -200,17 +213,17 @@ export default function moneyScreen() {
         </div>
       )}
       {/*aqui é o botao do gráfico */}
-      <div className="">
+      <div>
         <button
           onClick={() => openModal("btngrafico")}
           className="fixed inset-0 m-auto top-[215px] w-[200px] h-[90px] 
-  bg-white rounded-[14px] shadow-inner flex flex-col items-center justify-center 
-  font-bold text-black text-normal underline"
+    bg-gradient-to-r from-[#ffffff] to-[#f7f7fb] rounded-xl shadow-md flex flex-col items-center justify-center 
+    font-semibold text-[#4a4a6a] text-base hover:shadow-lg transition-shadow duration-300 ease-in-out"
         >
           <Image
             src="/calendario.png"
             alt="calendario"
-            className="py-2"
+            className="mb-2"
             width={40}
             height={40}
           />
