@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Head from "next/head";
 import "../globals.css";
-import { useState } from "react";
 
 export default function HomeScreen({ children }) {
   const [activeItem, setActiveItem] = useState(null);

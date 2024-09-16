@@ -20,7 +20,6 @@ export default function moneyScreen() {
       <div className="h-20 w-full bg-blue-700 rounded-b-md relative flex justify-center items-center flex-col">
         {/* Contéudo da div azul (opcional) */}
       </div>
-
       <div className="absolute left-1/2 top-12 w-[274px] h-20 bg-white rounded-[14px] shadow-inner flex items-center px-4 transform -translate-x-1/2">
         <span className="text-left font-semibold text-xl text-black mr-4">
           R$ 00.00
@@ -33,57 +32,44 @@ export default function moneyScreen() {
           height={40}
         />
       </div>
-
-      <div className="flex justify-center items-start relative">
-        <div className=" shadow-inner transform left-1/2 -translate-x-1/2 w-full max-w-[calc(100%-40px)] h-[219px] bg-[#f2f1f9] border border-black absolute top-[70px] flex flex-row items-center ">
-          <span className="text-[#5d5988]  font-bold text-2xl absolute top-[20px] left-5">
+      <div className="shadow-inner transform left-1/2 -translate-x-1/2 w-full max-w-[calc(100%-40px)] h-[220px] bg-[#f2f1f9] border border-black absolute top-[140px] flex flex-col justify-center p-5">
+        <div className="flex justify-between items-center">
+          <span className="text-[#5d5988] font-bold text-2xl">
             Meus gastos:
           </span>
-          <span className="text-[#5d5988] absolute top-[25px] flex right-5 font-semibold text-lg">
+          <span className="text-[#5d5988] font-semibold text-lg">
             Mês 07-2000
           </span>
-          <span className="text-[#5d5988]  font-semibold text-2xl absolute top-[60px] left-5">
-            R$ -100.00
+        </div>
+
+        <span className="text-[#5d5988] font-semibold text-2xl mt-4">
+          R$ -100.00
+        </span>
+
+        {/* Gasto 1 */}
+        <div className="flex items-center mt-4">
+          <Image src="/check.svg" alt="check" width={20} height={20} />
+          <span className="text-[#9795b4] text-base font-normal ml-2">
+            Gasto1 - R$50.00
           </span>
+        </div>
 
-          {/* daqui pra frente tem váriavel*/}
-          <div className="">
-            <Image
-              src="/check.svg"
-              alt="check"
-              className="absolute left-5 top-[110px] "
-              width={20}
-              height={20}
-            />
-            <span className=" text-[#9795b4] text-base font-normal absolute top-[110px] left-12 leading-[18px]">
-              Gasto1 - R$50.00
-            </span>
-          </div>
-
-          <div className="">
-            <Image
-              src="/check.svg"
-              alt="check"
-              className="absolute left-5 top-[140px] "
-              width={20}
-              height={20}
-            />
-            <span className=" text-[#9795b4] text-base font-normal absolute top-[140px] left-12 leading-[18px]">
-              Gasto2 - R$50.00
-            </span>
-          </div>
+        {/* Gasto 2 */}
+        <div className="flex items-center mt-2">
+          <Image src="/check.svg" alt="check" width={20} height={20} />
+          <span className="text-[#9795b4] text-base font-normal ml-2">
+            Gasto2 - R$50.00
+          </span>
         </div>
       </div>
-
       {/* Botão para abrir o modal */}
       <button
         onClick={() => openModal("btnadd")}
-        className="h-10 w-10 absolute right-8 top-[310px] bg-white shadow-inner rounded-[14px] flex items-center justify-center"
+        className="h-10 w-10 absolute right-8 top-[310px] bg-white shadow-md rounded-full flex items-center justify-center"
       >
         <Image src="/plus.png" alt="plus" width={20} height={20} />
       </button>
-
-      {/* Modal */}
+      {/* Modal de adicionar */}
       {activeModal === "btnadd" && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-70 flex justify-center items-center z-50">
           <div className="bg-white transform max-w-[calc(100%-40px)] max-h-[calc(100%-40px)]  p-8 rounded-lg shadow-lg relative flex flex-col items-center">
@@ -129,10 +115,10 @@ export default function moneyScreen() {
           </div>
         </div>
       )}
-      {/* opa filhota, aqui já é o botao de editar.. fica ligada! */}
+      {/* Botão de editar */}
       <button
         onClick={() => openModal("btneditar")}
-        className="h-10 w-10 absolute right-20 top-[310px] space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center"
+        className="h-10 w-10 absolute right-20 top-[310px] bg-white shadow-md rounded-full flex items-center justify-center"
       >
         <Image src="/editar.png" alt="editarfinanças" width={20} height={20} />
       </button>
@@ -174,15 +160,14 @@ export default function moneyScreen() {
           </div>
         </div>
       )}
-
-      {/* aqui é o botao de excluir ein siliga */}
-
+      {/* Botão de excluir */}
       <button
         onClick={() => openModal("btnexcluir")}
-        className="h-10 w-10 absolute right-32 top-[310px] space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center"
+        className="h-10 w-10 absolute right-32 top-[310px] bg-white shadow-md rounded-full flex items-center justify-center"
       >
         <Image src="/lixeira.png" alt="lixeira" width={20} height={20} />
       </button>
+      {/* Modal de excluir */}
       {activeModal === "btnexcluir" && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-70 flex justify-center items-center z-50">
           <div className="bg-white transform max-w-[calc(100%-40px)] max-h-[calc(100%-40px)]  p-8 rounded-lg shadow-lg relative flex flex-col items-center">
@@ -214,7 +199,6 @@ export default function moneyScreen() {
           </div>
         </div>
       )}
-
       {/*aqui é o botao do gráfico */}
       <div className="">
         <button
@@ -306,15 +290,16 @@ export default function moneyScreen() {
           </div>
         )}
       </div>
-
-      <Link
-        href="/"
-        class=" text-center text-white text-sl font-bold h-[50px] w-[150px] 
- justify-center items-center flex 
-px-2 py-4 bg-[#0f1cf3] rounded shadow gap-2.5 leading-[14px] absolute transform -translate-x-1/2 left-1/2 bottom-[110px] "
-      >
-        Minhas vendas
-      </Link>
+      <div className="relative">
+        <Link
+          href="/"
+          className="w-[268.04px] h-[50px] absolute top-[420px] left-1/2 -translate-x-1/2 bg-[#008fd7] rounded-[40px] 
+             justify-center items-center gap-2 inline-flex 
+             text-center text-white text-lg font-bold leading-[18px] mb-6"
+        >
+          Minhas vendas
+        </Link>
+      </div>
     </>
   );
 }
