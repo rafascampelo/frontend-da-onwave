@@ -138,12 +138,6 @@ const PopUpNovoLote = ({ isVisible, onClose }) => {
           placeholder="000000"
           className="mb-6 w-[70px] h-[50px] bg-white rounded-lg border-2 border-[#008fd7] focus:outline-none justify-end items-center text-center text-[#61646b] text-sm font-normal"
         />
-        <h2 className="text-lg pb-3 text-blue-400 font-bold">Qual o preço?</h2>
-        <input
-          type="number"
-          placeholder="000000"
-          className="mb-6 w-[70px] h-[50px] bg-white rounded-lg border-2 border-[#008fd7] focus:outline-none justify-end items-center text-center text-[#61646b] text-sm font-normal"
-        />
 
         <button className="w-[268.04px] h-[44.55px] px-9 py-6 bg-[#008fd7] rounded-[40px] justify-center items-center gap-2 inline-flex text-center text-white text-lg font-bold leading-[18px] mb-6">
           Pronto
