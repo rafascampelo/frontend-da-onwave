@@ -50,7 +50,7 @@ export default function homeScreen() {
         </Link>
 
         <Link
-          href="/"
+          href="/serviceScreen"
           passHref
           className="w-[150px] h-[43px] px-2 fixed bottom-[120px] flex items-center bg-white rounded-full shadow-lg"
         >
