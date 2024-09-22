@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-
+import Link from "next/link";
 // Componente de tela de atendimentos
 const AtendimentosScreen = ({ atendimentos }) => {
   return (
@@ -42,14 +42,16 @@ const AtendimentosScreen = ({ atendimentos }) => {
         )}
 
         {/* Botão centralizado com a imagem */}
-        <button className="flex items-center justify-center mx-auto my-6 bg-white px-2 py-2 rounded-full shadow-lg hover:bg-blue-700 transition">
-          <Image
-            src="/plus.png"
-            alt="Adicionar Atendimento"
-            width={32}
-            height={32}
-          />
-        </button>
+        <Link href="/sellProducts">
+          <button className="flex items-center justify-center mx-auto my-6 bg-white px-2 py-2 rounded-full shadow-lg hover:bg-blue-700 transition">
+            <Image
+              src="/plus.png"
+              alt="Adicionar Atendimento"
+              width={32}
+              height={32}
+            />
+          </button>
+        </Link>
       </div>
     </div>
   );
