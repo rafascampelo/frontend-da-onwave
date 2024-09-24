@@ -1,100 +1,39 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Head from "next/head";
 
-export default function SellProducts() {
-  const [selectedTheme, setSelectedTheme] = useState("produtos");
-
-  const themes = [
-    {
-      id: "produtos",
-      label: "Produtos",
-      description:
-        "Esses são os produtos que você adicionou na sessão produtos.",
-      img: "/imagemteoria.png",
-    },
-    {
-      id: "servicos",
-      label: "Serviços",
-      description:
-        "Esses são os serviços que você adicionou na sessão serviços.",
-      img: "/imagemteoria.png",
-    },
-  ];
-
-  // Dados de produtos e serviços embutidos no componente
-  const data = {
-    produtos: [
-      { name: "Produto 1", imageUrl: "/imagemteoria.png" },
-      { name: "Produto 2", imageUrl: "/imagemteoria.png" },
-      { name: "Produto 3", imageUrl: "/imagemteoria.png" },
-    ],
-    servicos: [
-      { name: "Serviço 1", imageUrl: "/imagemteoria.png" },
-      { name: "Serviço 2", imageUrl: "/imagemteoria.png" },
-      { name: "Serviço 3", imageUrl: "/imagemteoria.png" },
-    ],
-  };
-
+export default function sellProducts() {
   return (
     <>
-      <Head>
-        <title>Onwave - Gestão de Comércio</title>
-        <meta name="description" content="APP para a gestão do seu comércio" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-        />
-      </Head>
+      <div className=" flex flex-col items-center justify-center bg-gray-100 ">
+        {/* aqui é o titulo cabeção */}
+        <span className=" text-justify relative pt-4 top-10 text-[#5d5988] text-[28px] font-extrabold leading-[38px]">
+          Produtos & Serviços
+        </span>
 
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        {/* Link para voltar */}
-        <div className="fixed top-5 left-3">
-          <Link href="/homeScreen">
-            <Image
-              src="/voltar.png"
-              alt="Voltar"
-              width={32}
-              height={32}
-              priority
-              className="dark:invert pb-2"
-            />
-          </Link>
-        </div>
-
-        {/* Título e descrição */}
         <div className="text-center pt-10">
-          <h1 className="text-[#5d5988] text-2xl font-bold">
-            Escolha{" "}
-            {selectedTheme === "produtos" ? "os produtos" : "os serviços"}
-          </h1>
-          <p className="text-[#9795b4] text-lg leading-7">
-            {themes.find((theme) => theme.id === selectedTheme)?.description}
-          </p>
+          <div className="w-[300px] h-[60px] relative pt-2 pb-2 text-center text-[#9795b4] text-lg font-normal leading-[30px]">
+            Esses são os produtos do estoque e os serviços escolhidos no perfil.
+          </div>
         </div>
-
         {/* Botões para selecionar tema */}
-        <div className="flex justify-center my-4">
-          {themes.map((theme) => (
-            <button
-              key={theme.id}
-              className={`px-4 py-2 mx-2 text-white font-semibold rounded-lg transition-colors ${
-                selectedTheme === theme.id
-                  ? "bg-blue-600"
-                  : "bg-blue-400 hover:bg-blue-500"
-              }`}
-              onClick={() => setSelectedTheme(theme.id)}
-            >
-              {theme.label}
-            </button>
-          ))}
-        </div>
 
-        {/* Renderizando Layout de acordo com o tema */}
-        <Layout data={data[selectedTheme]} />
+        <div className="flex justify-center relative top-4 pt-4">
+          <form className="w-[272px] h-[51px]  bg-white rounded-[46px] flex items-center relative">
+            <input
+              type="text"
+              placeholder="Pesquisar..."
+              className="w-full h-full border-blue-500 border-2 bg-transparent rounded-[46px] pl-4 pr-10 outline-none"
+            />
+            <span className="absolute right-3 text-gray-500 cursor-pointer">
+              <Image
+                src="/pesquisa.png" // Substitua pelo caminho do seu ícone de lupa
+                alt="Buscar"
+                width={20}
+                height={20}
+              />
+            </span>
+          </form>
+        </div>
       </div>
     </>
   );
