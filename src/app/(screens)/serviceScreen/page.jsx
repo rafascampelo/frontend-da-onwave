@@ -81,7 +81,7 @@ export default function ServiceScreen() {
     <>
       <div className=" flex flex-col items-center mt-6">
         {/* Título da página */}
-        <h1 className="text-3xl font-bold text-blue-600 ">Atendimentos</h1>
+        <h1 className="text-3xl font-extrabold text-[#5d5988]">Atendimentos</h1>
       </div>
       {/* Renderizando o componente de atendimentos */}
       <AtendimentosScreen atendimentos={atendimentos} />
