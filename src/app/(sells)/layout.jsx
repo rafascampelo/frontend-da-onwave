@@ -1,200 +1,64 @@
 "use client";
 
-import React, { useState } from "react";
-import Head from "next/head";
-import Link from "next/link";
+import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import useEmblaCarousel from "embla-carousel-react";
+import Head from "next/head";
 
-const PageServicesAndProducts = () => {
-  const servicesAndProducts = [
-    {
-      id: 1,
-      type: "service",
-      name: "Serviço 1",
-      imageUrl: "/imagemteoria.png",
-      legend: "Descrição do serviço 1",
-    },
-    {
-      id: 2,
-      type: "product",
-      name: "Produto 1",
-      imageUrl: "/imagemteoria.png",
-      legend: "Descrição do produto 1",
-    },
-    {
-      id: 3,
-      type: "service",
-      name: "Serviço 2",
-      imageUrl: "/imagemteoria.png",
-      legend: "Descrição do serviço 2",
-    },
-    {
-      id: 10,
-      type: "service",
-      name: "Serviço 50",
-      imageUrl: "/imagemteoria.png",
-      legend: "Descrição do serviço 2",
-    },
-    {
-      id: 9,
-      type: "service",
-      name: "Serviço 7",
-      imageUrl: "/imagemteoria.png",
-      legend: "Descrição do serviço 2",
-    },
-    {
-      id: 4,
-      type: "product",
-      name: "Produto 2",
-      imageUrl: "/imagemteoria.png",
-      legend: "Descrição do produto 2",
-    },
-  ];
+// Dados dos serviços e produtos
+const servicesAndProducts = [
+  {
+    id: 1,
+    type: "service",
+    name: "Serviço 1",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 1",
+  },
+  {
+    id: 2,
+    type: "product",
+    name: "Produto 1",
+    imageUrl: "/caixabox.png",
+    legend: "Descrição do produto 1",
+  },
+  {
+    id: 3,
+    type: "service",
+    name: "Serviço 2",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 2",
+  },
+  {
+    id: 4,
+    type: "product",
+    name: "Produto 2",
+    imageUrl: "/caixabox.png",
+    legend: "Descrição do produto 2",
+  },
+  {
+    id: 5,
+    type: "service",
+    name: "Serviço 3",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 3",
+  },
+];
 
-  const services = servicesAndProducts.filter(
-    (item) => item.type === "service"
-  );
-  const products = servicesAndProducts.filter(
-    (item) => item.type === "product"
-  );
-
-  const [serviceIndex, setServiceIndex] = useState(0);
-  const [productIndex, setProductIndex] = useState(0);
-
-  const nextService = () => {
-    setServiceIndex((prevIndex) => (prevIndex + 2) % services.length);
-  };
-
-  const prevService = () => {
-    setServiceIndex(
-      (prevIndex) => (prevIndex - 2 + services.length) % services.length
-    );
-  };
-
-  const nextProduct = () => {
-    setProductIndex((prevIndex) => (prevIndex + 2) % products.length);
-  };
-
-  const prevProduct = () => {
-    setProductIndex(
-      (prevIndex) => (prevIndex - 2 + products.length) % products.length
-    );
-  };
-
-  return (
-    <div className="flex flex-col items-center">
-      <div className="container mx-auto p-4 flex flex-col gap-4 mt-2">
-        <h2 className="text-[24px] font-extrabold leading-[38px] text-[#5d5988]">
-          Serviços
-        </h2>
-        <div className="relative flex items-center">
-          <button
-            className="absolute left-0 z-10 p-2 disabled:opacity-50 mx-2" // Adicionando margem horizontal
-            onClick={prevService}
-            disabled={services.length <= 2}
-            aria-label="Previous service"
-          >
-            <Image
-              src="/seta_esquerda.png"
-              alt="Seta Esquerda"
-              width={30}
-              height={30}
-            />
-          </button>
-
-          <div className="flex overflow-hidden justify-center">
-            {services.slice(serviceIndex, serviceIndex + 2).map((service) => (
-              <div key={service.id} className="p-2 min-w-[120px] mx-2">
-                <div className="bg-gray-200 border border-blue-500 p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                  <Image
-                    src={service.imageUrl}
-                    alt={service.name}
-                    width={80}
-                    height={80}
-                    className="mx-auto"
-                  />
-                  <h3 className="text-lg font-bold text-gray-800">
-                    {service.name}
-                  </h3>
-                  <p className="text-sm text-gray-600">{service.legend}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <button
-            className="absolute right-0 z-10 p-2 disabled:opacity-50 mx-2" // Adicionando margem horizontal
-            onClick={nextService}
-            disabled={services.length <= 2}
-            aria-label="Next service"
-          >
-            <Image
-              src="/seta_direita.png"
-              alt="Seta Direita"
-              width={30}
-              height={30}
-            />
-          </button>
-        </div>
-
-        <h2 className="text-[24px] font-extrabold leading-[38px] text-[#5d5988] mt-4">
-          Produtos
-        </h2>
-        <div className="relative flex items-center">
-          <button
-            className="absolute left-0 z-10 p-2 disabled:opacity-50 mx-2" // Adicionando margem horizontal
-            onClick={prevProduct}
-            disabled={products.length <= 2}
-            aria-label="Previous product"
-          >
-            <Image
-              src="/seta_esquerda.png"
-              alt="Seta Esquerda"
-              width={30}
-              height={30}
-            />
-          </button>
-
-          <div className="flex overflow-hidden justify-center">
-            {products.slice(productIndex, productIndex + 2).map((product) => (
-              <div key={product.id} className="p-2 min-w-[120px] mx-2">
-                <div className="bg-gray-200 border border-blue-500 p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                  <Image
-                    src={product.imageUrl}
-                    alt={product.name}
-                    width={80}
-                    height={80}
-                    className="mx-auto"
-                  />
-                  <h3 className="text-lg font-bold text-gray-800">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-gray-600">{product.legend}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <button
-            className="absolute right-0 z-10 p-2 disabled:opacity-50 mx-2" // Adicionando margem horizontal
-            onClick={nextProduct}
-            disabled={products.length <= 2}
-            aria-label="Next product"
-          >
-            <Image
-              src="/seta_direita.png"
-              alt="Seta Direita"
-              width={30}
-              height={30}
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
+// Separando serviços e produtos
+const services = servicesAndProducts.filter((item) => item.type === "service");
+const products = servicesAndProducts.filter((item) => item.type === "product");
 
 export default function RootLayout({ children }) {
+  const [emblaRefServices] = useEmblaCarousel({
+    loop: false,
+    slidesToScroll: 1,
+  });
+  const [emblaRefProducts] = useEmblaCarousel({
+    loop: false,
+    slidesToScroll: 1,
+  });
+
   return (
     <>
       <Head>
@@ -209,13 +73,13 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </Head>
-      <div className="flex flex-col items-center justify-center bg-gray-100 ">
+      <div className="flex flex-col items-center justify-center bg-gray-100 min-h-screen">
         {children}
         <div className="absolute top-5 left-3">
           <Link href="/homeScreen">
             <Image
               src="/voltar.png"
-              alt="Onwave Logo"
+              alt="Voltar"
               className="dark:invert pb-2"
               width={32}
               height={32}
@@ -223,8 +87,69 @@ export default function RootLayout({ children }) {
             />
           </Link>
         </div>
+        <div className="flex flex-col items-center mt-12 w-full">
+          {/* Carrossel de Serviços */}
+          <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] mb-4">
+            Serviços
+          </h2>
+          <div className="embla mx-auto w-full max-w-3xl">
+            <div className="embla__viewport" ref={emblaRefServices}>
+              <div className="embla__container flex gap-x-4">
+                {services.map((service) => (
+                  <div
+                    key={service.id}
+                    className="embla__slide flex flex-col bg-white shadow-md  w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center"
+                  >
+                    <Image
+                      src={service.imageUrl}
+                      alt={service.name}
+                      width={85}
+                      height={85}
+                      className="rounded-lg shadow-lg"
+                    />
+                    <h3 className="text-lg font-bold mt-2 text-blue-600/90 text-center">
+                      {service.name}
+                    </h3>
+                    <p className="text-sm text-bold text-center px-3 text-blue-400">
+                      {service.legend}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
-        <PageServicesAndProducts />
+          {/* Carrossel de Produtos */}
+          <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] mb-4 mt-8">
+            Produtos
+          </h2>
+          <div className="embla mx-auto w-full max-w-3xl">
+            <div className="embla__viewport" ref={emblaRefProducts}>
+              <div className="embla__container flex gap-x-4">
+                {products.map((product) => (
+                  <div
+                    key={product.id}
+                    className="embla__slide flex flex-col bg-white shadow-md  w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center "
+                  >
+                    <Image
+                      src={product.imageUrl}
+                      alt={product.name}
+                      width={50}
+                      height={50}
+                      className=""
+                    />
+                    <h3 className="text-lg font-bold mt-2 text-blue-600/90 text-center">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm text-bold text-center px-3 text-blue-400">
+                      {product.legend}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
