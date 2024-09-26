@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
@@ -36,13 +36,6 @@ const servicesAndProducts = [
     imageUrl: "/caixabox.png",
     legend: "Descrição do produto 2",
   },
-  {
-    id: 5,
-    type: "service",
-    name: "Serviço 3",
-    imageUrl: "/imagemteoria.png",
-    legend: "Descrição do serviço 3",
-  },
 ];
 
 // Separando serviços e produtos
@@ -58,6 +51,13 @@ export default function RootLayout({ children }) {
     loop: false,
     slidesToScroll: 1,
   });
+
+  const [activeCard, setActiveCard] = useState(null);
+
+  // Função para manipular o clique e definir o card ativo
+  const handleCardClick = (id) => {
+    setActiveCard(id === activeCard ? null : id); // Desativa se for o mesmo card
+  };
 
   return (
     <>
@@ -89,16 +89,22 @@ export default function RootLayout({ children }) {
         </div>
         <div className="flex flex-col items-center mt-12 w-full">
           {/* Carrossel de Serviços */}
-          <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] mb-4">
+          <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] pb-6">
             Serviços
           </h2>
-          <div className="embla mx-auto w-full max-w-3xl">
+          <div className="embla mx-auto max-w-3xl">
             <div className="embla__viewport" ref={emblaRefServices}>
               <div className="embla__container flex gap-x-4">
                 {services.map((service) => (
                   <div
-                    key={service.id}
-                    className="embla__slide flex flex-col bg-white shadow-md  w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center"
+                    key={services.id}
+                    className={`embla__slide flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
+                      cursor-pointer transform transition-transform duration-300 ${
+                        activeCard === service.id
+                          ? "-translate-y-4 shadow-2xl"
+                          : ""
+                      }`}
+                    onClick={() => handleCardClick(service.id)}
                   >
                     <Image
                       src={service.imageUrl}
@@ -120,23 +126,28 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* Carrossel de Produtos */}
-          <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] mb-4 mt-8">
+          <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] pb-6 pt-8">
             Produtos
           </h2>
-          <div className="embla mx-auto w-full max-w-3xl">
+          <div className="embla mx-auto  max-w-3xl pb-6">
             <div className="embla__viewport" ref={emblaRefProducts}>
               <div className="embla__container flex gap-x-4">
                 {products.map((product) => (
                   <div
-                    key={product.id}
-                    className="embla__slide flex flex-col bg-white shadow-md  w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center "
+                    key={products.id}
+                    className={`embla__slide flex flex-col bg-white shadow-md w-36 h-44  border-4 rounded-2xl border-blue-400 items-center justify-center
+                      cursor-pointer transform transition-transform duration-300 ${
+                        activeCard === product.id
+                          ? "-translate-y-4 shadow-2xl"
+                          : ""
+                      }`}
+                    onClick={() => handleCardClick(product.id)}
                   >
                     <Image
                       src={product.imageUrl}
                       alt={product.name}
                       width={50}
                       height={50}
-                      className=""
                     />
                     <h3 className="text-lg font-bold mt-2 text-blue-600/90 text-center">
                       {product.name}
