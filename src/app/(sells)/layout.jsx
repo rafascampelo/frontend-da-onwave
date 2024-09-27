@@ -3,7 +3,14 @@
 import React, { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useEmblaCarousel from "embla-carousel-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
 import Head from "next/head";
 
 // Dados dos serviços e produtos
@@ -36,6 +43,76 @@ const servicesAndProducts = [
     imageUrl: "/caixabox.png",
     legend: "Descrição do produto 2",
   },
+  {
+    id: 4,
+    type: "product",
+    name: "Produto 5",
+    imageUrl: "/caixabox.png",
+    legend: "Descrição do produto 2",
+  },
+  
+  {
+    id: 4,
+    type: "product",
+    name: "Produto 3",
+    imageUrl: "/caixabox.png",
+    legend: "Descrição do produto 2",
+  },
+  
+  {
+    id: 4,
+    type: "product",
+    name: "Produto 4",
+    imageUrl: "/caixabox.png",
+    legend: "Descrição do produto 2",
+  },
+  
+  {
+    id: 4,
+    type: "product",
+    name: "Produto 8",
+    imageUrl: "/caixabox.png",
+    legend: "Descrição do produto 2",
+  },
+  
+  {
+    id: 4,
+    type: "product",
+    name: "Produto 5",
+    imageUrl: "/caixabox.png",
+    legend: "Descrição do produto 2",
+  },
+  
+  
+  {
+    id: 3,
+    type: "service",
+    name: "Serviço 2",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 2",
+  },
+  {
+    id: 3,
+    type: "service",
+    name: "Serviço 2",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 2",
+  },
+  {
+    id: 3,
+    type: "service",
+    name: "Serviço 2",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 2",
+  },
+  {
+    id: 3,
+    type: "service",
+    name: "Serviço 2",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 2",
+  },
+
 ];
 
 // Separando serviços e produtos
@@ -43,14 +120,6 @@ const services = servicesAndProducts.filter((item) => item.type === "service");
 const products = servicesAndProducts.filter((item) => item.type === "product");
 
 export default function RootLayout({ children }) {
-  const [emblaRefServices] = useEmblaCarousel({
-    loop: false,
-    slidesToScroll: 1,
-  });
-  const [emblaRefProducts] = useEmblaCarousel({
-    loop: false,
-    slidesToScroll: 1,
-  });
 
   const [activeCard, setActiveCard] = useState(null);
 
@@ -92,17 +161,18 @@ export default function RootLayout({ children }) {
           <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] pb-6">
             Serviços
           </h2>
-          <div className="embla mx-auto max-w-3xl">
-            <div className="embla__viewport" ref={emblaRefServices}>
-              <div className="embla__container flex gap-x-4">
-                {services.map((service) => (
+          <Carousel className="w-full max-w-xs" opts={{
+            align: "start",
+          }}>
+            <CarouselContent>
+              {services.map((service) => (
+                <CarouselItem key={service.id} className="basis-1/2 lg:basis-1/3">
                   <div
-                    key={services.id}
+                    key={service.id}
                     className={`embla__slide flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
-                      cursor-pointer transform transition-transform duration-300 ${
-                        activeCard === service.id
-                          ? "-translate-y-4 shadow-2xl"
-                          : ""
+                      cursor-pointer transform transition-transform duration-300 ${activeCard === service.id
+                        ? "-translate-y-4 shadow-2xl"
+                        : ""
                       }`}
                     onClick={() => handleCardClick(service.id)}
                   >
@@ -120,34 +190,36 @@ export default function RootLayout({ children }) {
                       {service.legend}
                     </p>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
 
           {/* Carrossel de Produtos */}
           <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] pb-6 pt-8">
             Produtos
           </h2>
-          <div className="embla mx-auto  max-w-3xl pb-6">
-            <div className="embla__viewport" ref={emblaRefProducts}>
-              <div className="embla__container flex gap-x-4">
-                {products.map((product) => (
+          <Carousel className= "w-full max-w-xs" opts={{
+            align : "start"
+          }}>
+            <CarouselContent>
+              {products.map((product) => (
+                <CarouselItem key={product.id} className="basis-1/2 lg:basis-1/3">
                   <div
-                    key={products.id}
-                    className={`embla__slide flex flex-col bg-white shadow-md w-36 h-44  border-4 rounded-2xl border-blue-400 items-center justify-center
-                      cursor-pointer transform transition-transform duration-300 ${
-                        activeCard === product.id
-                          ? "-translate-y-4 shadow-2xl"
-                          : ""
+                    key={product.id}
+                    className={`embla__slide flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
+                      cursor-pointer transform transition-transform duration-300 ${activeCard === product.id
+                        ? "-translate-y-4 shadow-2xl"
+                        : ""
                       }`}
                     onClick={() => handleCardClick(product.id)}
                   >
                     <Image
                       src={product.imageUrl}
                       alt={product.name}
-                      width={50}
-                      height={50}
+                      width={85}
+                      height={85}
+                      className="rounded-lg shadow-lg"
                     />
                     <h3 className="text-lg font-bold mt-2 text-blue-600/90 text-center">
                       {product.name}
@@ -156,10 +228,10 @@ export default function RootLayout({ children }) {
                       {product.legend}
                     </p>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
     </>
