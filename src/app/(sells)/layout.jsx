@@ -97,7 +97,7 @@ export default function RootLayout({ children }) {
           <Carousel className="w-full  max-w-xs" opts={{
             align: "start",
           }}>
-            <CarouselContent className=" absolue h-50">
+            <CarouselContent >
               {services.map((service) => (
                 <CarouselItem key={service.id} className="basis-1/2 lg:basis-1/3">
                   <div
