@@ -43,75 +43,8 @@ const servicesAndProducts = [
     imageUrl: "/caixabox.png",
     legend: "Descrição do produto 2",
   },
-  {
-    id: 4,
-    type: "product",
-    name: "Produto 5",
-    imageUrl: "/caixabox.png",
-    legend: "Descrição do produto 2",
-  },
-  
-  {
-    id: 4,
-    type: "product",
-    name: "Produto 3",
-    imageUrl: "/caixabox.png",
-    legend: "Descrição do produto 2",
-  },
-  
-  {
-    id: 4,
-    type: "product",
-    name: "Produto 4",
-    imageUrl: "/caixabox.png",
-    legend: "Descrição do produto 2",
-  },
-  
-  {
-    id: 4,
-    type: "product",
-    name: "Produto 8",
-    imageUrl: "/caixabox.png",
-    legend: "Descrição do produto 2",
-  },
-  
-  {
-    id: 4,
-    type: "product",
-    name: "Produto 5",
-    imageUrl: "/caixabox.png",
-    legend: "Descrição do produto 2",
-  },
-  
-  
-  {
-    id: 3,
-    type: "service",
-    name: "Serviço 2",
-    imageUrl: "/imagemteoria.png",
-    legend: "Descrição do serviço 2",
-  },
-  {
-    id: 3,
-    type: "service",
-    name: "Serviço 2",
-    imageUrl: "/imagemteoria.png",
-    legend: "Descrição do serviço 2",
-  },
-  {
-    id: 3,
-    type: "service",
-    name: "Serviço 2",
-    imageUrl: "/imagemteoria.png",
-    legend: "Descrição do serviço 2",
-  },
-  {
-    id: 3,
-    type: "service",
-    name: "Serviço 2",
-    imageUrl: "/imagemteoria.png",
-    legend: "Descrição do serviço 2",
-  },
+
+
 
 ];
 
@@ -142,7 +75,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </Head>
-      <div className="flex flex-col items-center justify-center bg-gray-100 h-full w-full">
+      <div className="flex flex-col items-center justify-center bg-gray-100 h-screen w-screen fixed  ">
         {children}
         <div className="absolute top-5 left-3">
           <Link href="/homeScreen">
@@ -158,18 +91,18 @@ export default function RootLayout({ children }) {
         </div>
         <div className="flex flex-col items-center mt-12 w-full">
           {/* Carrossel de Serviços */}
-          <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] pb-6">
+          <h2 className="text-2xl text-blue-500 text-[28px] font-extrabold leading-[38px] pb-6">
             Serviços
           </h2>
-          <Carousel className="w-full max-w-xs" opts={{
+          <Carousel className="w-full  max-w-xs" opts={{
             align: "start",
           }}>
-            <CarouselContent>
+            <CarouselContent className=" absolue h-50">
               {services.map((service) => (
                 <CarouselItem key={service.id} className="basis-1/2 lg:basis-1/3">
                   <div
                     key={service.id}
-                    className={`embla__slide flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
+                    className={` flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
                       cursor-pointer transform transition-transform duration-300 ${activeCard === service.id
                         ? "-translate-y-4 shadow-2xl"
                         : ""
@@ -196,7 +129,7 @@ export default function RootLayout({ children }) {
           </Carousel>
 
           {/* Carrossel de Produtos */}
-          <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] pb-6 pt-8">
+          <h2 className="text-2xl text-[#5d5988] text-[28px] font-semibold leading-[38px] pb-6 pt-8">
             Produtos
           </h2>
           <Carousel className= "w-full max-w-xs" opts={{
@@ -207,7 +140,7 @@ export default function RootLayout({ children }) {
                 <CarouselItem key={product.id} className="basis-1/2 lg:basis-1/3">
                   <div
                     key={product.id}
-                    className={`embla__slide flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
+                    className={` flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
                       cursor-pointer transform transition-transform duration-300 ${activeCard === product.id
                         ? "-translate-y-4 shadow-2xl"
                         : ""
@@ -217,9 +150,9 @@ export default function RootLayout({ children }) {
                     <Image
                       src={product.imageUrl}
                       alt={product.name}
-                      width={85}
-                      height={85}
-                      className="rounded-lg shadow-lg"
+                      width={50}
+                      height={50}
+                      className=""
                     />
                     <h3 className="text-lg font-bold mt-2 text-blue-600/90 text-center">
                       {product.name}
