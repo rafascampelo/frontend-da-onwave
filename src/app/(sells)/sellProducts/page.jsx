@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function sellProducts() {
   return (
     <>
-      <div className=" flex flex-col items-center justify-center bg-gray-100 ">
+      <div className=" flex flex-col items-center justify-center ">
         {/* aqui é o titulo cabeção */}
         <span className=" text-justify relative pt-4 top-10 text-[#5d5988] text-[28px] font-extrabold leading-[38px]">
           Produtos & Serviços
