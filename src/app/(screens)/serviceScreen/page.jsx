@@ -43,7 +43,7 @@ const AtendimentosScreen = ({ atendimentos }) => {
 
         {/* Botão centralizado com a imagem */}
         <Link href="/sellProducts">
-          <button className="flex items-center justify-center mx-auto my-6 bg-white px-2 py-2 rounded-full shadow-lg  hover:bg-blue-700 transition duration-300 ease-in-out">
+          <button className="flex items-center justify-center mx-auto my-6 bg-white px-2 py-2 rounded-full shadow-lg  hover:bg-blue-700 transition duration-100 ease-in-out">
             <Image
               src="/plus.png"
               alt="Adicionar Atendimento"

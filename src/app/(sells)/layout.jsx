@@ -94,7 +94,7 @@ export default function RootLayout({ children }) {
           <h2 className="text-2xl text-blue-500 text-[28px] font-extrabold leading-[38px] pb-6">
             Serviços
           </h2>
-          <Carousel className="w-full  max-w-xs" opts={{
+          <Carousel className="w-full max-w-xs" opts={{
             align: "start",
           }}>
             <CarouselContent >
