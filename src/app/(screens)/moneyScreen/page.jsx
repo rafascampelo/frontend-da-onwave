@@ -305,7 +305,7 @@ export default function moneyScreen() {
       </div>
       <div className="relative">
         <Link
-          href="/"
+          href="/saleScreen"
           className="w-[268.04px] h-[50px] absolute top-[420px] left-1/2 -translate-x-1/2 bg-[#008fd7] rounded-[40px] 
              justify-center items-center gap-2 inline-flex 
              text-center text-white text-lg font-bold leading-[18px] mb-6"

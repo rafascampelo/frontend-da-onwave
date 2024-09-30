@@ -20,7 +20,7 @@ export default function sellProducts() {
         <div className="flex justify-center relative top-4 pt-4">
           <form className="w-[272px] h-[51px]  bg-white rounded-[46px] flex items-center relative">
             <input
-              type="text"
+              type="search"
               placeholder="Pesquisar..."
               className="w-full h-full border-blue-500 border-2 bg-transparent rounded-[46px] pl-4 pr-10 outline-none"
             />

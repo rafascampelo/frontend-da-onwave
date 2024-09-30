@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,7 +9,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 
 import Head from "next/head";
 
@@ -50,7 +50,7 @@ const servicesAndProducts = [
     imageUrl: "/caixabox.png",
     legend: "Descrição do produto 2",
   },
-  
+
   {
     id: 4,
     type: "product",
@@ -58,7 +58,7 @@ const servicesAndProducts = [
     imageUrl: "/caixabox.png",
     legend: "Descrição do produto 2",
   },
-  
+
   {
     id: 4,
     type: "product",
@@ -66,7 +66,7 @@ const servicesAndProducts = [
     imageUrl: "/caixabox.png",
     legend: "Descrição do produto 2",
   },
-  
+
   {
     id: 4,
     type: "product",
@@ -74,7 +74,7 @@ const servicesAndProducts = [
     imageUrl: "/caixabox.png",
     legend: "Descrição do produto 2",
   },
-  
+
   {
     id: 4,
     type: "product",
@@ -82,37 +82,35 @@ const servicesAndProducts = [
     imageUrl: "/caixabox.png",
     legend: "Descrição do produto 2",
   },
-  
-  
-  {
-    id: 3,
-    type: "service",
-    name: "Serviço 2",
-    imageUrl: "/imagemteoria.png",
-    legend: "Descrição do serviço 2",
-  },
-  {
-    id: 3,
-    type: "service",
-    name: "Serviço 2",
-    imageUrl: "/imagemteoria.png",
-    legend: "Descrição do serviço 2",
-  },
-  {
-    id: 3,
-    type: "service",
-    name: "Serviço 2",
-    imageUrl: "/imagemteoria.png",
-    legend: "Descrição do serviço 2",
-  },
-  {
-    id: 3,
-    type: "service",
-    name: "Serviço 2",
-    imageUrl: "/imagemteoria.png",
-    legend: "Descrição do serviço 2",
-  },
 
+  {
+    id: 3,
+    type: "service",
+    name: "Serviço 2",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 2",
+  },
+  {
+    id: 3,
+    type: "service",
+    name: "Serviço 2",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 2",
+  },
+  {
+    id: 3,
+    type: "service",
+    name: "Serviço 2",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 2",
+  },
+  {
+    id: 3,
+    type: "service",
+    name: "Serviço 2",
+    imageUrl: "/imagemteoria.png",
+    legend: "Descrição do serviço 2",
+  },
 ];
 
 // Separando serviços e produtos
@@ -120,7 +118,6 @@ const services = servicesAndProducts.filter((item) => item.type === "service");
 const products = servicesAndProducts.filter((item) => item.type === "product");
 
 export default function RootLayout({ children }) {
-
   const [activeCard, setActiveCard] = useState(null);
 
   // Função para manipular o clique e definir o card ativo
@@ -161,18 +158,25 @@ export default function RootLayout({ children }) {
           <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] pb-6">
             Serviços
           </h2>
-          <Carousel className="w-full max-w-xs" opts={{
-            align: "start",
-          }}>
+          <Carousel
+            className="w-full max-w-xs"
+            opts={{
+              align: "start",
+            }}
+          >
             <CarouselContent>
               {services.map((service) => (
-                <CarouselItem key={service.id} className="basis-1/2 lg:basis-1/3">
+                <CarouselItem
+                  key={service.id}
+                  className="basis-1/2 lg:basis-1/3"
+                >
                   <div
                     key={service.id}
-                    className={`embla__slide flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
-                      cursor-pointer transform transition-transform duration-300 ${activeCard === service.id
-                        ? "-translate-y-4 shadow-2xl"
-                        : ""
+                    className={`flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
+                      cursor-pointer transform transition-transform duration-300 ${
+                        activeCard === service.id
+                          ? "bg-blue-200/50 w-36 h-44 rounded-md shadow-2xl"
+                          : ""
                       }`}
                     onClick={() => handleCardClick(service.id)}
                   >
@@ -199,27 +203,33 @@ export default function RootLayout({ children }) {
           <h2 className="text-2xl text-[#5d5988] text-[28px] font-bold leading-[38px] pb-6 pt-8">
             Produtos
           </h2>
-          <Carousel className= "w-full max-w-xs" opts={{
-            align : "start"
-          }}>
+          <Carousel
+            className="w-full max-w-xs"
+            opts={{
+              align: "start",
+            }}
+          >
             <CarouselContent>
               {products.map((product) => (
-                <CarouselItem key={product.id} className="basis-1/2 lg:basis-1/3">
+                <CarouselItem
+                  key={product.id}
+                  className="basis-1/2 lg:basis-1/3"
+                >
                   <div
                     key={product.id}
-                    className={`embla__slide flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
-                      cursor-pointer transform transition-transform duration-300 ${activeCard === product.id
-                        ? "-translate-y-4 shadow-2xl"
-                        : ""
+                    className={`flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
+                      cursor-pointer transform transition-transform duration-300 pt-3 mb-3 ${
+                        activeCard === product.id
+                          ? "bg-blue-200/50 w-36 h-44 rounded-md shadow-2xl "
+                          : ""
                       }`}
                     onClick={() => handleCardClick(product.id)}
                   >
                     <Image
                       src={product.imageUrl}
                       alt={product.name}
-                      width={85}
-                      height={85}
-                      className="rounded-lg shadow-lg"
+                      width={45}
+                      height={45}
                     />
                     <h3 className="text-lg font-bold mt-2 text-blue-600/90 text-center">
                       {product.name}
