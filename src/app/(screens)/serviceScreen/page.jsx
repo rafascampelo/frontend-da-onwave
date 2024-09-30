@@ -5,7 +5,7 @@ import Link from "next/link";
 const AtendimentosScreen = ({ atendimentos }) => {
   return (
     <div className="flex justify-center items-center pt-[30px]">
-      <div className="bg-gray-100 rounded-lg shadow-lg max-w-[calc(100%-40px)] w-[600px] h-[70vh] overflow-y-auto p-6">
+      <div className="bg-white rounded-lg shadow-lg max-w-[calc(100%-40px)] w-[600px] h-[70vh] overflow-y-auto p-6">
         {atendimentos.length === 0 ? (
           <p className="text-center text-gray-500">
             Nenhum atendimento registrado.
@@ -43,7 +43,7 @@ const AtendimentosScreen = ({ atendimentos }) => {
 
         {/* Botão centralizado com a imagem */}
         <Link href="/sellProducts">
-          <button className="flex items-center justify-center mx-auto my-6 bg-white px-2 py-2 rounded-full shadow-lg hover:bg-blue-700 transition">
+          <button className="flex items-center justify-center mx-auto my-6 bg-white px-2 py-2 rounded-full shadow-lg  hover:bg-blue-700 transition duration-300 ease-in-out">
             <Image
               src="/plus.png"
               alt="Adicionar Atendimento"
@@ -79,9 +79,9 @@ export default function ServiceScreen() {
 
   return (
     <>
-      <div className=" flex flex-col items-center mt-6">
+      <div className=" flex flex-col items-center ">
         {/* Título da página */}
-        <h1 className="text-3xl font-extrabold text-[#5d5988]">Atendimentos</h1>
+        <h1 className="text-3xl font-extrabold text-[#5d5988] pt-4">Atendimentos</h1>
       </div>
       {/* Renderizando o componente de atendimentos */}
       <AtendimentosScreen atendimentos={atendimentos} />

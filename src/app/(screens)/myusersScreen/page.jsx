@@ -59,7 +59,7 @@ export default function MyUsersScreen() {
   return (
     <>
       <div className="justify-center items-center flex flex-col ">
-        <span className="flex pt-10 text-center text-[#5d5988] text-[28px] font-bold">
+        <span className="flex pt-10 text-center text-[#5d5988] text-[28px] font-extrabold">
           Meus funcionários
         </span>
 
@@ -190,7 +190,7 @@ export default function MyUsersScreen() {
       </div>
 
       <div className="flex flex-row justify-center items-center pt-8 ">
-        <button className="h-10 w-10  mx-1 space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+        <button className="h-10 w-10  mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
           <Image
             src="/lixeira.png"
             alt="editarfinanças"
@@ -199,7 +199,7 @@ export default function MyUsersScreen() {
           />
         </button>
 
-        <button className="h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+        <button className="h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
           <Image
             src="/editar.png"
             alt="editarfinanças"
@@ -208,7 +208,7 @@ export default function MyUsersScreen() {
           />
         </button>
 
-        <button className="h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-[14px] flex items-center justify-center">
+        <button className="h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
           <Image src="/plus.png" alt="editarfinanças" width={20} height={20} />
         </button>
       </div>
