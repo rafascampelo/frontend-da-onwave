@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function sellProducts() {
   return (
     <>
-      <div className=" flex flex-col items-center justify-center bg-gray-100 ">
+      <div className=" flex flex-col items-center justify-center ">
         {/* aqui é o titulo cabeção */}
         <span className=" text-justify relative pt-4 top-10 text-[#5d5988] text-[28px] font-extrabold leading-[38px]">
           Produtos & Serviços
@@ -22,7 +22,7 @@ export default function sellProducts() {
             <input
               type="search"
               placeholder="Pesquisar..."
-              className="w-full h-full border-blue-500 border-2 bg-transparent rounded-[46px] pl-4 pr-10 outline-none"
+              className="w-full h-full border-blue-400 border-2 bg-transparent rounded-[46px] pl-4 pr-10 outline-none"
             />
             <span className="absolute right-3 text-gray-500 cursor-pointer">
               <Image
