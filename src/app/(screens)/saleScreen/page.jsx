@@ -44,7 +44,6 @@ export function DatePickerDemo() {
   );
 }
 
-
 export default function SaleScreen() {
   return (
     <>
@@ -80,11 +79,97 @@ export default function SaleScreen() {
         </Link>
       </div>
 
-      <div className="flex justify-center absolute top-32 w-full">
-        <DatePickerDemo />{" "}
-       
+      <div className="flex justify-center items-center absolute top-32 w-full">
+        <DatePickerDemo />
       </div>
-  
+      <div className="relative top-32 w-[350px] max-w-md items-center text-center mx-auto p-6 pb-2 bg-white rounded-lg shadow-md">
+        <div className="flex-row flex items-center">
+          {/* Ícone da Caixa */}
+          <Image src="/caixabox.png" alt="Caixa Box" width={32} height={32} />
+
+          {/* Nome do Produto */}
+          <span className="text-lg text-left font-semibold px-8 top-5 text-black">
+            $Produto
+          </span>
+
+          {/* Preço */}
+          <span className="text-base text-right px-8 text-black top-5">
+            R$20.00
+          </span>
+        </div>
+        <table className="w-full text-center">
+          <thead>
+            <tr>
+              <th className="px-8 py-3 text-left text-base font-bold tracking-tight text-gray-600">
+                Unidade:
+              </th>
+              <th className="px-8 py-3 text-right text-base font-bold tracking-tight text-black">
+                hhhh
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="px-8 py-3 text-left text-base font-semibold tracking-tight text-gray-600">
+                Comissão:
+              </td>
+              <td className="px-8 py-3 text-right text-base font-semibold tracking-tight text-black">
+                hhhhh
+              </td>
+            </tr>
+            <tr>
+              <td className="px-8 py-3 text-left text-base font-semibold tracking-tight text-gray-600">
+                Pagamento:
+              </td>
+              <td className="px-8 py-3 text-right text-base font-semibold tracking-tight text-black">
+                hhhh
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* Espaçamento entre as tabelas */}
+        <div className="border-t border-gray-300 my-4"></div>
+
+        {/* Tabela de Saldo Líquido e Gastos */}
+        <table className="w-full text-center mt-6">
+          <thead>
+            <tr>
+              <th className="py-3 px-8 text-left text-base font-normal tracking-tight text-gray-700">
+                Saldo Líquido
+              </th>
+              <th className="py-3 px-8 text-right text-base font-normal tracking-tight text-blue-500">
+                R$ 1.000
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="py-3 px-8 text-left text-base font-normal tracking-tight text-gray-700">
+                Gastos
+              </td>
+              <td className="py-3 px-8 text-right text-base font-normal tracking-tight text-gray-500">
+                R$ 10.000
+              </td>
+            </tr>
+
+            {/* Linha divisória */}
+            <tr>
+              <td className="border-t border-gray-300" colSpan="2"></td>
+            </tr>
+
+            {/* Resultado final */}
+            <tr>
+              <td className="py-3 px-8 text-left text-base font-normal tracking-tight text-gray-700">
+                Resultado
+              </td>
+              <td className="py-3 px-8 text-right text-base font-normal tracking-tight text-red-500">
+                R$ -9000
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }

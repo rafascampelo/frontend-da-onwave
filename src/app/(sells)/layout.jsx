@@ -1,16 +1,13 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-
+} from "@/components/ui/carousel";
 import Head from "next/head";
 
 // Dados dos serviços e produtos
@@ -43,9 +40,6 @@ const servicesAndProducts = [
     imageUrl: "/caixabox.png",
     legend: "Descrição do produto 2",
   },
-
-
-
 ];
 
 // Separando serviços e produtos
@@ -53,12 +47,13 @@ const services = servicesAndProducts.filter((item) => item.type === "service");
 const products = servicesAndProducts.filter((item) => item.type === "product");
 
 export default function RootLayout({ children }) {
-
   const [activeCard, setActiveCard] = useState(null);
 
   // Função para manipular o clique e definir o card ativo
   const handleCardClick = (id) => {
+    console.log(`Card clicado: ${id}`); // Verificar o ID do card clicado
     setActiveCard(id === activeCard ? null : id); // Desativa se for o mesmo card
+    console.log(`Active Card: ${activeCard}`); // Verificar o estado do activeCard após o clique
   };
 
   return (
@@ -75,7 +70,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </Head>
-      <div className="flex flex-col items-center justify-center bg-gray-100 h-full w-full  ">
+      <div className="flex flex-col items-center justify-center bg-gray-100 h-full w-full">
         {children}
         <div className="absolute top-5 left-3">
           <Link href="/homeScreen">
@@ -94,19 +89,17 @@ export default function RootLayout({ children }) {
           <h2 className="text-2xl text-blue-500 text-[28px] font-extrabold leading-[38px] pb-6">
             Serviços
           </h2>
-          <Carousel className="w-full max-w-xs" opts={{
-            align: "start",
-          }}>
-            <CarouselContent >
+          <Carousel className="w-full max-w-xs" opts={{ align: "start" }}>
+            <CarouselContent>
               {services.map((service) => (
-                <CarouselItem key={service.id} className="basis-1/2 lg:basis-1/3">
+                <CarouselItem
+                  key={service.id}
+                  className="basis-1/2 lg:basis-1/3"
+                >
                   <div
-                    key={service.id}
-                    className={` flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
-                     cursor-pointer transform transition-transform duration-300 ${activeCard === service.id
-                        ? "bg-blue-300/50  w-36 h-44 "
-                        : ""
-                      }`}
+                    className={`flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center cursor-pointer transform transition-transform duration-300 ${
+                      activeCard === service.id ? "bg-blue-200" : ""
+                    }`} // Removi o /50 para garantir que o fundo azul fique visível
                     onClick={() => handleCardClick(service.id)}
                   >
                     <Image
@@ -132,19 +125,17 @@ export default function RootLayout({ children }) {
           <h2 className="text-2xl text-blue-500 text-[28px] font-extrabold leading-[38px] pb-6 pt-8">
             Produtos
           </h2>
-          <Carousel className="w-full max-w-xs" opts={{
-            align: "start"
-          }}>
+          <Carousel className="w-full max-w-xs" opts={{ align: "start" }}>
             <CarouselContent>
               {products.map((product) => (
-                <CarouselItem key={product.id} className="basis-1/2 lg:basis-1/3">
+                <CarouselItem
+                  key={product.id}
+                  className="basis-1/2 lg:basis-1/3"
+                >
                   <div
-                    key={product.id}
-                    className={` flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center
-                     cursor-pointer transform transition-transform duration-300 mb-6 ${activeCard === product.id
-                        ? "bg-blue-300/50  w-36 h-44"
-                        : ""
-                      }`}
+                    className={`flex flex-col bg-white shadow-md w-36 h-44 border-4 rounded-2xl border-blue-400 items-center justify-center cursor-pointer transform transition-transform duration-300 ${
+                      activeCard === product.id ? "bg-blue-200" : ""
+                    }`}
                     onClick={() => handleCardClick(product.id)}
                   >
                     <Image
@@ -152,7 +143,6 @@ export default function RootLayout({ children }) {
                       alt={product.name}
                       width={50}
                       height={50}
-                      className=""
                     />
                     <h3 className="text-lg font-bold mt-2 text-blue-600/90 text-center">
                       {product.name}
