@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function homeScreen() {
   return (
     <>
-      <div className="h-20 w-full bg-blue-700 rounded-b-md flex items-center justify-center">
+      <div className="h-20 w-full bg-blue-700 rounded-b-md flex items-center justify-center fixed overflow-hidden">
         <Link href="/UserProfile">
           <div className="fixed top-10 right-0 flex items-center bg-white shadow-lg p-3 rounded-lg">
             <Image

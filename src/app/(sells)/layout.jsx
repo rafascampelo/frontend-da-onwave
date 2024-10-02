@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </Head>
-      <div className="flex flex-col items-center justify-center bg-gray-100 h-full w-full">
+      <div className="flex flex-col items-center justify-center bg-gray-100 h-screen w-full">
         {children}
         <div className="absolute top-5 left-3">
           <Link href="/homeScreen">
