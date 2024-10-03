@@ -1,9 +1,21 @@
 "use client";
 
-import { useRouter } from "next/router";
+
 import { useState } from "react";
 import Image from "next/image";
 import React from "react";
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 import Link from "next/link";
 const Popup = ({ closePopup }) => {
@@ -60,32 +72,80 @@ const AtendimentosScreen = ({ atendimentos, openPopup }) => {
           </p>
         ) : (
           atendimentos.map((atendimento, index) => (
-            <div
-              key={index}
-              className="bg-blue-100/50 mb-4 p-4 rounded-lg shadow-md border-2 border-blue-600 hover:shadow-lg transition-shadow"
-            >
-              <div className="text-lg font-semibold text-blue-700">
-                {atendimento.cliente}
+
+            <Dialog>
+
+              <div key={index}
+                className="bg-blue-100/50 p-4 rounded-lg shadow-md border-2 border-blue-600 hover:shadow-lg transition-shadow">
+                <DialogTrigger className="flex w-full justify-between gap-2 px-1">
+                  <h1 className="text-lg font-bold text-blue-700 ">
+                    {atendimento.cliente}
+                  </h1>
+                  <div className="text-xs text-gray-600 font-semibold">{atendimento.data}</div>
+
+                </DialogTrigger>
+                <div className="pt-2 flex justify-center gap-2">
+                  <button className="bg-red-500 text-white px-8 py-2 rounded-full hover:bg-red-600 transition">
+                    Cancelar
+                  </button>
+                  <button className="bg-green-500 text-white px-8 py-2 rounded-full hover:bg-green-600 transition">
+                    Finalizar
+                  </button>
+                </div>
               </div>
-              <div className="text-sm text-gray-500">{atendimento.data}</div>
-              <div className="mt-2 text-gray-700">
-                <strong>Corte Feito:</strong> {atendimento.corte}
-              </div>
-              <div className="text-gray-700">
-                <strong>Produto Usado:</strong> {atendimento.produto}
-              </div>
-              <div className="text-gray-700">
-                <strong>Pagamento:</strong> {atendimento.pagamento}
-              </div>
-              <div className="mt-6 flex justify-between">
-                <button className="bg-red-500 text-white px-5 py-3 rounded-full hover:bg-red-600 transition">
-                  Cancelar
-                </button>
-                <button className="bg-green-500 text-white px-5 py-3 rounded-full hover:bg-green-600 transition">
-                  Finalizar
-                </button>
-              </div>
-            </div>
+
+
+
+              <DialogContent className="w-11/12 flex flex-col justify-between rounded-lg">
+                <DialogHeader>
+                  <DialogTitle>
+                    <h1 className="text-lg font-bold text-blue-700 ">
+                      {atendimento.cliente}
+                    </h1>
+                  </DialogTitle>
+                  <DialogDescription className="text-center items-center">
+                    Faça seu chekout!
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="bg-blue-100/50 p-4 rounded-lg shadow-md border-2 border-blue-600 hover:shadow-lg transition-shadow">
+                  <div className="flex flex-col gap-1">
+                    <div className="text-gray-700 flex flex-col items-start w-full">
+                      <h3 className="text-gray-700 text-xl font-semibold">Serviços:</h3>
+                      {atendimento.servico.map((item) => (
+                        <div key={item.id} className="w-full flex justify-between">
+                          <span>{item.name}</span>
+                          <span>R$ {atendimento.pagamento_servico.toFixed(2)}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-gray-700 flex flex-col items-start w-full">
+                      <h3 className="text-gray-700 text-xl font-semibold">Produtos:</h3>
+                      {atendimento.produto.map((item) => (
+                        <div key={item.id} className="w-full flex justify-between">
+                          <span>{item.name}</span>
+                          <span>R$ {atendimento.pagamento_produto.toFixed(2)}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <hr className="bg-blue-600 h-[2px] mt-3" />
+                    <div className="w-full flex justify-between">
+                      <h3 className="text-gray-700 text-xl font-bold">Total:</h3>
+                      <span className="text-gray-700 text-xl font-semibold">R$ {(atendimento.pagamento_produto + atendimento.pagamento_servico).toFixed(2)}</span>
+                    </div>
+                  </div>
+
+                </div>
+                <DialogFooter >
+                  <Link href="/sellProducts" className="flex justify-center"  >
+                    <Button type="submit" className="bg-blue-400 hover:bg-blue-500 font-semibold">
+                      Adicionar novos serviços e produtos
+                    </Button>
+                  </Link>
+                </DialogFooter>
+              </DialogContent>
+
+
+            </Dialog>
           ))
         )}
         {/* Botão centralizado com a imagem */}
@@ -121,17 +181,12 @@ export default function ServiceScreen() {
     {
       cliente: "João da Silva",
       data: "01/09/2024",
-      corte: "Corte de cabelo",
-      produto: "Shampoo",
-      pagamento: "R$ 50,00",
+      servico: [{ name: "Dregade", id: 1 }, { name: "social", id: 3 }],
+      produto: [{ name: "Shampoo", id: 1 }, { name: "gel", id: 3 }],
+      pagamento_produto: 32,
+      pagamento_servico: 23.6,
     },
-    {
-      cliente: "Maria Oliveira",
-      data: "02/09/2024",
-      corte: "Pintura",
-      produto: "Tintura",
-      pagamento: "R$ 150,00",
-    },
+
     // Adicione mais atendimentos conforme necessário
   ];
 
