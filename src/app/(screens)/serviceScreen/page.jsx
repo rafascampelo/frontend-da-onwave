@@ -1,49 +1,52 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useRouter } from "next/router";
+import { useState } from "react";
 import Image from "next/image";
 import React from "react";
 
-// Função para o popup de agendar atendimento
+import Link from "next/link";
 const Popup = ({ closePopup }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-70 z-50 transition-all duration-300 ease-in-out">
-    <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md mx-4 sm:mx-auto max-h-[90vh] overflow-y-auto transform transition-transform duration-500 ease-in-out scale-100">
-      <h2 className="text-xl font-bold text-gray-800 mb-6 text-center">
-        Agendar Atendimento
-      </h2>
-      <form className="space-y-4">
-        <div className="space-y-2">
-          <label className="block text-gray-700 font-medium">
-            Nome do Cliente:
-          </label>
-          <input
-            type="text"
-            className="block w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none focus:border-transparent"
-            placeholder="Digite o nome"
-          />
-        </div>
-       
-        <div className="flex justify-end space-x-3 mt-6">
-          <button
-            type="button"
-            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-all duration-300"
-            onClick={closePopup}
-          >
-            Cancelar
-          </button>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300"
-          >
-            Confirmar
-          </button>
-        </div>
-      </form>
+      <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md mx-4 sm:mx-auto max-h-[90vh] overflow-y-auto transform transition-transform duration-500 ease-in-out scale-100">
+        <h2 className="text-xl font-bold text-gray-800 mb-3 text-center">
+          Registre o seu próximo atendimento.
+        </h2>
+        <span className="text-base font-bold text-gray-600/50 text-center block w-full px-4 mb-3 ">
+          {" "}
+          A data e o horário serão adicionados automaticamente.{" "}
+        </span>
+
+        <form className="space-y-4">
+          <div className="space-y-2">
+            <label className="block text-gray-700 font-medium ">
+              Nome do Cliente:
+            </label>
+            <input
+              type="text"
+              className="block w-full rounded-full p-3 border border-gray-300  focus:ring-2 focus:ring-blue-400 focus:outline-none focus:border-transparent"
+              placeholder="Digite o nome"
+            />
+          </div>
+
+          <div className="flex justify-end space-x-11 mt-6">
+            <button
+              type="button"
+              className="bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 transition-all duration-300"
+              onClick={closePopup}
+            >
+              Cancelar
+            </button>
+            <Link href="/sellProducts">
+              <div className="bg-blue-500 rounded-full text-white px-6 py-2  hover:bg-blue-600 transition-all duration-300">
+                Confirmar
+              </div>
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-  
-  
   );
 };
 
@@ -75,11 +78,11 @@ const AtendimentosScreen = ({ atendimentos, openPopup }) => {
                 <strong>Pagamento:</strong> {atendimento.pagamento}
               </div>
               <div className="mt-6 flex justify-between">
-                <button className="bg-green-500 text-white px-5 py-3 rounded-full hover:bg-green-600 transition">
-                  Finalizar
-                </button>
                 <button className="bg-red-500 text-white px-5 py-3 rounded-full hover:bg-red-600 transition">
                   Cancelar
+                </button>
+                <button className="bg-green-500 text-white px-5 py-3 rounded-full hover:bg-green-600 transition">
+                  Finalizar
                 </button>
               </div>
             </div>
@@ -136,7 +139,9 @@ export default function ServiceScreen() {
     <>
       <div className="flex flex-col items-center">
         {/* Título da página */}
-        <h1 className="text-3xl font-extrabold text-[#5d5988] pt-4">Atendimentos</h1>
+        <h1 className="text-3xl font-extrabold text-[#5d5988] pt-4">
+          Atendimentos
+        </h1>
       </div>
       {/* Renderizando o componente de atendimentos */}
       <AtendimentosScreen atendimentos={atendimentos} openPopup={openPopup} />

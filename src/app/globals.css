@@ -4,8 +4,8 @@
 
 .fund {
   background-color: #f1f1f1;
-  height: 100vh; /* Altura total da tela */
-  width: 100vw;
+  min-height: 100vh; /* A altura mínima será o tamanho total da tela */
+  width: 100%;
 }
 
 html {
@@ -17,7 +17,6 @@ body {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-     
   }
   margin: 0;
   height: 100%;
