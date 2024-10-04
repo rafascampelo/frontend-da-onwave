@@ -44,6 +44,14 @@ export function DatePickerDemo() {
   );
 }
 
+const barbeiros = [
+  { id: 1, name: "Joaquim", comission: 12000 },
+  { id: 2, name: "Joaquim", comission: 12000 },
+  { id: 3, name: "Joaquim", comission: 12000 },
+  { id: 4, name: "Joaquim", comission: 12000 },
+  { id: 5, name: "Joaquim", comission: 12000 },
+];
+
 export default function SaleScreen() {
   return (
     <>
@@ -82,46 +90,49 @@ export default function SaleScreen() {
       <div className="flex justify-center items-center absolute top-32 w-full">
         <DatePickerDemo />
       </div>
-      <div className="relative top-32 w-[300px] max-w-md mx-auto p-6 pb-2 bg-white rounded-lg shadow-md h-[400px] overflow-y-auto">
+      <div className="relative top-32 w-[300px] max-w-md mx-auto p-6 pb-2 bg-white rounded-lg shadow-md h-[350px] overflow-y-auto">
         {/* Cabeçalho com nome do produto, ícone e preço */}
         <div className="flex items-center justify-between mb-4">
           {/* Ícone e Nome do Produto */}
           <div className="flex items-center justify-center w-full">
-            <Image src="/caixabox.png" alt="Caixa Box" width={64} height={64} />
+            <Image src="/boxG.png" alt="Caixa Box" width={64} height={64} />
           </div>
         </div>
 
         {/* Primeira Tabela */}
-        <table className="w-full text-left">
-          <thead>
-            <tr>
-              <th className="px-4 py-3 text-lg font-bold tracking-tight text-gray-600">
-                Foram vendidos:
-              </th>
-              <th className="px-6 py-3 bg-blue-400 text-center rounded-full text-base font-bold text-white">
-                100
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="px-4 py-3 text-base font-semibold text-gray-600">
-                Comissão:
-              </td>
-              <td className="px-4 py-3 text-right text-base font-semibold text-black">
-                hhhhh
-              </td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 text-base font-semibold text-gray-600">
-                Pagamento:
-              </td>
-              <td className="px-4 py-3 text-right text-base font-semibold text-black">
-                hhhh
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="w-full flex flex-col gap-1">
+          <div>
+            <div className="px-4 py-3 text-lg text-center font-bold tracking-tight text-slate-700">
+              Foram vendidos:
+            </div>
+
+            <div className="px-10 h-6  bg-blue-400 text-center rounded-full text-base font-bold text-white">
+              100
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <div className="px-4 py-3 text-xl text-center font-bold tracking-tight text-slate-700">
+                Barbeiros:
+              </div>
+              <div className="text-base font-medium text-blue-600 flex justify-between flex-col">
+                <div className="flex justify-between px-4">
+                  <span className="pl-4">Nome</span>
+                  <span>Comissão</span>
+                </div>
+              
+              {barbeiros.map((barbeiro) => {
+                return (<div key={barbeiro.id} className="px-4 text-lg font-medium text-slate-600 flex justify-between">
+                  <span> {barbeiro.name}:</span>
+                  <span>{barbeiro.comission.toFixed(2)}</span>
+                </div>);
+              })}
+            </div>
+            </div>
+            <br />
+          </div>
+        </div>
 
         {/* Divisória */}
         <div className="border-t border-gray-300 my-4"></div>

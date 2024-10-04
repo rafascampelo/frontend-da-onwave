@@ -88,9 +88,11 @@ const AtendimentosScreen = ({ atendimentos, openPopup }) => {
                   <button className="bg-red-500 text-white px-8 py-2 rounded-full hover:bg-red-600 transition">
                     Cancelar
                   </button>
+                  <Link href="/paymentScreen">
                   <button className="bg-green-500 text-white px-8 py-2 rounded-full hover:bg-green-600 transition">
                     Finalizar
                   </button>
+                  </Link>
                 </div>
               </div>
 

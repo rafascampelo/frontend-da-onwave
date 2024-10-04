@@ -221,8 +221,8 @@ export default function moneyScreen() {
     font-semibold text-[#4a4a6a] text-base hover:shadow-lg transition-shadow duration-300 ease-in-out"
         >
           <Image
-            src="/calendario.png"
-            alt="calendario"
+            src="/lupaG.png"
+            alt="grafico"
             className="mb-2"
             width={40}
             height={40}
