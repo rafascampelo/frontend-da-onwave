@@ -22,7 +22,7 @@ export default function login() {
             id="email"
             type="text"
             placeholder="Email"
-            class=" w-[250px] h-[45px] bg-white shadow-gray-500 rounded-[19px]  text-black text-[18px] font-bold  pl-10 pr-10
+            className=" w-[250px] h-[45px] bg-white shadow-gray-500 rounded-[19px]  text-black text-[18px] font-bold  pl-10 pr-10
             shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           />
 
@@ -30,25 +30,25 @@ export default function login() {
             id="senha"
             type="password"
             placeholder="Senha"
-            class=" mt-3 w-[250px] h-[45px] bg-white shadow-gray-500 rounded-[19px]  text-black text-[18px] font-bold  pl-10 pr-10
+            className=" mt-3 w-[250px] h-[45px] bg-white shadow-gray-500 rounded-[19px]  text-black text-[18px] font-bold  pl-10 pr-10
             shadow focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           />
         </form>
 
-        <a
-          href="https://www.remove.bg/pt-br/upload"
-          class=" w-[232px] h-[25px] text-center text-black/80 text-[15px] font-bold "
+        <Link
+          href=""
+          className=" w-[232px] h-[25px] text-center text-black/80 text-[15px] font-bold "
         >
-          Esqueci a minha senha
-        </a>
+          Esqueci minha senha
+        </Link>
 
-        <div class=" mt-10 w-[232px] h-[51px] text-center">
-          <span class="text-black text-[15px] font-medium ">Desculpe, sua</span>
-          <span class="text-[#ff0000] text-[15px] font-medium "> senha</span>
-          <span class="text-black text-[15px] font-medium "> ou </span>
-          <span class="text-[#ff0000] text-[15px] font-medium ">login</span>
-          <span class="text-black text-[15px] font-medium "> está errado.</span>
-          <span class="text-black text-[15px] font-medium ">
+        <div className=" mt-10 w-[232px] h-[51px] text-center">
+          <span className="text-black text-[15px] font-medium ">Desculpe, sua</span>
+          <span className="text-[#ff0000] text-[15px] font-medium "> senha</span>
+          <span className="text-black text-[15px] font-medium "> ou </span>
+          <span className="text-[#ff0000] text-[15px] font-medium ">login</span>
+          <span className="text-black text-[15px] font-medium "> está errado.</span>
+          <span className="text-black text-[15px] font-medium ">
             {" "}
             por favor tente novamente.
           </span>

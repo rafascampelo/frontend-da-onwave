@@ -4,9 +4,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div class="bg"></div>
-      <div class="bg bg2"></div>
-      <div class="bg bg3"></div>
+      <div className="bg"></div>
+      <div className="bg bg2"></div>
+      <div className="bg bg3"></div>
       <div className="flex items-center justify-center w-screen h-screen">
         <div className="w-full max-w-[calc(100%-50px)] h-[560px] bg-white/90 backdrop-blur-[50px] rounded-3xl shadow-lg shadow-gray-500 flex flex-col items-center p-5">
           <div className="flex flex-col items-center">
