@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function UserProfile() {
+export default function userProfile() {
   return (
     <>
       <div className="min-h-screen flex flex-col bg-gray-100">
@@ -29,10 +29,11 @@ export default function UserProfile() {
 
             {/* Imagem do usuário */}
             <div className="flex justify-center">
-              <img
+              <Image
+                width={85}
+                height={90}
                 src="/userbarb.png"
                 alt="User"
-                className="w-[85px] h-[90px] pb-3"
               />
             </div>
 

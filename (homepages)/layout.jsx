@@ -19,10 +19,6 @@ export default function HomeScreen({ children }) {
       <Head>
         <title>Onwave</title>
         <meta name="description" content="APP para a gestão do seu comércio" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-        />
       </Head>
       <div className="fund">
         {children}

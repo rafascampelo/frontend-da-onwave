@@ -1,10 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-
 export default function Register() {
   return (
-    <>
-      <div className="flex items-center justify-center h-screen bg-gray-200">
+   
+      <div className="flex items-center justify-center h-screen w-screen  bg-gray-200">
         <div className="w-[320px] h-[80vh] bg-white p-6 rounded-3xl shadow-lg flex flex-col overflow-y-auto">
           <form className="flex flex-col gap-6">
             <span className="text-center text-blue-600 text-[22px] font-bold">
@@ -66,6 +63,6 @@ export default function Register() {
           </form>
         </div>
       </div>
-    </>
+    
   );
 }
