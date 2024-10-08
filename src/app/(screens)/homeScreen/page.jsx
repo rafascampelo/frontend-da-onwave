@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function homeScreen() {
+export default function HomeScreen() {
   return (
-    <>
+    <div>
       <div className="h-20 w-full bg-blue-700 rounded-b-md flex items-center justify-center fixed overflow-hidden">
         <Link href="/userProfile">
           <div className="fixed top-10 right-0 flex items-center bg-white shadow-lg p-3 rounded-lg">
@@ -64,6 +64,6 @@ export default function homeScreen() {
           <span className="pl-2 text-black text-sm font-bold">Atendimento</span>
         </Link>
       </div>
-    </>
+    </div>
   );
 }

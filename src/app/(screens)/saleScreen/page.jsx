@@ -75,14 +75,13 @@ export default function SaleScreen() {
       </div>
 
       <div className="absolute top-24 left-3">
-        <Link href="/homeScreen">
+        <Link href="/moneyScreen">
           <Image
             src="/voltar.png"
             alt="Voltar"
             className="dark:invert pb-2"
             width={32}
             height={32}
-            priority
           />
         </Link>
       </div>

@@ -1,7 +1,16 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 export default function MyUsersScreen() {
   const funcionarios = [
     {
@@ -78,7 +87,7 @@ export default function MyUsersScreen() {
             />
           </button>
 
-          <div className="w-[254px] h-[250px] flex flex-col relative mt-10 bg-white rounded-[18px]">
+          <div className="w-[254px] h-auto flex flex-col relative mt-10 bg-white rounded-[18px]">
             <span className="text-[#9db2ce] text-2xl absolute top-2 left-5 font-bold leading-[38px]">
               {funcionarios[activeFuncIndex].nome}
             </span>
@@ -172,6 +181,46 @@ export default function MyUsersScreen() {
                 }
               </span>
             </div>
+
+            <div className="flex justify-center gap-2 pb-2">
+              <Dialog>
+                <DialogTrigger>
+                  <button className="h-10 w-10  mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
+                    <Image
+                      src="/lixeira.png"
+                      alt="editarfinanças"
+                      width={20}
+                      height={20}
+                    />
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="w-11/12 flex flex-col justify-between rounded-lg">
+                  <DialogHeader>
+                    <DialogTitle>Excluir Funcionário</DialogTitle>
+                    <DialogDescription>
+                      Tem certeza?
+                      <br /> Essa ação não pode ser revertida
+                    </DialogDescription>
+                    <form></form>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+              <Dialog>
+                <DialogTrigger>
+                  <button className="h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
+                    <Image
+                      src="/editar.png"
+                      alt="editarfinanças"
+                      width={20}
+                      height={20}
+                    />
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="w-11/12 flex flex-col justify-between rounded-lg">
+                  <DialogHeader>vai se fuder</DialogHeader>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
 
           {/* Seta direita para navegar entre os funcionários */}
@@ -188,30 +237,12 @@ export default function MyUsersScreen() {
           </button>
         </div>
       </div>
-
-      <div className="flex flex-row justify-center items-center pt-8 ">
-        <button className="h-10 w-10  mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
-          <Image
-            src="/lixeira.png"
-            alt="editarfinanças"
-            width={20}
-            height={20}
-          />
-        </button>
-
-        <button className="h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
-          <Image
-            src="/editar.png"
-            alt="editarfinanças"
-            width={20}
-            height={20}
-          />
-        </button>
-
+<div className="flex items-center justify-center py-2">
+  
         <button className="h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
           <Image src="/plus.png" alt="editarfinanças" width={20} height={20} />
         </button>
-      </div>
+</div>
     </>
   );
 }
