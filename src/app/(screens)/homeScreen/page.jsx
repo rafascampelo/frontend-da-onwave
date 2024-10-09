@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HomeScreen() {
+export default function homeScreen() {
   return (
     <div>
       <div className="h-20 w-full bg-blue-700 rounded-b-md flex items-center justify-center fixed overflow-hidden">
