@@ -1,17 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+
+const user = {
+  id: "kdfkasjklfsa",
+  firstName: "John",
+  lastName: "Watson",
+  email: "john.watson@onwave.com",
+  password: "0000",
+  born: "mm/dd/aa",
+  cpf: "563.656.789-98",
+  cellphone: "11 96897-4835",
+  role: "ADMIN",
+  unitId: "0",
+  adminId: null,
+  barbeshopId: "0",
+  firstLogin: false,
+};
 
 export default function userProfile() {
   return (
@@ -41,56 +57,29 @@ export default function userProfile() {
 
             {/* Imagem do usuário */}
             <div className="flex justify-center">
-              <Image
-                width={75}
-                height={80}
-                src="/userbarb.png"
-                alt="User"
-              />
+              <Image width={75} height={80} src="/userbarb.png" alt="User" />
             </div>
 
-            {/* Nome da barbearia */}
-            <div className="flex justify-center items-center pb-1">
-              <span className="text-black mt-3 text-lg font-normal leading-tight tracking-tight">
-                nome_barbearia
-              </span>
-            </div>
-
-            {/* E-mail */}
-            <span className="text-[#008fd7] block text-center pb-2 text-lg font-normal leading-tight tracking-tight">
-              joaodossanto@email.com
-            </span>
-
-            {/* Tabela de serviços */}
-            <div className="w-full py-2 bg-white rounded-lg border-2 border-[#aeb0b6] inline-flex">
-              <table className="w-full table-auto">
-                <tbody>
-                  <tr>
-                    <td className="px-4 py-2 text-[#61646b] text-sm font-normal leading-tight tracking-tight">
-                      Serviço1
-                    </td>
-                    <td className="px-4 py-2 text-[#61646b] text-sm font-normal leading-tight tracking-tight text-right">
-                      R$ 20.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-2 text-[#61646b] text-sm font-normal leading-tight tracking-tight">
-                      Serviço2
-                    </td>
-                    <td className="px-4 py-2 text-[#61646b] text-sm font-normal leading-tight tracking-tight text-right">
-                      R$ 30.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-2 text-[#61646b] text-sm font-normal leading-tight tracking-tight">
-                      Serviço3
-                    </td>
-                    <td className="px-4 py-2 text-[#61646b] text-sm font-normal leading-tight tracking-tight text-right">
-                      R$ 40.00
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="px-8">
+              {/* Nome da barbearia */}
+              <div className="flex justify-center items-center pb-1">
+                <span className="text-slate-800 mt-3 text-lg font-semibold leading-tight tracking-tight">
+                  {user.firstName} {user.lastName}
+                </span>
+              </div>
+              {/* E-mail */}
+              <div className="text-[#008fd7] pb-2 text-lg l leading-tight tracking-tight">
+                {user.email}
+              </div>
+              {/* Celular */}
+              <div>
+                <span className="pb-2 text-lg font-medium leading-tight tracking-tight">
+                  Contato:{" "}
+                </span>
+                <span className="text-slate-800 font-medium">
+                  {user.cellphone}
+                </span>
+              </div>
             </div>
 
             <Dialog>
@@ -105,58 +94,85 @@ export default function userProfile() {
                 </button>
               </DialogTrigger>
               <DialogContent className="flex items-center justify-center flex-col transition-all duration-300 ease-in-out w-11/12 rounded-lg">
-
                 <DialogHeader>
-                  Edite seu perfil
+                  <DialogTitle>Atualize seu perfil</DialogTitle>
+                  <DialogDescription>Escolha uma opção</DialogDescription>
                 </DialogHeader>
-                <form className="items-center flex flex-col gap-4">
-                  
-                    <label className="block text-gray-700 font-medium ">
-                      Novo nome da barbearia:
-                    </label>
-                    <input
-                      type="text"
-                      className="block w-full rounded-full p-3 border border-gray-300  focus:ring-2 focus:ring-blue-400 focus:outline-none focus:border-transparent"
-                      placeholder="Digite o nome"
-                    />
-                  
-                  <label className="block text-gray-700 font-medium ">
-                      Novo Local:
-                    </label>
-                    <input
-                      type="text"
-                      className="block w-full rounded-full p-3 border border-gray-300  focus:ring-2 focus:ring-blue-400 focus:outline-none focus:border-transparent"
-                      placeholder="Digite o local"
-                    />
-                  <Button
+                {/* mudar Celular */}
+
+                <Dialog>
+                  <DialogTrigger>
+                    <Button className="bg-blue-600 hover:bg-blue-600 font-semibold  ">
+                      Atualizar Contato
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="flex items-center justify-center flex-col transition-all duration-300 ease-in-out w-11/12 rounded-lg">
+                    <DialogHeader>
+                      <DialogTitle>Contato</DialogTitle>
+                      <DialogDescription>
+                        Atualize seu número para contato
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="flex gap-3 items-center">
+                      <label htmlFor="cellphone">Celular</label>
+                      <Input
+                        type="text"
+                        pattern="\d{2}\s9\d{4}-\d{4}"
+                        placeholder="xx xxxxx-xxxx"
+                      />
+                    </div>
+                    <DialogFooter className=" w-full">
+                      <div className="flex justify-end">
+                        <Button className="bg-blue-600 hover:bg-blue-700 font-semibold">
+                          Salvar
+                        </Button>
+                      </div>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+
+                {/* mudar senha */}
+                <Dialog>
+                  <DialogTrigger>
+                    <Button className="px-6 bg-blue-600 hover:bg-blue-600 font-semibold  ">
+                      Atualizar Senha
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="flex items-center justify-center flex-col transition-all duration-300 ease-in-out w-11/12 rounded-lg">
+                    <DialogHeader>
+                      <DialogTitle>Senha</DialogTitle>
+                      <DialogDescription>Atualize sua senha</DialogDescription>
+                    </DialogHeader>
+                    <div className="flex gap-3 items-center">
+                      <label htmlFor="cellphone">Senha</label>
+                      <Input
+                        type="password"
+                        placeholder="Digite sua nova senha"
+                      />
+                    </div>
+                    <DialogFooter className=" w-full">
+                      <div className="flex justify-end">
+                        <Button className="bg-blue-600 hover:bg-blue-700 font-semibold">
+                          Salvar
+                        </Button>
+                      </div>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+
+                {/* <Button
                     type="submit"
-                    className="bg-green-400 hover:bg-green-500 font-semibold  "
+                    className="bg-blue-400 hover:bg-blue-600 font-semibold  "
                   >
-                    Corfirmar
-                  </Button>
-
-
-                  <DialogFooter>
-
-                    <Link href="/sellService" className="flex justify-center">
-                      <Button
-                        type="submit"
-                        className="bg-blue-400 hover:bg-blue-500 font-semibold"
-                      >
-                        Adicionar novos serviços e produtos
-                      </Button>
-                    </Link>
-                  </DialogFooter>
-                </form>
+                    Salvar
+                  </Button> */}
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <Button variant="outline">Voltar</Button>
+                  </DialogClose>
+                </DialogFooter>
               </DialogContent>
             </Dialog>
-
-
-
-            {/* Data de abertura */}
-            <span className="text-black text-[15px] mt-3 font-normal leading-tight tracking-tight block">
-              Criado desde: 09/10/2018
-            </span>
 
             {/* Endereço mostrado em uma div com truncamento e espaço reservado para imagem */}
             <div className="relative flex justify-center mt-4">

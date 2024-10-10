@@ -187,9 +187,9 @@ export default function ServiceScreen() {
                   Cancelar
                 </button>
                 <Link href="/sellProducts">
-                  <div className="bg-blue-500 rounded-full text-white px-6 py-2  hover:bg-blue-600 transition-all duration-300">
+                  <button className="bg-blue-500 rounded-full text-white px-6 py-2  hover:bg-blue-600 transition-all duration-300">
                     Confirmar
-                  </div>
+                  </button>
                 </Link>
               </div>
             </form>
