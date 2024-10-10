@@ -38,7 +38,7 @@ export default function FooterMenu() {
             id: "equipe",
             label: "Equipe",
             img: "/usersactive.svg",
-            href: "/myusersScreen",
+            href: "/myEmployeesScreen",
           },
         ].map((item) => (
           <li

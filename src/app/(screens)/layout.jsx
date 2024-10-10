@@ -17,7 +17,6 @@ export default function RootLayout({ children }) {
           <FooterMenu />
         </div>
       </body>
-      </html>
-  
+    </html>
   );
 }

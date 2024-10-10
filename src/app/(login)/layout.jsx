@@ -1,5 +1,6 @@
 import Head from "next/head";
 import "../globals.css";
+import { UserProvider } from "../context/user";
 
 export const metadata = {
   title: "Onwave",
@@ -26,8 +27,7 @@ export default function RootLayout({ children }) {
           <div className="bg"></div>
           <div className="bg bg2"></div>
           <div className="bg bg3"></div>
-
-          {children}
+          <UserProvider>{children}</UserProvider>
         </main>
       </body>
     </html>

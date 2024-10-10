@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -11,7 +11,24 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-export default function MyUsersScreen() {
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import {
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogDescription,
+} from "@radix-ui/react-alert-dialog";
+import FormCreateUser from "@/components/ui/formCreateUser";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { UserRoundPlus } from "lucide-react";
+export default function MyEmployeesScreen() {
   const funcionarios = [
     {
       nome: "Func 1",
@@ -66,12 +83,15 @@ export default function MyUsersScreen() {
   };
 
   return (
-    <>
+    <div className="flex flex-col gap-6">
+      <div className="h-20 w-full bg-blue-700 rounded-b-md flex items-center justify-center">
+        <div className="relative w-[330px] h-[50px] flex items-center justify-center top-[50px] bg-white shadow-lg rounded-lg">
+          <span className="text-lg font-semibold text-black text-center">
+            Meus Funcionários
+          </span>
+        </div>
+      </div>
       <div className="justify-center items-center flex flex-col ">
-        <span className="flex pt-10 text-center text-[#5d5988] text-[28px] font-extrabold">
-          Meus funcionários
-        </span>
-
         {/* Carrossel de funcionários */}
         <div className="relative flex items-center">
           {/* Seta esquerda para navegar entre os funcionários */}
@@ -130,7 +150,7 @@ export default function MyUsersScreen() {
             </span>
 
             {/* Carrossel de serviços */}
-            <div className="w-[254px] h-[179px] flex flex-col justify-center items-center relative mt-5 bg-white rounded-[18px]">
+            <div className="w-[254px] flex flex-col justify-center items-center relative mt-5 bg-white rounded-[18px]">
               {/* Setas para o carrossel de serviços */}
               <button
                 className="absolute left-2 transform -translate-y-1/2"
@@ -183,8 +203,8 @@ export default function MyUsersScreen() {
             </div>
 
             <div className="flex justify-center gap-2 pb-2">
-              <Dialog>
-                <DialogTrigger>
+              <AlertDialog>
+                <AlertDialogTrigger>
                   <button className="h-10 w-10  mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
                     <Image
                       src="/lixeira.png"
@@ -193,33 +213,25 @@ export default function MyUsersScreen() {
                       height={20}
                     />
                   </button>
-                </DialogTrigger>
-                <DialogContent className="w-11/12 flex flex-col justify-between rounded-lg">
-                  <DialogHeader>
-                    <DialogTitle>Excluir Funcionário</DialogTitle>
-                    <DialogDescription>
+                </AlertDialogTrigger>
+                <AlertDialogContent className="w-11/12 flex flex-col justify-between rounded-lg">
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Excluir Funcionário</AlertDialogTitle>
+                    <AlertDialogDescription>
                       Tem certeza?
                       <br /> Essa ação não pode ser revertida
-                    </DialogDescription>
-                    <form></form>
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
-              <Dialog>
-                <DialogTrigger>
-                  <button className="h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
-                    <Image
-                      src="/editar.png"
-                      alt="editarfinanças"
-                      width={20}
-                      height={20}
-                    />
-                  </button>
-                </DialogTrigger>
-                <DialogContent className="w-11/12 flex flex-col justify-between rounded-lg">
-                  <DialogHeader>vai se fuder</DialogHeader>
-                </DialogContent>
-              </Dialog>
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter className="flex flex-row justify-evenly">
+                    <AlertDialogCancel>
+                      <Button>Cancelar</Button>
+                    </AlertDialogCancel>
+                    <AlertDialogAction>
+                      <Button variant="destructive">Confirmar</Button>
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </div>
           </div>
 
@@ -237,12 +249,15 @@ export default function MyUsersScreen() {
           </button>
         </div>
       </div>
-<div className="flex items-center justify-center py-2">
-  
-        <button className="h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
-          <Image src="/plus.png" alt="editarfinanças" width={20} height={20} />
-        </button>
-</div>
-    </>
+      <div className="flex items-center justify-center py-2">
+        <Button className="bg-blue-500 hover:bg-blue-600">
+          <Link href="/createEmployee" className="flex items-center gap-2">
+            Novo funcionário
+            <UserRoundPlus />
+          </Link>
+        </Button>
+      </div>
+    </div>
   );
 }
+//  className =     "h-10 w-10 mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center";
