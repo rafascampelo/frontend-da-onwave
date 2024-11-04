@@ -11,32 +11,14 @@ import {
 import { useForm } from "react-hook-form";
 import { Button } from "./button";
 import { Input } from "./input";
-import { UserServices } from "@/services/user";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
-import { useContext } from "react";
-import { UserContext } from "@/app/context/user";
 
-const services = new UserServices();
+import { useState } from "react";
 
 export default function LoginForm() {
-  const router = useRouter();
   const form = useForm();
   const [errorMessage, setErrorMessage] = useState("");
-  const { register, setUser } = useContext(UserContext);
 
-  const onSubmit = async (data) => {
-    const res = await services.signin(data);
-
-    if (res.error) {
-      setErrorMessage(result.error);
-    } else {
-      const { result } = res;
-      Cookies.set("auth_token", result.token);
-      router.push("/homeScreen");
-    }
-  };
+  const onSubmit = console.log("oi");
 
   return (
     <Form {...form}>

@@ -30,7 +30,7 @@ export default function Home() {
           </span>
 
           <Link
-            href="/sign_in"
+            href="/login"
             className="mt-auto w-full h-[55px] bg-blue-600 text-white font-bold rounded-full shadow-md hover:bg-blue-700 transition-colors flex justify-center items-center"
           >
             Login

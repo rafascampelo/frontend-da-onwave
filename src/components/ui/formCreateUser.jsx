@@ -17,19 +17,23 @@ import { CalendarIcon } from "lucide-react";
 import { Calendar } from "./calendar";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
-import { UserServices } from "@/services/user";
 
 export default function FormCreateUser() {
-  const form = useForm();
-  const service = new UserServices();
-  const onSubmit = async (data) => {
-    console.log(await service.create(data));
-  };
+  const form = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      Email: "",
+      cpf: "",
+      born: null, // Para o campo de data, pode começar com `null` ou uma data específica
+      cellphone: "",
+    },
+  });
 
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit((data) => console.log(data))}
         className="w-[300px]  h-[65%] fixed top-[125px] bg-white flex flex-col  items-center rounded-[13px] shadow-lg p-4 gap-2 overflow-y-scroll"
       >
         <h1 className="text-2xl font-extrabold text-slate-600 text-center">

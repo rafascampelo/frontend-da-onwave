@@ -4,9 +4,9 @@ import Link from "next/link";
 export default async function homeScreen() {
   return (
     <div>
-      <div className="h-20 w-full bg-blue-700 rounded-b-md flex items-center justify-center fixed overflow-hidden">
+      <div className="h-20 w-full bg-transparent rounded-b-md flex items-center justify-center fixed overflow-hidden">
         <Link href="/userProfile">
-          <div className="fixed top-10 right-0 flex items-center bg-white shadow-lg p-3 rounded-lg">
+          <div className="fixed top-5 right-0 flex items-center bg-white shadow-lg p-3 rounded-lg">
             <Image
               src="/userbarb.png"
               alt="User"

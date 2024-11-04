@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function sellProducts() {
   return (
@@ -7,7 +6,8 @@ export default function sellProducts() {
       <div className=" flex flex-col items-center justify-center gap-6 ">
         {/* aqui é o titulo cabeção */}
         <span className=" text-center pt-14 text-[#5d5988] text-[28px] font-extrabold leading-[38px]">
-           Escolha os <br/>serviços novos
+          Escolha os <br />
+          serviços novos
         </span>
 
         {/* Botões para selecionar tema */}

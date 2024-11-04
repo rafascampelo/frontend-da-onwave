@@ -55,7 +55,7 @@ const barbeiros = [
 export default function SaleScreen() {
   return (
     <>
-      <div className="bg-blue-600 h-16 w-full relative items-center"></div>
+      <div className="bg-blue-700 h-16 w-full relative items-center"></div>
       <div className="flex justify-center absolute top-4 w-full pt-2">
         <form className="w-[272px] h-[51px] bg-white rounded-[46px] flex items-center relative shadow-xl">
           <input
@@ -120,14 +120,19 @@ export default function SaleScreen() {
                   <span className="pl-4">Nome</span>
                   <span>Comissão</span>
                 </div>
-              
-              {barbeiros.map((barbeiro) => {
-                return (<div key={barbeiro.id} className="px-4 text-lg font-medium text-slate-600 flex justify-between">
-                  <span> {barbeiro.name}:</span>
-                  <span>{barbeiro.comission.toFixed(2)}</span>
-                </div>);
-              })}
-            </div>
+
+                {barbeiros.map((barbeiro) => {
+                  return (
+                    <div
+                      key={barbeiro.id}
+                      className="px-4 text-lg font-medium text-slate-600 flex justify-between"
+                    >
+                      <span> {barbeiro.name}:</span>
+                      <span>{barbeiro.comission.toFixed(2)}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             <br />
           </div>

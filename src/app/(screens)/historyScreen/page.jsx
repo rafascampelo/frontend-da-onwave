@@ -1,15 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-
-// Componente de Card de Atendimentos
-// const AtendimentosCard = ({ atendimentos }) => {
-//   return (
-   
-//   );
-// };
 
 // Componente da Página History
 export default function History() {
@@ -40,10 +30,12 @@ export default function History() {
   ];
 
   return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="h-[80px] w-full bg-blue-700 rounded-b-md relative flex justify-center items-center">
-        <div className="flex items-center absolute top-[60px] justify-center bg-white w-36 h-[30px] font-medium text-xl shadow-lg rounded-md">
-          Histórico
+    <div className="flex flex-col items-center gap-6">
+      <div className="h-20 w-full bg-blue-700  flex items-center justify-center">
+        <div className="relative w-[330px] h-[50px] flex items-center justify-center top-[50px] bg-white shadow-lg rounded-lg">
+          <span className="text-lg font-semibold text-black text-center">
+            Histórico
+          </span>
         </div>
       </div>
 
@@ -59,8 +51,7 @@ export default function History() {
         </Link>
       </div>
 
-      
-      <div className="bg-white rounded-lg shadow-lg  max-w-[calc(100%-40px)] w-[600px] h-[70vh] overflow-y-auto p-6">
+      <div className="bg-white rounded-lg shadow-lg  max-w-[calc(100%-40px)] w-[600px] h-[65vh] overflow-y-auto p-6">
         {atendimentos.length === 0 ? (
           <p className="text-center text-gray-500">
             Nenhum atendimento registrado.
@@ -88,7 +79,6 @@ export default function History() {
           ))
         )}
       </div>
-        
     </div>
   );
 }
