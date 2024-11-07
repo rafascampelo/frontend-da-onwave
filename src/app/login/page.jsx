@@ -4,7 +4,7 @@ import LoginForm from "@/components/ui/LoginForm";
 
 export default function login() {
   return (
-    <>
+    <div className="w-full h-full flex items-center justify-center">
       <div
         className=" w-[300px] h-[600px] bg-white/50 backdrop-blur-[50px] items-center
  rounded-3xl shadow gap-2.5 shadow-gray-500 leading-[14px] flex flex-col justify-center "
@@ -47,6 +47,6 @@ export default function login() {
           </span>
         </div> */}
       </div>
-    </>
+    </div>
   );
 }
