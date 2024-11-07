@@ -11,39 +11,31 @@ import {
 import { useForm } from "react-hook-form";
 import { Button } from "./button";
 import { Input } from "./input";
-import { UserServices } from "@/services/user";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
-import { useContext } from "react";
-import { UserContext } from "@/app/context/user";
+import { login } from "@/services/auth";
 
-const services = new UserServices();
+import { useState } from "react";
 
 export default function LoginForm() {
-  const router = useRouter();
   const form = useForm();
   const [errorMessage, setErrorMessage] = useState("");
-  const { register, setUser } = useContext(UserContext);
 
   const onSubmit = async (data) => {
-    const res = await services.signin(data);
-
-    if (res.error) {
-      setErrorMessage(result.error);
-    } else {
-      const { result } = res;
-      Cookies.set("auth_token", result.token);
-      router.push("/homeScreen");
+    setErrorMessage(""); // Limpa a mensagem de erro antes de tentar o login
+    try {
+      const response = await login(data.email, data.password);
+      console.log("Login bem-sucedido", response);
+      // Aqui você pode redirecionar o usuário ou armazenar as informações necessárias
+    } catch (error) {
+      setErrorMessage("Credenciais inválidas. Tente novamente."); // Mensagem de erro genérica
+      console.error("Erro ao fazer login:", error);
     }
   };
-
   return (
     <Form {...form}>
       {errorMessage && <p className="text-rose-500">{errorMessage}</p>}
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className=" items-center px-8"
+        className="items-center px-8"
       >
         <FormField
           control={form.control}

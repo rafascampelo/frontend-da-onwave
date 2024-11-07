@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-export default function moneyScreen() {
+export default function MoneyScreen() {
   const [activeModal, setActiveModal] = useState(null);
 
   const openModal = (modalType) => {
@@ -17,7 +17,7 @@ export default function moneyScreen() {
 
   return (
     <>
-      <div className="h-20 w-full bg-blue-700 rounded-b-md relative flex justify-center items-center flex-col">
+      <div className="h-20 w-full bg-blue-700  relative flex justify-center items-center flex-col">
         {/* Contéudo da div azul (opcional) */}
       </div>
       <div className="absolute left-1/2 top-12 w-[274px] h-20 bg-white rounded-[14px] shadow-inner flex items-center px-4 transform -translate-x-1/2">
@@ -88,7 +88,12 @@ export default function moneyScreen() {
           onClick={() => openModal("btneditar")}
           className="h-10 w-10 absolute right-20 top-[330px] bg-white shadow-md rounded-full flex items-center justify-center"
         >
-          <Image src="/editar.png" alt="editarfinanças" width={20} height={20} />
+          <Image
+            src="/editar.png"
+            alt="editarfinanças"
+            width={20}
+            height={20}
+          />
         </button>
         {/* Botão de excluir */}
         <button

@@ -84,7 +84,7 @@ export default function MyEmployeesScreen() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="h-20 w-full bg-blue-700 rounded-b-md flex items-center justify-center">
+      <div className="h-20 w-full bg-blue-700  flex items-center justify-center">
         <div className="relative w-[330px] h-[50px] flex items-center justify-center top-[50px] bg-white shadow-lg rounded-lg">
           <span className="text-lg font-semibold text-black text-center">
             Meus Funcionários
@@ -204,15 +204,13 @@ export default function MyEmployeesScreen() {
 
             <div className="flex justify-center gap-2 pb-2">
               <AlertDialog>
-                <AlertDialogTrigger>
-                  <button className="h-10 w-10  mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
-                    <Image
-                      src="/lixeira.png"
-                      alt="editarfinanças"
-                      width={20}
-                      height={20}
-                    />
-                  </button>
+                <AlertDialogTrigger className="h-10 w-10  mx-1 space-x-1.5 bg-white shadow-inner rounded-full flex items-center justify-center">
+                  <Image
+                    src="/lixeira.png"
+                    alt="editarfinanças"
+                    width={20}
+                    height={20}
+                  />
                 </AlertDialogTrigger>
                 <AlertDialogContent className="w-11/12 flex flex-col justify-between rounded-lg">
                   <AlertDialogHeader>
@@ -223,11 +221,13 @@ export default function MyEmployeesScreen() {
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter className="flex flex-row justify-evenly">
-                    <AlertDialogCancel>
-                      <Button>Cancelar</Button>
+                    <AlertDialogCancel className="bg-primary text-primary-foreground h-10 rounded-md px-3 hover:bg-primary/90 ">
+                      Cancelar
                     </AlertDialogCancel>
                     <AlertDialogAction>
-                      <Button variant="destructive">Confirmar</Button>
+                      <div>
+                        <Button variant="destructive">Confirmar</Button>
+                      </div>
                     </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
@@ -250,7 +250,7 @@ export default function MyEmployeesScreen() {
         </div>
       </div>
       <div className="flex items-center justify-center py-2">
-        <Button className="bg-blue-500 hover:bg-blue-600">
+        <Button className="bg-blue-700 hover:bg-blue-800">
           <Link href="/createEmployee" className="flex items-center gap-2">
             Novo funcionário
             <UserRoundPlus />
