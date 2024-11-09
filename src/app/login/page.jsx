@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LoginForm from "@/components/ui/LoginForm";
 
-export default function login() {
+export default function Login() {
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div

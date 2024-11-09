@@ -1,3 +1,4 @@
+import NextAuthSessionProvider from "@/providers/sessionProvider";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
           <div className="bg"></div>
           <div className="bg bg2"></div>
           <div className="bg bg3"></div>
-          {children}
+          <NextAuthSessionProvider>{children}</NextAuthSessionProvider>
         </main>
       </body>
     </html>

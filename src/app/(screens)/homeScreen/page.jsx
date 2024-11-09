@@ -1,12 +1,15 @@
+import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function homeScreen() {
+export default async function HomeScreen() {
+  const session = await getServerSession(nextAuthOptions);
   return (
     <div>
       <div className="h-20 w-full bg-transparent rounded-b-md flex items-center justify-center fixed overflow-hidden">
         <Link href="/userProfile">
-          <div className="fixed top-5 right-0 flex items-center bg-white shadow-lg p-3 rounded-lg">
+          <div className="fixed top-5 right-[-0.25rem] flex items-center bg-white shadow-lg p-3 rounded-lg">
             <Image
               src="/userbarb.png"
               alt="User"
@@ -15,7 +18,7 @@ export default async function homeScreen() {
               height={48}
             />
             <div className="ml-3 text-lg font-bold text-gray-800">
-              $nomeBarboooooo
+              {session.firstName} {session.lastName}
             </div>
           </div>
         </Link>
@@ -35,7 +38,7 @@ export default async function homeScreen() {
         </div>
 
         <Link
-          href="/history"
+          href="/historyScreen"
           passHref
           className="w-[150px] h-[43px] px-7 fixed bottom-[190px] flex items-center bg-white rounded-full shadow-lg"
         >
