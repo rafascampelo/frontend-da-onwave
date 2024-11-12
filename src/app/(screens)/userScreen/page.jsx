@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { getServerSession } from "next-auth";
 import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
+import ButtonLogut from "@/components/ui/buttonLogut";
 
 // const user = {
 //   id: "kdfkasjklfsa",
@@ -36,7 +37,7 @@ export default async function UserProfile() {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col bg-gray-100">
+      <div className="min-h-screen flex flex-col ">
         {/* Link para voltar */}
         <div className="fixed top-5 left-3">
           <Link href="/homeScreen">
@@ -193,6 +194,9 @@ export default async function UserProfile() {
                   height={20}
                 />
               </div>
+            </div>
+            <div className="w-full flex justify-center py-5">
+              <ButtonLogut />
             </div>
           </div>
         </div>

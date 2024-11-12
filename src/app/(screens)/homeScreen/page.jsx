@@ -8,7 +8,7 @@ export default async function HomeScreen() {
   return (
     <div>
       <div className="h-20 w-full bg-transparent rounded-b-md flex items-center justify-center fixed overflow-hidden">
-        <Link href="/userProfile">
+        <Link href="/userScreen">
           <div className="fixed top-5 right-[-0.25rem] flex items-center bg-white shadow-lg p-3 rounded-lg">
             <Image
               src="/userbarb.png"
@@ -32,8 +32,9 @@ export default async function HomeScreen() {
             width={200}
             height={200}
           />
-          <span className="text-center text-black text-sm font-bold ">
-            Seja bem-vindo, $User.<p>Esse é o mural de notificações.</p>
+          <span className="text-center text-black text-sm font-bold px-2 break-word">
+            Seja bem-vindo, {session.firstName} {session.lastName}. Esse é o
+            mural de notificações.
           </span>
         </div>
 

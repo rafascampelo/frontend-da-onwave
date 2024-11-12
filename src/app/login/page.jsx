@@ -1,6 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import LoginForm from "@/components/ui/LoginForm";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export default function Login() {
   return (
@@ -17,35 +28,33 @@ export default function Login() {
           height={200}
           priority
         />
-
         <LoginForm />
 
-        <Link
-          href=""
-          className=" w-[232px] h-[25px] text-center text-black/80 text-[15px] font-bold "
-        >
-          Esqueci minha senha
-        </Link>
-
-        {/* <div className=" mt-10 w-[232px] h-[51px] text-center">
-          <span className="text-black text-[15px] font-medium ">
-            Desculpe, sua
-          </span>
-          <span className="text-[#ff0000] text-[15px] font-medium ">
-            {" "}
-            senha
-          </span>
-          <span className="text-black text-[15px] font-medium "> ou </span>
-          <span className="text-[#ff0000] text-[15px] font-medium ">login</span>
-          <span className="text-black text-[15px] font-medium ">
-            {" "}
-            está errado.
-          </span>
-          <span className="text-black text-[15px] font-medium ">
-            {" "}
-            por favor tente novamente.
-          </span>
-        </div> */}
+        <Dialog>
+          <DialogTrigger
+            className=" w-[232px] h-[25px] text-center text-black/80 text-[15px]
+        font-bold "
+          >
+            Esqueci minha senha
+          </DialogTrigger>
+          <DialogContent className="flex items-center justify-center flex-col transition-all duration-300 ease-in-out w-11/12 rounded-lg">
+            <DialogHeader>
+              <DialogTitle>Senha</DialogTitle>
+              <DialogDescription>Atualize sua senha</DialogDescription>
+            </DialogHeader>
+            <div className="flex gap-3 items-center">
+              <label htmlFor="cellphone">Senha</label>
+              <Input type="password" placeholder="Digite sua nova senha" />
+            </div>
+            <DialogFooter className=" w-full">
+              <div className="flex justify-end">
+                <Button className="bg-blue-600 hover:bg-blue-700 font-semibold">
+                  Salvar
+                </Button>
+              </div>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );
