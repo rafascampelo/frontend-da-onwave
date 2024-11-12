@@ -12,27 +12,32 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { getServerSession } from "next-auth";
+import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
+import ButtonLogut from "@/components/ui/buttonLogut";
 
-const user = {
-  id: "kdfkasjklfsa",
-  firstName: "John",
-  lastName: "Watson",
-  email: "john.watson@onwave.com",
-  password: "0000",
-  born: "mm/dd/aa",
-  cpf: "563.656.789-98",
-  cellphone: "11 96897-4835",
-  role: "ADMIN",
-  unitId: "0",
-  adminId: null,
-  barbeshopId: "0",
-  firstLogin: false,
-};
+// const user = {
+//   id: "kdfkasjklfsa",
+//   firstName: "John",
+//   lastName: "Watson",
+//   email: "john.watson@onwave.com",
+//   password: "0000",
+//   born: "mm/dd/aa",
+//   cpf: "563.656.789-98",
+//   cellphone: "11 96897-4835",
+//   role: "ADMIN",
+//   unitId: "0",
+//   adminId: null,
+//   barbeshopId: "0",
+//   firstLogin: false,
+// };
 
-export default function userProfile() {
+export default async function UserProfile() {
+  const user = await getServerSession(nextAuthOptions);
+
   return (
     <>
-      <div className="min-h-screen flex flex-col bg-gray-100">
+      <div className="min-h-screen flex flex-col ">
         {/* Link para voltar */}
         <div className="fixed top-5 left-3">
           <Link href="/homeScreen">
@@ -189,6 +194,9 @@ export default function userProfile() {
                   height={20}
                 />
               </div>
+            </div>
+            <div className="w-full flex justify-center py-5">
+              <ButtonLogut />
             </div>
           </div>
         </div>

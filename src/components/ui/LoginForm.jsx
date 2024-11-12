@@ -14,21 +14,45 @@ import { Input } from "./input";
 import { login } from "@/services/auth";
 
 import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
-  const form = useForm();
+  const form = useForm({
+    defaultValues: {
+      email: "", // Inicializa com string vazia
+      password: "", // Inicializa com string vazia
+    },
+  });
+
   const [errorMessage, setErrorMessage] = useState("");
 
+  const router = useRouter();
+
   const onSubmit = async (data) => {
-    setErrorMessage(""); // Limpa a mensagem de erro antes de tentar o login
-    try {
-      const response = await login(data.email, data.password);
-      console.log("Login bem-sucedido", response);
-      // Aqui você pode redirecionar o usuário ou armazenar as informações necessárias
-    } catch (error) {
-      setErrorMessage("Credenciais inválidas. Tente novamente."); // Mensagem de erro genérica
-      console.error("Erro ao fazer login:", error);
+    // setErrorMessage("");
+    // try {
+    //   const response = await login(data.email, data.password);
+    //   console.log("Login bem-sucedido", response);
+    //   // Aqui você pode redirecionar o usuário ou armazenar as informações necessárias
+    // } catch (error) {
+    //   setErrorMessage("Credenciais inválidas. Tente novamente.");
+    //   console.error("Erro ao fazer login:", error);
+    // }
+
+    const res = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    });
+
+    if (res.error) {
+      console.log(res);
+      return;
     }
+    console.log(res);
+
+    router.replace("/homeScreen");
   };
   return (
     <Form {...form}>
@@ -74,7 +98,10 @@ export default function LoginForm() {
             </FormItem>
           )}
         />
-        <Button className="mt-2 w-full bg-blue-500 hover:bg-blue-700">
+        <Button
+          type="submit"
+          className="mt-2 w-full bg-blue-500 hover:bg-blue-700"
+        >
           Entrar
         </Button>
       </form>
