@@ -1,7 +1,7 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 
 export default function MoneyScreen() {
@@ -195,16 +195,7 @@ export default function MoneyScreen() {
           </div>
         )}
       </div>
-      <div className="relative">
-        <Link
-          href="/saleScreen"
-          className="w-[268.04px] h-[50px] absolute top-[410px] left-1/2 -translate-x-1/2 bg-[#008fd7] rounded-[40px] 
-             justify-center items-center gap-2 inline-flex 
-             text-center text-white text-lg font-bold leading-[18px] mb-6"
-        >
-          Minhas vendas
-        </Link>
-      </div>
+
       {/* form add */}
       {activeModal === "btnadd" && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-70 flex justify-center items-center z-50">
@@ -322,6 +313,16 @@ export default function MoneyScreen() {
           </div>
         </div>
       )}
+      <div className="flex flex-rol items-center justify-center  min-h-screen mt-24 py-10">
+        <Button className="bg-blue-700 hover:bg-blue-800 h-10 w-[200px]">
+          <Link
+            href="/saleScreen"
+            className="flex items-center justify-center text-center "
+          >
+            Minhas vendas
+          </Link>
+        </Button>
+      </div>
     </>
   );
 }

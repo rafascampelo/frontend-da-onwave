@@ -44,7 +44,7 @@ export default async function UserProfile() {
             <Image
               src="/voltar.png"
               alt="Onwave Logo"
-              className="dark:invert pb-2"
+              className="dark:invert pb-2  "
               width={32}
               height={32}
               priority

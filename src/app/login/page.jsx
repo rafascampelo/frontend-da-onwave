@@ -26,7 +26,6 @@ export default function Login() {
           className="dark:invert"
           width={200}
           height={200}
-          priority
         />
         <LoginForm />
 
@@ -39,15 +38,21 @@ export default function Login() {
           </DialogTrigger>
           <DialogContent className="flex items-center justify-center flex-col transition-all duration-300 ease-in-out w-11/12 rounded-lg">
             <DialogHeader>
-              <DialogTitle>Senha</DialogTitle>
+              <DialogTitle></DialogTitle>
               <DialogDescription>Atualize sua senha</DialogDescription>
             </DialogHeader>
             <div className="flex gap-3 items-center">
               <label htmlFor="cellphone">Senha</label>
-              <Input type="password" placeholder="Digite sua nova senha" />
+
+              <Input
+                type="password"
+                placeholder="Digite sua nova senha"
+                className="pr-12 pl-4 rounded-full border-2"
+              />
             </div>
+
             <DialogFooter className=" w-full">
-              <div className="flex justify-end">
+              <div className="flex justify-center">
                 <Button className="bg-blue-600 hover:bg-blue-700 font-semibold">
                   Salvar
                 </Button>
