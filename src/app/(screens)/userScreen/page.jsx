@@ -107,7 +107,7 @@ export default async function UserProfile() {
 
                 <Dialog>
                   <DialogTrigger>
-                    <Button className="bg-blue-600 hover:bg-blue-600 font-semibold  ">
+                    <Button className="bg-blue-600 hover:bg-blue-600 font-semibold">
                       Atualizar Contato
                     </Button>
                   </DialogTrigger>

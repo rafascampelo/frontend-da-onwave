@@ -14,20 +14,62 @@ import Link from "next/link";
 
 export default function ServiceScreen() {
   const atendimentos = [
-    // {
-    //   cliente: "João da Silva",
-    //   data: "01/09/2024",
-    //   servico: [
-    //     { name: "Dregade", id: 1 },
-    //     { name: "social", id: 3 },
-    //   ],
-    //   produto: [
-    //     { name: "Shampoo", id: 1 },
-    //     { name: "gel", id: 3 },
-    //   ],
-    //   pagamento_produto: 32,
-    //   pagamento_servico: 23.6,
-    // },
+    {
+      cliente: "João da Silva",
+      data: "01/09/2024",
+      servico: [
+        { name: "Dregade", id: 1 },
+        { name: "social", id: 3 },
+      ],
+      produto: [
+        { name: "Shampoo", id: 1 },
+        { name: "gel", id: 3 },
+      ],
+      pagamento_produto: 32,
+      pagamento_servico: 23.6,
+    },
+    {
+      cliente: "João da Silva",
+      data: "01/09/2024",
+      servico: [
+        { name: "Dregade", id: 1 },
+        { name: "social", id: 3 },
+      ],
+      produto: [
+        { name: "Shampoo", id: 1 },
+        { name: "gel", id: 3 },
+      ],
+      pagamento_produto: 32,
+      pagamento_servico: 23.6,
+    },
+    {
+      cliente: "João da Silva",
+      data: "01/09/2024",
+      servico: [
+        { name: "Dregade", id: 1 },
+        { name: "social", id: 3 },
+      ],
+      produto: [
+        { name: "Shampoo", id: 1 },
+        { name: "gel", id: 3 },
+      ],
+      pagamento_produto: 32,
+      pagamento_servico: 23.6,
+    },
+    {
+      cliente: "João da Silva",
+      data: "01/09/2024",
+      servico: [
+        { name: "Dregade", id: 1 },
+        { name: "social", id: 3 },
+      ],
+      produto: [
+        { name: "Shampoo", id: 1 },
+        { name: "gel", id: 3 },
+      ],
+      pagamento_produto: 32,
+      pagamento_servico: 23.6,
+    },
   ];
 
   return (
@@ -54,7 +96,7 @@ export default function ServiceScreen() {
 
       {/* Renderizando o componente de atendimentos */}
       <div className="flex justify-center items-center pt-[40px]">
-        <div className="bg-white rounded-lg shadow-lg max-w-[calc(100%-40px)] w-[600px] h-[65vh] overflow-y-auto p-6">
+        <div className="bg-white rounded-lg shadow-lg max-w-[calc(100%-40px)] w-[600px] h-[65vh] overflow-y-auto p-6 flex flex-col gap-2">
           {atendimentos.length === 0 ? (
             <p className="text-center text-gray-500">
               Nenhum atendimento em andamento.
@@ -72,11 +114,11 @@ export default function ServiceScreen() {
                     </div>
                   </DialogTrigger>
                   <div className="pt-2 flex justify-center gap-2">
-                    <button className="bg-red-500 text-white px-8 py-2 rounded-full hover:bg-red-600 transition">
+                    <button className="bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600 transition">
                       Cancelar
                     </button>
                     <Link href="/paymentScreen">
-                      <button className="bg-green-500 text-white px-8 py-2 rounded-full hover:bg-green-600 transition">
+                      <button className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition">
                         Finalizar
                       </button>
                     </Link>
