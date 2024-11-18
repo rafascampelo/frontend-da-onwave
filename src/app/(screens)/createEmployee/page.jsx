@@ -1,6 +1,4 @@
 import FormCreateUser from "@/components/ui/formCreateUser";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function CreateEmployee() {
   return (

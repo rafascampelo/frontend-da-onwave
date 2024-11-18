@@ -12,28 +12,31 @@ import {
   FormLabel,
   FormMessage,
 } from "./form";
-import { Popover, PopoverContent, PopoverTrigger } from "./popover";
-import { CalendarIcon } from "lucide-react";
-import { Calendar } from "./calendar";
-import { cn } from "@/lib/utils";
-import { format } from "date-fns";
+import { useSession } from "next-auth/react";
+import { createEmployee } from "@/services/api";
 
 export default function FormCreateUser() {
+  const user = useSession().data;
   const form = useForm({
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      Email: "",
-      cpf: "",
-      born: null, // Para o campo de data, pode começar com `null` ou uma data específica
+      firstname: "",
+      lastname: "",
+      email: "",
       cellphone: "",
+      fixedPayment: "",
+      commissionProcedure: "",
+      commissionProduct: "",
     },
   });
+  const submit = async (data) => {
+    const res = await createEmployee(data,user.id,user.barbershopId,user.token)
+    console.log(res);
+  }
 
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit((data) => console.log(data))}
+        onSubmit={form.handleSubmit((data) => submit(data))}
         className="w-[300px]  h-[65%] fixed top-[125px] bg-white flex flex-col  items-center rounded-[13px] shadow-lg p-4 gap-2 overflow-y-scroll"
       >
         <h1 className="text-2xl font-extrabold text-slate-600 text-center">
@@ -45,7 +48,7 @@ export default function FormCreateUser() {
         </span>
         <FormField
           control={form.control}
-          name="firstName"
+          name="firstname"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Nome</FormLabel>
@@ -58,7 +61,7 @@ export default function FormCreateUser() {
         />
         <FormField
           control={form.control}
-          name="lastName"
+          name="lastname"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Sobrenome</FormLabel>
@@ -72,77 +75,22 @@ export default function FormCreateUser() {
 
         <FormField
           control={form.control}
-          name="Email"
+          name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Digite o email" {...field} required />
+                <Input
+                  placeholder="Digite o email"
+                  type="email"
+                  {...field}
+                  required
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-
-        <FormField
-          control={form.control}
-          name="cpf"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>CPF</FormLabel>
-              <FormControl>
-                <Input placeholder="Digite o CPF" {...field} required />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="born"
-          render={({ field }) => (
-            <FormItem className="w-[202px]">
-              <FormLabel>Data de Nascimento</FormLabel>
-              <FormControl>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <FormControl>
-                      <Button
-                        variant={"outline"}
-                        className={cn(
-                          "w-[202px] pl-3 text-left font-normal",
-                          !field.value && "text-muted-foreground"
-                        )}
-                      >
-                        {field.value ? (
-                          format(field.value, "d/MM/y")
-                        ) : (
-                          <span>Selecione</span>
-                        )}
-                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                      </Button>
-                    </FormControl>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      captionLayout="dropdown-buttons"
-                      hideNavigation
-                      mode="single"
-                      selected={field.value}
-                      onSelect={field.onChange}
-                      disabled={(date) =>
-                        date > new Date() || date < new Date("1900-01-01")
-                      }
-                    />
-                  </PopoverContent>
-                </Popover>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
         <FormField
           control={form.control}
           name="cellphone"
@@ -151,6 +99,61 @@ export default function FormCreateUser() {
               <FormLabel>Celular pra contato</FormLabel>
               <FormControl>
                 <Input placeholder="Digite o celular" {...field} required />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="fixedPayment"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Pagamento fixo</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Digite o valor em reais"
+                  {...field}
+                  type="number"
+                  required
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="commissionProcedure"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Comissão para cortes</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Valor em porcentagem"
+                  type="number"
+                  {...field}
+                  required
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="commissionProduct"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Comissão para produtos</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Valor em porcentagem"
+                  type="number"
+                  {...field}
+                  required
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -170,38 +173,3 @@ export default function FormCreateUser() {
     </Form>
   );
 }
-// className="w-[300px]  h-[65%] fixed top-[125px] bg-white flex flex-col  items-center rounded-[13px] shadow-lg p-4 gap-2 overflow-y-scroll"
-
-/*<form onSubmit={handleSubmit(onSubmit)}>
-  
-  <div>
-    <Label htmlFor="firstName">Nome</Label>
-    <Input {...register("firstName", { required: true })} />
-  </div>
-
-  <div>
-    <Label htmlFor="lastName">Sobrenome</Label>
-    <Input {...register("lastName", { required: true })} />
-  </div>
-
-  <div>
-    <Label htmlFor="email">Email</Label>
-    <Input {...register("email", { required: true })} />
-  </div>
-
-  <div>
-    <Label htmlFor="cpf">CPF</Label>
-    <Input {...register("cpf", { required: true })} />
-  </div>
-
-  <div>
-    <Label htmlFor="born">Data de Nascimento</Label>
-    <Input {...register("born", { required: true })} />
-    <DatePicker />
-  </div>
-
-  <div>
-    <Label htmlFor="cellphone">Celular</Label>
-    <Input {...register("cellphone", { required: true })} />
-  </div>
-</form>; */

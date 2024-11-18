@@ -16,7 +16,7 @@ const poppins = Poppins({
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} overflow-y-hidden`}>
         <main className="w-full h-full">
           <div className="bg"></div>
           <div className="bg bg2"></div>

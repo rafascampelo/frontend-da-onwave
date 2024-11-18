@@ -1,7 +1,7 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 // PopUpEditar Component
@@ -161,12 +161,34 @@ export default function BoxScreen() {
     useState(false);
   const [isNewLotePopupVisible, setIsNewLotePopupVisible] = useState(false);
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <div className="h-20 w-full bg-blue-700  flex items-center justify-center">
         <div className="relative w-[330px] h-[50px] flex items-center justify-center top-[50px] bg-white shadow-lg rounded-lg">
           <span className="text-lg font-semibold text-black text-center">
             Meus Produtos
           </span>
+        </div>
+      </div>
+
+      <div className="flex justify-center pt-10">
+        <div className="w-[272px] h-[50px] bg-white rounded-[46px] flex items-center relative shadow-xl">
+          <input
+            type="search"
+            placeholder="Nome do produto"
+            className="w-full h-full bg-transparent rounded-[46px] pl-4 pr-12 outline-none"
+          />
+          <Button
+            size="sm"
+            className="bg-transparent  absolute right-3 text-gray-500 cursor-pointe hover:bg-transparent"
+            onClick={() => console.log("oi")}
+          >
+            <Image
+              src="/pesquisa.png" // Substitua pelo caminho do seu ícone de lupa
+              alt="Buscar"
+              width={20}
+              height={20}
+            />
+          </Button>
         </div>
       </div>
 
@@ -264,6 +286,6 @@ export default function BoxScreen() {
         isVisible={isNewLotePopupVisible}
         onClose={() => setIsNewLotePopupVisible(false)}
       />
-    </>
+    </div>
   );
 }

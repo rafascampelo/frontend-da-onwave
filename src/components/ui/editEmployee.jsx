@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import {
   Dialog,
@@ -11,9 +12,80 @@ import {
 } from "./dialog";
 import { Button } from "./button";
 import { Input } from "./input";
+import {
+  updateCommissionProcedure,
+  updateCommissionProduct,
+  updateFixedPayment,
+} from "@/services/api";
+import { useState } from "react";
 
-export default function EditEmployee(id) {
+export default function EditEmployee({ id, token, employeeId }) {
   // console.log(id);
+  const [fixedPayment, setFixedPayment] = useState(0);
+  const [commissionProcedure, setCommissionProcedure] = useState(0);
+  const [commissionProduct, setCommissionProduct] = useState(0);
+
+  const handleFixedPaymentChange = (e) => {
+    setFixedPayment(e.target.value);
+  };
+
+  // Função para atualizar a comissão de corte
+  const handleCommissionProcedureChange = (e) => {
+    setCommissionProcedure(e.target.value);
+  };
+
+  // Função para atualizar a comissão de produto
+  const handleCommissionProductChange = (e) => {
+    setCommissionProduct(e.target.value);
+  };
+
+  const handleSaveFixedPayment = async () => {
+    try {
+      const result = await updateFixedPayment(
+        id,
+        token,
+        employeeId,
+        fixedPayment
+      );
+      setFixedPayment(0);
+    } catch (error) {
+      console.error("Erro ao atualizar os dados:", error);
+      alert("Erro ao atualizar os dados");
+    }
+  };
+
+  const handleSaveCommissionProcedure = async () => {
+    try {
+      const result = await updateCommissionProcedure(
+        id,
+        token,
+        employeeId,
+        commissionProcedure
+      );
+
+      setCommissionProcedure(0);
+    } catch (error) {
+      console.error("Erro ao atualizar os dados:", error);
+      alert("Erro ao atualizar os dados");
+    }
+  };
+
+  const handleSaveCommissionProduct = async () => {
+    try {
+      const result = await updateCommissionProduct(
+        id,
+        token,
+        employeeId,
+        commissionProduct
+      );
+
+      setCommissionProduct(0);
+    } catch (error) {
+      console.error("Erro ao atualizar os dados:", error);
+      alert("Erro ao atualizar os dados");
+    }
+  };
+
   return (
     <Dialog>
       <DialogTrigger className="bg-slate-100 shadow-md h-10 w-10 rounded-full absolute right-0 top-2 flex justify-center items-center">
@@ -38,10 +110,18 @@ export default function EditEmployee(id) {
               <DialogTitle>Atualize o pagamento fixo</DialogTitle>
               <DialogDescription>Digite o valor em reais</DialogDescription>
             </DialogHeader>
-            <Input type="number"></Input>
+            <Input
+              type="number"
+              value={fixedPayment}
+              onChange={handleFixedPaymentChange}
+              placeholder="Digite o valor do pagamento fixo"
+            />
             <DialogFooter className=" w-full">
               <div className="flex justify-end">
-                <Button className="bg-blue-600 hover:bg-blue-700 font-semibold">
+                <Button
+                  className="bg-blue-600 hover:bg-blue-700 font-semibold"
+                  onClick={handleSaveFixedPayment}
+                >
                   Salvar
                 </Button>
               </div>
@@ -62,10 +142,18 @@ export default function EditEmployee(id) {
                 O valor digitado será usado em %
               </DialogDescription>
             </DialogHeader>
-            <Input type="number"></Input>
+            <Input
+              type="number"
+              value={commissionProcedure}
+              onChange={handleCommissionProcedureChange}
+              placeholder="Digite o valor da comissão"
+            />
             <DialogFooter className=" w-full">
               <div className="flex justify-end">
-                <Button className="bg-blue-600 hover:bg-blue-700 font-semibold">
+                <Button
+                  className="bg-blue-600 hover:bg-blue-700 font-semibold"
+                  onClick={handleSaveCommissionProcedure}
+                >
                   Salvar
                 </Button>
               </div>
@@ -86,10 +174,18 @@ export default function EditEmployee(id) {
                 O valor digitado será usado em %
               </DialogDescription>
             </DialogHeader>
-            <Input type="number"></Input>
+            <Input
+              type="number"
+              value={commissionProduct}
+              onChange={handleCommissionProductChange}
+              placeholder="Digite o valor da comissão"
+            />
             <DialogFooter className=" w-full">
               <div className="flex justify-end">
-                <Button className="bg-blue-600 hover:bg-blue-700 font-semibold">
+                <Button
+                  className="bg-blue-600 hover:bg-blue-700 font-semibold"
+                  onClick={handleSaveCommissionProduct}
+                >
                   Salvar
                 </Button>
               </div>

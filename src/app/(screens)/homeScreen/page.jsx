@@ -1,10 +1,12 @@
 import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
+
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function HomeScreen() {
-  const session = await getServerSession(nextAuthOptions);
+  const user = await getServerSession(nextAuthOptions);
+
   return (
     <div>
       <div className="h-20 w-full bg-transparent rounded-b-md flex items-center justify-center fixed overflow-hidden">
@@ -18,7 +20,7 @@ export default async function HomeScreen() {
               height={48}
             />
             <div className="ml-3 text-lg font-bold text-gray-800">
-              {session.firstName} {session.lastName}
+              {user.firstname} {user.lastname}
             </div>
           </div>
         </Link>
@@ -31,10 +33,11 @@ export default async function HomeScreen() {
             className=""
             width={200}
             height={200}
+            priority
           />
           <span className="text-center text-black text-sm font-bold px-2 break-word">
-            Seja bem-vindo, {session.firstName} {session.lastName}. Esse é o
-            mural de notificações.
+            Seja bem-vindo, {user.firstname} {user.lastname}. Esse é o mural de
+            notificações.
           </span>
         </div>
 

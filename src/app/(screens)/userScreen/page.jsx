@@ -15,6 +15,8 @@ import { Input } from "@/components/ui/input";
 import { getServerSession } from "next-auth";
 import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
 import ButtonLogut from "@/components/ui/buttonLogut";
+import EditUser from "@/components/ui/editUser";
+import { getMyUser } from "@/services/api";
 
 // const user = {
 //   id: "kdfkasjklfsa",
@@ -33,7 +35,8 @@ import ButtonLogut from "@/components/ui/buttonLogut";
 // };
 
 export default async function UserProfile() {
-  const user = await getServerSession(nextAuthOptions);
+  const sessionUser = await getServerSession(nextAuthOptions);
+  const user = await getMyUser(sessionUser.id, sessionUser.token);
 
   return (
     <>
@@ -69,12 +72,12 @@ export default async function UserProfile() {
               {/* Nome da barbearia */}
               <div className="flex justify-center items-center pb-1">
                 <span className="text-slate-800 mt-3 text-lg font-semibold leading-tight tracking-tight">
-                  {user.firstName} {user.lastName}
+                  {sessionUser.firstname} {sessionUser.lastname}
                 </span>
               </div>
               {/* E-mail */}
               <div className="text-[#008fd7] pb-2 text-lg l leading-tight tracking-tight">
-                {user.email}
+                {sessionUser.email}
               </div>
               {/* Celular */}
               <div>
@@ -87,98 +90,7 @@ export default async function UserProfile() {
               </div>
             </div>
 
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="absolute right-5 top-5">
-                  <Image
-                    src="/editar.png"
-                    alt="editarfinanças"
-                    width={20}
-                    height={20}
-                  />
-                </button>
-              </DialogTrigger>
-              <DialogContent className="flex items-center justify-center flex-col transition-all duration-300 ease-in-out w-11/12 rounded-lg">
-                <DialogHeader>
-                  <DialogTitle>Atualize seu perfil</DialogTitle>
-                  <DialogDescription>Escolha uma opção</DialogDescription>
-                </DialogHeader>
-                {/* mudar Celular */}
-
-                <Dialog>
-                  <DialogTrigger>
-                    <Button className="bg-blue-600 hover:bg-blue-600 font-semibold">
-                      Atualizar Contato
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="flex items-center justify-center flex-col transition-all duration-300 ease-in-out w-11/12 rounded-lg">
-                    <DialogHeader>
-                      <DialogTitle>Contato</DialogTitle>
-                      <DialogDescription>
-                        Atualize seu número para contato
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="flex gap-3 items-center">
-                      <label htmlFor="cellphone">Celular</label>
-                      <Input
-                        type="text"
-                        pattern="\d{2}\s9\d{4}-\d{4}"
-                        placeholder="xx xxxxx-xxxx"
-                      />
-                    </div>
-                    <DialogFooter className=" w-full">
-                      <div className="flex justify-end">
-                        <Button className="bg-blue-600 hover:bg-blue-700 font-semibold">
-                          Salvar
-                        </Button>
-                      </div>
-                    </DialogFooter>
-                  </DialogContent>
-                </Dialog>
-
-                {/* mudar senha */}
-                <Dialog>
-                  <DialogTrigger>
-                    <Button className="px-6 bg-blue-600 hover:bg-blue-600 font-semibold  ">
-                      Atualizar Senha
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="flex items-center justify-center flex-col transition-all duration-300 ease-in-out w-11/12 rounded-lg">
-                    <DialogHeader>
-                      <DialogTitle>Senha</DialogTitle>
-                      <DialogDescription>Atualize sua senha</DialogDescription>
-                    </DialogHeader>
-                    <div className="flex gap-3 items-center">
-                      <label htmlFor="cellphone">Senha</label>
-                      <Input
-                        type="password"
-                        placeholder="Digite sua nova senha"
-                      />
-                    </div>
-                    <DialogFooter className=" w-full">
-                      <div className="flex justify-end">
-                        <Button className="bg-blue-600 hover:bg-blue-700 font-semibold">
-                          Salvar
-                        </Button>
-                      </div>
-                    </DialogFooter>
-                  </DialogContent>
-                </Dialog>
-
-                {/* <Button
-                    type="submit"
-                    className="bg-blue-400 hover:bg-blue-600 font-semibold  "
-                  >
-                    Salvar
-                  </Button> */}
-                <DialogFooter>
-                  <DialogClose asChild>
-                    <Button variant="outline">Voltar</Button>
-                  </DialogClose>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-
+            <EditUser />
             {/* Endereço mostrado em uma div com truncamento e espaço reservado para imagem */}
             <div className="relative flex justify-center mt-4">
               <div className="w-[280px] h-[40px] bg-white border-2 border-blue-500 rounded-full pl-4 pr-10 flex items-center shadow-md overflow-hidden">
