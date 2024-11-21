@@ -270,7 +270,7 @@ export default function BoxScreen() {
         </span>
       </button>
 
-      <PopUpEditar
+      <PopUpEditar  
         isVisible={isEditPopupVisible}
         onClose={() => setIsEditPopupVisible(false)}
       />
