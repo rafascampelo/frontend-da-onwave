@@ -5,6 +5,17 @@ export async function middleware(req) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
   const { pathname } = req.nextUrl;
 
+  
+  if (
+    pathname.startsWith("/_next/") ||
+    pathname.startsWith("/api/") ||
+    pathname === "/favicon.ico" ||
+    pathname === "/robots.txt" ||
+    pathname === "/sitemap.xml"
+  ) {
+    return NextResponse.next();
+  }
+
   if (!token && pathname !== "/login" && pathname !== "/") {
     return NextResponse.redirect(new URL("/login", req.url));
   }
@@ -17,6 +28,5 @@ export async function middleware(req) {
 }
 
 export const config = {
-  matcher:
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+  matcher: ["/((?!.*\\..*|_next).*)"],
 };
