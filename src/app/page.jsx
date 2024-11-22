@@ -23,10 +23,15 @@ export default function Home() {
             A Onwave...
           </span>
           <span className="mt-5 px-5 text-black text-sm text-justify">
-            É o software responsável pelo gerenciamento completo do seu negócio
-            de barbearia! Aqui o enfoque total é direcionado a atender suas
-            demandas com responsabilidade e atenção. Assim, podemos ser seu app
-            de gestão fácil na palma da mão!
+            <p>
+              É o software responsável pelo gerenciamento completo do seu
+              negócio!
+            </p>
+            <p>
+              Nosso foco é atender às suas demandas com responsabilidade e
+              atenção. Assim, podemos ser o seu app de gestão fácil, na palma da
+              sua mão!
+            </p>
           </span>
 
           <Link

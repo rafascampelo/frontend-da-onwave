@@ -2,7 +2,7 @@ import FooterMenu from "@/components/ui/footerMenu";
 
 export default function ScreensLayout({ children }) {
   return (
-    <div className="">
+    <div>
       {children}
       <FooterMenu />
     </div>

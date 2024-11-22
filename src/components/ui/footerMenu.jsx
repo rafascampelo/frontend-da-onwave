@@ -31,7 +31,7 @@ export default function FooterMenu() {
           {
             id: "estoque",
             label: "Estoque",
-            img: "/boxactive.svg",
+            img: "/boxes/box.png",
             href: "/boxScreen",
           },
           {
@@ -50,7 +50,13 @@ export default function FooterMenu() {
             }`}
             onClick={() => handleClick(item)}
           >
-            <Image src={item.img} alt={item.id} width={24} height={24}  className="w-6 h-6" />
+            <Image
+              src={item.img}
+              alt={item.id}
+              width={24}
+              height={24}
+              className="w-6 h-6"
+            />
             {activeItem === item.id && (
               <span className="text-sm font-bold text-black/50">
                 {item.label}

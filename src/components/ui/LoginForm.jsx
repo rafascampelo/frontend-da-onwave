@@ -11,7 +11,6 @@ import {
 import { useForm } from "react-hook-form";
 import { Button } from "./button";
 import { Input } from "./input";
-import { login } from "@/services/auth";
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
@@ -20,8 +19,8 @@ import { useRouter } from "next/navigation";
 export default function LoginForm() {
   const form = useForm({
     defaultValues: {
-      email: "", // Inicializa com string vazia
-      password: "", // Inicializa com string vazia
+      email: "",
+      password: "",
     },
   });
 

@@ -28,7 +28,7 @@ const services = servicesAndProducts.filter((item) => item.type === "service");
 
 export default function SellsLayout({ children }) {
   return (
-    <div className="fund">
+    <div>
       <div className="flex flex-col items-center justify-center ">
         {children}
         <div className="absolute top-5 left-3">
@@ -39,7 +39,6 @@ export default function SellsLayout({ children }) {
               className="dark:invert pb-2"
               width={32}
               height={32}
-              priority
             />
           </Link>
         </div>
