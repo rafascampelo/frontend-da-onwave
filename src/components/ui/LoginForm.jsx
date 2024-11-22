@@ -72,6 +72,7 @@ export default function LoginForm() {
                   placeholder="Digite o seu email"
                   required
                   {...field}
+                  className=" h-12 w-[230px] rounded-[10px] justify-center flex items-center  "
                 />
               </FormControl>
               <FormMessage />
@@ -83,7 +84,7 @@ export default function LoginForm() {
           control={form.control}
           name="password"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="pt-2 pb-2">
               <FormLabel>Senha</FormLabel>
               <FormControl>
                 <Input
@@ -91,6 +92,7 @@ export default function LoginForm() {
                   placeholder="Digite a sua senha"
                   required
                   {...field}
+                  className=" h-12 w-[230px] rounded-[10px] justify-center flex items-center  "
                 />
               </FormControl>
               <FormMessage />

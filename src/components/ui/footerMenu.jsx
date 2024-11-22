@@ -21,31 +21,39 @@ export default function FooterMenu() {
             label: "Home",
             img: "/homeactive.svg",
             href: "/homeScreen",
+            width: 24,
+            height: 24,
           },
           {
             id: "carteira",
             label: "Carteira",
-            img: "/moneyactive.svg",
+            img: "/moneyactive.png",
             href: "/moneyScreen",
+            width: 24,
+            height: 24,
           },
           {
             id: "estoque",
             label: "Estoque",
             img: "/boxes/box.png",
             href: "/boxScreen",
+            width: 24,
+            height: 24,
           },
           {
             id: "equipe",
             label: "Equipe",
             img: "/usersactive.svg",
             href: "/myEmployeesScreen",
+            width: 24,
+            height: 24,
           },
         ].map((item) => (
           <li
             key={item.id}
             className={`flex flex-col items-center justify-center h-[60px] transition-all duration-300 ${
               activeItem === item.id
-                ? "bg-blue-200 rounded-full px-3"
+                ? "bg-blue-200 rounded-full px-2"
                 : "bg-transparent"
             }`}
             onClick={() => handleClick(item)}
@@ -53,9 +61,9 @@ export default function FooterMenu() {
             <Image
               src={item.img}
               alt={item.id}
-              width={24}
-              height={24}
-              className="w-6 h-6"
+              width={item.width}
+              height={item.height}
+              className="max-w-full max-h-full object-contain"
             />
             {activeItem === item.id && (
               <span className="text-sm font-bold text-black/50">
