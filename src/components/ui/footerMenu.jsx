@@ -37,8 +37,8 @@ export default function FooterMenu() {
             label: "Estoque",
             img: "/boxes/box.png",
             href: "/boxScreen",
-            width: 24,
-            height: 24,
+            width: 20,
+            height: 20,
           },
           {
             id: "equipe",
@@ -53,7 +53,7 @@ export default function FooterMenu() {
             key={item.id}
             className={`flex flex-col items-center justify-center h-[60px] transition-all duration-300 ${
               activeItem === item.id
-                ? "bg-blue-200 rounded-full px-2"
+                ? "bg-blue-200 rounded-full px-4"
                 : "bg-transparent"
             }`}
             onClick={() => handleClick(item)}

@@ -213,9 +213,8 @@ export default function ServiceScreen() {
               <h2 className="text-xl font-bold text-gray-800 mb-3 text-center">
                 Registre o seu próximo atendimento.
               </h2>
-              <span className="text-base font-bold text-gray-600/50 text-center block w-full px-4 mb-3 ">
-                {" "}
-                A data e o horário serão adicionados automaticamente.{" "}
+              <span className="text-base font-bold text-gray-600/50 text-justify w-full p-2 ">
+                A data e o horário serão adicionados automaticamente.
               </span>
 
               <form className="space-y-4">

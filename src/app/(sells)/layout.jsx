@@ -28,7 +28,7 @@ const services = servicesAndProducts.filter((item) => item.type === "service");
 
 export default function SellsLayout({ children }) {
   return (
-    <div>
+    <div className="fund">
       <div className="flex flex-col items-center justify-center ">
         {children}
         <div className="absolute top-5 left-3">

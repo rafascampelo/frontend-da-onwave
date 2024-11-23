@@ -68,7 +68,7 @@ export default async function UserProfile() {
               <Image width={75} height={80} src="/userbarb.png" alt="User" />
             </div>
 
-            <div className="px-8">
+            <div className="px-8 flex flex-col items-center">
               {/* Nome da barbearia */}
               <div className="flex justify-center items-center pb-1">
                 <span className="text-slate-800 mt-3 text-lg font-semibold leading-tight tracking-tight">
