@@ -6,8 +6,6 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
-import search from "@/components/ui/search";
-
 const servicesAndProducts = [
   {
     id: 4,
@@ -30,7 +28,6 @@ export default function sellProducts() {
     <>
       <div className="flex flex-col items-center justify-center gap-6">
         {/* Título */}
-        <search title="Procure um serviço" placeholder="Digite aqui..." />
 
         <span className="text-center pt-14 text-[#5d5988] text-[28px] font-extrabold leading-[38px]">
           Produtos & Serviços
