@@ -1,20 +1,19 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
+import React from "react";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function MoneyScreen() {
-  const [activeModal, setActiveModal] = useState(null);
-
-  const openModal = (modalType) => {
-    setActiveModal(modalType); // 'gasto' ou 'grafico'
-  };
-
-  const closeModal = () => {
-    setActiveModal(null);
-  };
-
   return (
     <>
       <div className="h-20 w-full bg-blue-700  relative flex justify-center items-center flex-col">
@@ -76,135 +75,17 @@ export default function MoneyScreen() {
       </div>
 
       <div className="flex pt-5">
-        {/* Botão para abrir o modal */}
-        <button
-          onClick={() => openModal("btnadd")}
-          className="h-10 w-10 absolute right-8 top-[330px] bg-white shadow-md rounded-full flex items-center justify-center"
-        >
-          <Image src="/plus.png" alt="plus" width={20} height={20} />
-        </button>
-        {/* Botão de editar */}
-        <button
-          onClick={() => openModal("btneditar")}
-          className="h-10 w-10 absolute right-20 top-[330px] bg-white shadow-md rounded-full flex items-center justify-center"
-        >
-          <Image
-            src="/editar.png"
-            alt="editarfinanças"
-            width={20}
-            height={20}
-          />
-        </button>
-        {/* Botão de excluir */}
-        <button
-          onClick={() => openModal("btnexcluir")}
-          className="h-10 w-10 absolute right-32 top-[330px] bg-white shadow-md rounded-full flex items-center justify-center"
-        >
-          <Image src="/lixeira.png" alt="lixeira" width={20} height={20} />
-        </button>
-      </div>
-
-      {/*aqui é o botao do gráfico */}
-      <div>
-        <button
-          onClick={() => openModal("btngrafico")}
-          className="fixed inset-0 m-auto top-[215px] w-[200px] h-[90px] 
-    bg-gradient-to-r from-[#ffffff] to-[#f7f7fb] rounded-xl shadow-md flex flex-col items-center justify-center 
-    font-semibold text-[#4a4a6a] text-base hover:shadow-lg transition-shadow duration-300 ease-in-out"
-        >
-          <Image
-            src="/lupaG.png"
-            alt="grafico"
-            className="mb-2"
-            width={40}
-            height={40}
-          />
-          Ver com gráfico
-        </button>
-
-        {/* pop up com grafico */}
-        {activeModal === "btngrafico" && (
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white transform max-w-[calc(100%-40px)] h-[500px] p-8 rounded-lg shadow-lg relative flex flex-col items-center">
-              <span className="text-3xl mb-2 text-normal text-[#5d5988] font-bold">
-                Gráfico{" "}
-              </span>
-              <div className="text-center text-[#9795b4] relative  text-lg text-normal mb-4">
-                O gráfico irá mudar de acordo com os seus gastos
-              </div>
-
-              <span className="text-[#5d5988] absolute top-[150px]  font-bold text-lg text-normal">
-                Mês 07-2000
-              </span>
-
-              <div className="pt-10">
-                <Image
-                  src="/grafico.svg"
-                  alt="grafico"
-                  className=""
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <table className="w-full text-center mt-6">
-                <thead>
-                  <tr>
-                    <th className="py-2 px-2 text-left text-base font-normal tracking-tight">
-                      Saldo Líquido
-                    </th>
-                    <th className="py-2 px-2 text-right text-base font-normal tracking-tight text-blue-500">
-                      R$ 1.000
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* Linha com valores de saldo e gastos */}
-                  <tr>
-                    <td className="py-2 px-2 text-left text-base font-normal tracking-tight">
-                      Gastos
-                    </td>
-                    <td className="py-2 px-2 text-right text-base font-normal tracking-tight text-gray-500">
-                      R$ 10.000
-                    </td>
-                  </tr>
-
-                  {/* Linha divisória */}
-                  <tr>
-                    <td className="border-t border-black" colSpan="2"></td>
-                  </tr>
-
-                  {/* Resultado final */}
-                  <tr>
-                    <td className="py-2 px-2 text-left text-base font-normal tracking-tight">
-                      Resultado
-                    </td>
-                    <td className="py-2 px-2 text-right text-base font-normal tracking-tight text-blue-500">
-                      R$ -9000
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <button
-                onClick={closeModal}
-                className="bg-red-500 text-white absolute bottom-[10px] px-2 py-2 rounded text-bold"
-              >
-                Voltar
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* form add */}
-      {activeModal === "btnadd" && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-70 flex justify-center items-center z-50">
-          <div className="bg-white transform max-w-[calc(100%-40px)] max-h-[calc(100%-40px)]  p-8 rounded-lg shadow-lg relative flex flex-col items-center">
-            <h2 className="text-2xl mb-4 text-[#5d5988] font-bold">
-              Adicione um gasto
-            </h2>
-
-            {/* Input de string com borda azul sempre */}
+        <Dialog>
+          <DialogTrigger className="h-10 w-10 absolute right-8 top-[330px] bg-white shadow-md rounded-full flex items-center justify-center">
+            <Image src="/plus.png" alt="plus" width={20} height={20} />
+          </DialogTrigger>
+          <DialogContent className="w-11/12 flex flex-col justify-between rounded-lg items-center">
+            <DialogHeader>
+              <DialogTitle>Adicione um gasto</DialogTitle>
+              <DialogDescription>
+                Nomeie um gasto e adicione o preço
+              </DialogDescription>
+            </DialogHeader>
             <input
               type="text"
               placeholder="Nome do gasto "
@@ -216,7 +97,7 @@ export default function MoneyScreen() {
               alt="desenho"
               width={32}
               height={32}
-              className="absolute right-12 top-[100px] "
+              className=""
             />
 
             {/* Input de número pequeno */}
@@ -227,62 +108,34 @@ export default function MoneyScreen() {
             />
 
             {/* Botão de enviar */}
-            <button
-              className="w-[268.04px] h-[44.55px] px-9 py-6 bg-[#008fd7] rounded-[40px] 
-      justify-center items-center gap-2 inline-flex
-      text-center text-white text-lg font-bold leading-[18px] mb-6"
-            >
+            <button className="bg-blue-700 hover:bg-blue-800 h-10 w-[200px] rounded text-white ">
               Enviar
             </button>
 
             {/* Botão de fechar */}
-            <button onClick={closeModal}>
+            <DialogClose>
               <Image src="/voltar.png" alt="sair" width={32} height={32} />
-            </button>
-          </div>
-        </div>
-      )}
-      {/* Modal de excluir */}
-      {activeModal === "btnexcluir" && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-70 flex justify-center items-center z-50">
-          <div className="bg-white transform max-w-[calc(100%-40px)] max-h-[calc(100%-40px)]  p-8 rounded-lg shadow-lg relative flex flex-col items-center">
-            <h2 className="text-2xl  text-[#5d5988] font-bold">Deletar</h2>
-            <span className=" text-center text-[#9795b4] pb-3 text-lg font-normal leading-[30px]">
-              Pesquise o nome do gasto que quer deletar
-            </span>
-            {/* Input de string  */}
-            <input
-              type="search"
-              placeholder="Nome do gasto"
-              className="mt-3 mb-4 w-[268.04px] h-[44.55px] bg-white rounded-[19px] text-black text-[15px] font-bold pl-10 pr-10
-      border-2 border-[#008fd7] focus:outline-none"
+            </DialogClose>
+          </DialogContent>
+        </Dialog>
+
+        {/* Botão de editar */}
+        <Dialog>
+          <DialogTrigger className="h-10 w-10 absolute right-20 top-[330px] bg-white shadow-md rounded-full flex items-center justify-center">
+            <Image
+              src="/editar.png"
+              alt="editarfinanças"
+              width={20}
+              height={20}
             />
-
-            {/* Botão de enviar */}
-            <button
-              className="w-[268.04px] h-[44.55px] px-9 py-6 bg-white/100 rounded-[40px] 
-      justify-center items-center gap-2 inline-flex border-2 border-[#008fd7] focus:outline-none
-      text-center text-white text-lg font-bold leading-[18px] mb-6"
-            >
-              <Image src="/lixeira.png" width={20} height={20} />
-            </button>
-
-            {/* Botão de fechar */}
-            <button onClick={closeModal}>
-              <Image src="/voltar.png" alt="sair" width={32} height={32} />
-            </button>
-          </div>
-        </div>
-      )}
-      {/* form edit */}
-      {activeModal === "btneditar" && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-70 flex justify-center items-center z-50">
-          <div className="bg-white transform max-w-[calc(100%-40px)] max-h-[calc(100%-40px)]  p-8 rounded-lg shadow-lg relative flex flex-col items-center">
-            <h2 className="text-2xl mb-4 text-[#5d5988] font-bold">
-              Editar meus gastos
-            </h2>
-
-            {/* Input de string  */}
+          </DialogTrigger>
+          <DialogContent className="w-11/12 flex flex-col justify-between rounded-lg items-center">
+            <DialogHeader>
+              <DialogTitle> Editar meus gastos</DialogTitle>
+              <DialogDescription>
+                Essa ação não poderá ser revertida
+              </DialogDescription>
+            </DialogHeader>
             <input
               type="search"
               placeholder="Nome do gasto"
@@ -307,12 +160,131 @@ export default function MoneyScreen() {
             </button>
 
             {/* Botão de fechar */}
-            <button onClick={closeModal}>
+            <DialogClose>
               <Image src="/voltar.png" alt="sair" width={32} height={32} />
+            </DialogClose>
+          </DialogContent>
+        </Dialog>
+        {/* Botão de excluir */}
+        <Dialog>
+          <DialogTrigger className="h-10 w-10 absolute right-32 top-[330px] bg-white shadow-md rounded-full flex items-center justify-center">
+            <Image src="/lixeira.png" alt="lixeira" width={20} height={20} />
+          </DialogTrigger>
+          <DialogContent className="w-11/12 flex flex-col justify-between rounded-lg items-center">
+            <DialogHeader>
+              <DialogTitle>Delete um gasto</DialogTitle>
+              <DialogDescription>
+                Pesquise o nome do gasto que quer deletar
+              </DialogDescription>
+            </DialogHeader>
+
+            <input
+              type="search"
+              placeholder="Nome do gasto"
+              className="mt-3 mb-4 w-[268.04px] h-[44.55px] bg-white rounded-[19px] text-black text-[15px] font-bold pl-10 pr-10
+      border-2 border-[#008fd7] focus:outline-none"
+            />
+
+            {/* Botão de enviar */}
+            <button
+              className="w-[268.04px] h-[44.55px] px-9 py-6 bg-white/100 rounded-[40px] 
+      justify-center items-center gap-2 inline-flex border-2 border-[#008fd7] focus:outline-none
+      text-center text-white text-lg font-bold leading-[18px] mb-6"
+            >
+              <Image src="/lixeira.png" width={20} height={20} />
             </button>
+
+            {/* Botão de fechar */}
+            <DialogClose>
+              <Image src="/voltar.png" alt="sair" width={32} height={32} />
+            </DialogClose>
+          </DialogContent>
+        </Dialog>
+      </div>
+
+      {/*aqui é o botao do gráfico */}
+
+      <Dialog>
+        <DialogTrigger
+          className="fixed inset-0 m-auto top-[215px] w-[200px] h-[90px] 
+    bg-gradient-to-r from-[#ffffff] to-[#f7f7fb] rounded-xl shadow-md flex flex-col items-center justify-center 
+    font-semibold text-[#4a4a6a] text-base hover:shadow-lg transition-shadow duration-300 ease-in-out"
+        >
+          <Image
+            src="/lupaG.png"
+            alt="grafico"
+            className="mb-2"
+            width={40}
+            height={40}
+          />
+          Ver com gráfico
+        </DialogTrigger>
+        <DialogContent className="w-11/12 flex flex-col justify-between rounded-lg items-center">
+          <DialogHeader>
+            <DialogTitle>Gráfico</DialogTitle>
+            <DialogDescription>
+              O gráfico irá mudar de acordo com os seus gastos
+            </DialogDescription>
+          </DialogHeader>
+          <span className="text-[#5d5988] font-bold text-lg text-normal">
+            Mês 07-2000
+          </span>
+
+          <div>
+            <Image
+              src="/grafico.svg"
+              alt="grafico"
+              className=""
+              width={100}
+              height={100}
+            />
           </div>
-        </div>
-      )}
+          <table className="w-full text-center mt-6">
+            <thead>
+              <tr>
+                <th className="py-2 px-2 text-left text-base font-normal tracking-tight">
+                  Saldo Líquido
+                </th>
+                <th className="py-2 px-2 text-right text-base font-normal tracking-tight text-blue-500">
+                  R$ 1.000
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Linha com valores de saldo e gastos */}
+              <tr>
+                <td className="py-2 px-2 text-left text-base font-normal tracking-tight">
+                  Gastos
+                </td>
+                <td className="py-2 px-2 text-right text-base font-normal tracking-tight text-gray-500">
+                  R$ 10.000
+                </td>
+              </tr>
+
+              {/* Linha divisória */}
+              <tr>
+                <td className="border-t border-black" colSpan="2"></td>
+              </tr>
+
+              {/* Resultado final */}
+              <tr>
+                <td className="py-2 px-2 text-left text-base font-normal tracking-tight">
+                  Resultado
+                </td>
+                <td className="py-2 px-2 text-right text-base font-normal tracking-tight text-blue-500">
+                  R$ -9000
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <DialogFooter>
+            <DialogClose className="bg-red-500 text-white  px-2 py-2 pt-2 rounded text-bold">
+              Voltar
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
       <div className="flex flex-rol items-center justify-center  min-h-screen mt-24 py-10">
         <Button className="bg-blue-700 hover:bg-blue-800 h-10 w-[200px]">
           <Link
