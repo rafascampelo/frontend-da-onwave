@@ -1,5 +1,12 @@
-Isso é o frontend do meu trabalho de conclusão de curso em desenvolvimento de sistemas... 
+Execução do Projeto
+Para visualizar o funcionamento, siga os passos abaixo:
 
+Baixe o projeto e abra-o em um editor de código.
+No terminal, execute os comandos:
+npm install
+npm run dev
+O último comando fornecerá um link. Copie e cole no navegador de sua preferência.
+Para simular a visualização em um dispositivo móvel, clique com o botão direito na tela, selecione "Inspecionar" e escolha o modelo desejado (recomenda-se o iPhone SE).
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
