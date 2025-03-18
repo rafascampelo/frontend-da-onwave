@@ -1,49 +1,33 @@
-esse projeto foi criado para ajudar no funcionamento de uma barbearia, em toda a sua organização.. esse app ainda está em fase de desenvolvimento.
+OnWave - Sistema para Barbearias
+🚀 Projeto em Desenvolvimento
+Este aplicativo foi criado para auxiliar na organização e gestão de barbearias, facilitando o controle de clientes, serviços e administração geral.
 
-Execução do Projeto: Para visualizar o funcionamento, siga os passos abaixo:
 
-Baixe ou clone os repositorios frontend-da-onwave e OnWaveApi do perfil rafascampelo ou miguelCardoso08k e abra-os em um editor de código. No terminal, execute os comandos nos dois repositorios:
-- npm install
-- npm run dev
-No repositorio frontend-da-onwave o último comando fornecerá um link. Copie e cole no navegador de sua preferência.
+📌 Status do Projeto
+🛠️ O sistema ainda está em fase de desenvolvimento e pode conter funcionalidades incompletas.
 
-!!!Acesso ao Sistema!!! na pagina logar é necessário usar o login de administrador email:johndoe@onwave.com senha:0000
 
-DICA: o projeto foi criado e pensado para ser um app, então para simular a visualização em um dispositivo móvel, clique com o botão direito na tela, selecione "Inspecionar" e escolha o modelo desejado (recomenda-se o iPhone SE).
+⚙️ Como Executar o Projeto
+1️⃣ Clone os Repositórios
+Baixe ou clone os seguintes repositórios do GitHub:
+Frontend: github.com/rafascampelo/frontend-da-onwave
+Backend: github.com/miguelCardoso08k/OnWaveApi
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+2️⃣ Instale as Dependências
+Abra os dois repositórios no seu editor de código e execute os comandos abaixo no terminal de cada um:
+npm install
 
-## Getting Started
-
-First, run the development server:
-
-```bash
+3️⃣ Rode o Projeto
+Para iniciar a aplicação, execute este comando em ambos os repositórios:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🔗 No frontend, esse comando fornecerá um link. Copie e cole no navegador para acessar a aplicação.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔑 Acesso ao Sistema
+Para acessar a área de administração, use as credenciais abaixo:
+E-mail: johndoe@onwave.com
+Senha: 0000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+💡 Dica
+Este projeto foi desenvolvido para ser um aplicativo, então para uma melhor experiência, ative o modo de visualização móvel no navegador ou abra em um dispositivo mobile.
